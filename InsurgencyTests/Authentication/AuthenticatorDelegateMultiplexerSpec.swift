@@ -107,11 +107,11 @@ class AuthenticatorDelegateMultiplexerSpec: QuickSpec {
                     sut.authenticatorDidAuthenticate(Authenticator())
 
                     it("delegates didAuthenticate message") {
-                        expect(spies).notTo(containElementSatisfying({ $0.didAuthenticateCount == 0 }))
+                        expect(spies).notTo(containElementSatisfying { $0.didAuthenticateCount == 0 })
                     }
 
                     it("doesn't delegate didEncounterError message") {
-                        expect(spies).notTo(containElementSatisfying({ $0.didEncounterErrorCount == 1 }))
+                        expect(spies).notTo(containElementSatisfying { $0.didEncounterErrorCount == 1 })
                     }
                 }
 
@@ -121,11 +121,11 @@ class AuthenticatorDelegateMultiplexerSpec: QuickSpec {
                     sut.authenticator(Authenticator(), didEncounter: .unknown)
 
                     it("delegates didEncounterError message") {
-                        expect(spies).notTo(containElementSatisfying({ $0.didAuthenticateCount == 1 }))
+                        expect(spies).notTo(containElementSatisfying { $0.didAuthenticateCount == 1 })
                     }
 
                     it("doesn't delegate didAuthenticate message") {
-                        expect(spies).notTo(containElementSatisfying({ $0.didEncounterErrorCount == 0 }))
+                        expect(spies).notTo(containElementSatisfying { $0.didEncounterErrorCount == 0 })
                     }
                 }
             }
@@ -146,11 +146,11 @@ final class AuthenticatorDelegateSpy {
 // MARK: AuthenticatorDelegate
 
 extension AuthenticatorDelegateSpy: AuthenticatorDelegate {
-    func authenticatorDidAuthenticate(_ authenticator: Authenticator) {
+    func authenticatorDidAuthenticate(_: Authenticator) {
         didAuthenticateCount += 1
     }
 
-    func authenticator(_ authenticator: Authenticator, didEncounter error: AuthenticatorError) {
+    func authenticator(_: Authenticator, didEncounter _: AuthenticatorError) {
         didEncounterErrorCount += 1
     }
 }

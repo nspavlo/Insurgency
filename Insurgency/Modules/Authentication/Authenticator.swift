@@ -29,7 +29,7 @@ final class Authenticator {
 // MARK: Public Methods
 
 extension Authenticator {
-    func login(with credentials: Credentials) {
+    func login(with _: Credentials) {
         delegate?.authenticatorDidAuthenticate(self)
         delegate?.authenticator(self, didEncounter: .unknown)
     }

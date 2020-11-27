@@ -29,15 +29,15 @@ class AuthenticatorFactorySpec: QuickSpec {
                     let multiplexer = result.delegate as? AuthenticatorDelegateMultiplexer
 
                     it("delegates to 'FirebaseAnalyticsAuthenticatorTracker'") {
-                        expect(multiplexer?.delegates).to(containElementSatisfying({ delegate in
+                        expect(multiplexer?.delegates).to(containElementSatisfying { delegate in
                             delegate is FirebaseAnalyticsAuthenticatorTracker
-                        }))
+                        })
                     }
 
                     it("delegates to 'AuthenticatorPresenter'") {
-                        expect(multiplexer?.delegates).to(containElementSatisfying({ delegate in
+                        expect(multiplexer?.delegates).to(containElementSatisfying { delegate in
                             delegate is AuthenticatorPresenter
-                        }))
+                        })
                     }
                 }
             }

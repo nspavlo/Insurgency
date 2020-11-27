@@ -16,9 +16,9 @@ class AppDelegate: NSObject {}
 
 extension AppDelegate: UIApplicationDelegate {
     func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-    {
+        _: UIApplication,
+        didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         let authenticator = AuthenticatorFactory().make()
         authenticator.login(with: Credentials(username: "root", password: "password"))
 

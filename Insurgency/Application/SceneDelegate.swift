@@ -18,9 +18,9 @@ class SceneDelegate: UIResponder {
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options connectionOptions: UIScene.ConnectionOptions)
-    {
+        willConnectTo _: UISceneSession,
+        options _: UIScene.ConnectionOptions
+    ) {
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             window!.rootViewController = UIHostingController(rootView: ContentView())
