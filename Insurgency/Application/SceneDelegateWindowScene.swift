@@ -21,10 +21,10 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options: UIScene.ConnectionOptions
     ) {
-        if let windowScene = scene as? UIWindowScene {
-            window = UIWindow(windowScene: windowScene)
-            window!.rootViewController = UIHostingController(rootView: ContentView())
-            window!.makeKeyAndVisible()
-        }
+        guard let windowScene = scene as? UIWindowScene else { return }
+
+        window = UIWindow(windowScene: windowScene)
+        window!.rootViewController = UIHostingController(rootView: ContentView())
+        window!.makeKeyAndVisible()
     }
 }
