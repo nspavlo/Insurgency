@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,19 @@
 		3DBAE3EE257161E500B019DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE3ED257161E500B019DB /* Assets.xcassets */; };
 		3DBAE3F4257161E500B019DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE3F2257161E500B019DB /* LaunchScreen.storyboard */; };
 		3DBAE4042571630D00B019DB /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE4032571630D00B019DB /* PreviewAssets.xcassets */; };
+		3DBAE41C257165C600B019DB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE41B257165C600B019DB /* Quick */; };
+		3DBAE421257165EF00B019DB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE420257165EF00B019DB /* Nimble */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DBAE4132571656200B019DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3DBAE3DC257161E200B019DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3DBAE3E3257161E200B019DB;
+			remoteInfo = Insurgency;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3DBAE3E4257161E200B019DB /* Insurgency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insurgency.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +36,8 @@
 		3DBAE3F3257161E500B019DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DBAE3F5257161E500B019DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DBAE4032571630D00B019DB /* PreviewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PreviewAssets.xcassets; sourceTree = "<group>"; };
+		3DBAE40E2571656200B019DB /* InsurgencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsurgencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DBAE4122571656200B019DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +48,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DBAE40B2571656200B019DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DBAE41C257165C600B019DB /* Quick in Frameworks */,
+				3DBAE421257165EF00B019DB /* Nimble in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				3DBAE3E6257161E200B019DB /* Insurgency */,
+				3DBAE40F2571656200B019DB /* InsurgencyTests */,
 				3DBAE3E5257161E200B019DB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3DBAE3E4257161E200B019DB /* Insurgency.app */,
+				3DBAE40E2571656200B019DB /* InsurgencyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +132,14 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		3DBAE40F2571656200B019DB /* InsurgencyTests */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4122571656200B019DB /* Info.plist */,
+			);
+			path = InsurgencyTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,6 +160,28 @@
 			productReference = 3DBAE3E4257161E200B019DB /* Insurgency.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3DBAE40D2571656200B019DB /* InsurgencyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DBAE4152571656200B019DB /* Build configuration list for PBXNativeTarget "InsurgencyTests" */;
+			buildPhases = (
+				3DBAE40A2571656200B019DB /* Sources */,
+				3DBAE40B2571656200B019DB /* Frameworks */,
+				3DBAE40C2571656200B019DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3DBAE4142571656200B019DB /* PBXTargetDependency */,
+			);
+			name = InsurgencyTests;
+			packageProductDependencies = (
+				3DBAE41B257165C600B019DB /* Quick */,
+				3DBAE420257165EF00B019DB /* Nimble */,
+			);
+			productName = InsurgencyTests;
+			productReference = 3DBAE40E2571656200B019DB /* InsurgencyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -139,6 +194,10 @@
 					3DBAE3E3257161E200B019DB = {
 						CreatedOnToolsVersion = 12.2;
 					};
+					3DBAE40D2571656200B019DB = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 3DBAE3E3257161E200B019DB;
+					};
 				};
 			};
 			buildConfigurationList = 3DBAE3DF257161E200B019DB /* Build configuration list for PBXProject "Insurgency" */;
@@ -150,11 +209,16 @@
 				Base,
 			);
 			mainGroup = 3DBAE3DB257161E200B019DB;
+			packageReferences = (
+				3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */,
+				3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 3DBAE3E5257161E200B019DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				3DBAE3E3257161E200B019DB /* Insurgency */,
+				3DBAE40D2571656200B019DB /* InsurgencyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -167,6 +231,13 @@
 				3DBAE4042571630D00B019DB /* PreviewAssets.xcassets in Resources */,
 				3DBAE3F4257161E500B019DB /* LaunchScreen.storyboard in Resources */,
 				3DBAE3EE257161E500B019DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBAE40C2571656200B019DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +254,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DBAE40A2571656200B019DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3DBAE4142571656200B019DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3DBAE3E3257161E200B019DB /* Insurgency */;
+			targetProxy = 3DBAE4132571656200B019DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3DBAE3F2257161E500B019DB /* LaunchScreen.storyboard */ = {
@@ -355,6 +441,46 @@
 			};
 			name = Release;
 		};
+		3DBAE4162571656200B019DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPE45M57J4;
+				INFOPLIST_FILE = InsurgencyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.nspavlo.InsurgencyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insurgency.app/Insurgency";
+			};
+			name = Debug;
+		};
+		3DBAE4172571656200B019DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPE45M57J4;
+				INFOPLIST_FILE = InsurgencyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.nspavlo.InsurgencyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insurgency.app/Insurgency";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,7 +502,48 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3DBAE4152571656200B019DB /* Build configuration list for PBXNativeTarget "InsurgencyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBAE4162571656200B019DB /* Debug */,
+				3DBAE4172571656200B019DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DBAE41B257165C600B019DB /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		3DBAE420257165EF00B019DB /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DBAE3DC257161E200B019DB /* Project object */;
 }
