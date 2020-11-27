@@ -23,6 +23,7 @@
 		3DBAE45025716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE44F25716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift */; };
 		3DBAE45C25717C9B00B019DB /* AuthenticatorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */; };
 		3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */; };
+		3DBAE4672571868500B019DB /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE4662571868500B019DB /* SpecLeaks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 			files = (
 				3DBAE41C257165C600B019DB /* Quick in Frameworks */,
 				3DBAE421257165EF00B019DB /* Nimble in Frameworks */,
+				3DBAE4672571868500B019DB /* SpecLeaks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +243,7 @@
 			packageProductDependencies = (
 				3DBAE41B257165C600B019DB /* Quick */,
 				3DBAE420257165EF00B019DB /* Nimble */,
+				3DBAE4662571868500B019DB /* SpecLeaks */,
 			);
 			productName = InsurgencyTests;
 			productReference = 3DBAE40E2571656200B019DB /* InsurgencyTests.xctest */;
@@ -277,6 +280,7 @@
 			packageReferences = (
 				3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */,
 				3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */,
+				3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */,
 			);
 			productRefGroup = 3DBAE3E5257161E200B019DB /* Products */;
 			projectDirPath = "";
@@ -606,6 +610,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leandromperez/specleaks";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -618,6 +630,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */;
 			productName = Nimble;
+		};
+		3DBAE4662571868500B019DB /* SpecLeaks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */;
+			productName = SpecLeaks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,12 +7,53 @@
 
 import Quick
 import Nimble
+import SpecLeaks
 
 @testable import Insurgency
 
 class AuthenticatorDelegateMultiplexerSpec: QuickSpec {
     override func spec() {
         describe("AuthenticatorDelegate multiplexer process") {
+            describe("leaks") {
+                describe("when initilized") {
+                    let sut = LeakTest { AuthenticatorDelegateMultiplexer(delegates: []) }
+
+                    it("must not leak") {
+                        expect(sut).toNot(leak())
+                    }
+                }
+
+                describe("when didAuthenticate method is executed") {
+                    let sut = LeakTest {
+                        let delegates = [AuthenticatorDelegateSpy(), AuthenticatorDelegateSpy()]
+                        return AuthenticatorDelegateMultiplexer(delegates: delegates)
+                    }
+
+                    let didAuthenticate: (AuthenticatorDelegateMultiplexer) -> Void = { delegate in
+                        delegate.authenticatorDidAuthenticate(Authenticator())
+                    }
+
+                    it("must not leak") {
+                        expect(sut).toNot(leakWhen(didAuthenticate))
+                    }
+                }
+
+                describe("when didEncounterError method is executed") {
+                    let sut = LeakTest {
+                        let delegates = [AuthenticatorDelegateSpy(), AuthenticatorDelegateSpy()]
+                        return AuthenticatorDelegateMultiplexer(delegates: delegates)
+                    }
+
+                    let didEncounterError: (AuthenticatorDelegateMultiplexer) -> Void = { delegate in
+                        delegate.authenticator(Authenticator(), didEncounter: .unknown)
+                    }
+
+                    it("must not leak") {
+                        expect(sut).toNot(leakWhen(didEncounterError))
+                    }
+                }
+            }
+
             context("given empty array of delegates") {
                 context("when didAuthenticate method is executed") {
                     let sut = AuthenticatorDelegateMultiplexer(delegates: [])
