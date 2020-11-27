@@ -10,7 +10,10 @@ import SwiftUI
 // MARK: Initialization
 
 class SceneDelegate: UIResponder {
-    var window: UIWindow?
+    var multiplexer = SceneDelegateMultiplexer(delegates: [
+        SceneDelegateWindowScene(),
+        SceneDelegateLogger()
+    ])
 }
 
 // MARK: UIWindowSceneDelegate
@@ -18,13 +21,29 @@ class SceneDelegate: UIResponder {
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
-        willConnectTo _: UISceneSession,
-        options _: UIScene.ConnectionOptions
+        willConnectTo session: UISceneSession,
+        options: UIScene.ConnectionOptions
     ) {
-        if let windowScene = scene as? UIWindowScene {
-            window = UIWindow(windowScene: windowScene)
-            window!.rootViewController = UIHostingController(rootView: ContentView())
-            window!.makeKeyAndVisible()
-        }
+        multiplexer.scene(scene, willConnectTo: session, options: options)
+    }
+
+    func sceneDidDisconnect(_ scene: UIScene) {
+        multiplexer.sceneDidDisconnect(scene)
+    }
+
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        multiplexer.sceneDidBecomeActive(scene)
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+        multiplexer.sceneWillResignActive(scene)
+    }
+
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        multiplexer.sceneWillEnterForeground(scene)
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        multiplexer.sceneDidEnterBackground(scene)
     }
 }

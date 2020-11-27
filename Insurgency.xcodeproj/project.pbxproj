@@ -25,6 +25,9 @@
 		3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */; };
 		3DBAE4672571868500B019DB /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE4662571868500B019DB /* SpecLeaks */; };
 		3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */; };
+		3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE470257197B800B019DB /* SceneDelegateLogger.swift */; };
+		3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE474257197FE00B019DB /* SceneDelegateMultiplexer.swift */; };
+		3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE47A257198A200B019DB /* SceneDelegateWindowScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactorySpec.swift; sourceTree = "<group>"; };
 		3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactory.swift; sourceTree = "<group>"; };
 		3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorLogger.swift; sourceTree = "<group>"; };
+		3DBAE470257197B800B019DB /* SceneDelegateLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateLogger.swift; sourceTree = "<group>"; };
+		3DBAE474257197FE00B019DB /* SceneDelegateMultiplexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateMultiplexer.swift; sourceTree = "<group>"; };
+		3DBAE47A257198A200B019DB /* SceneDelegateWindowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateWindowScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 			children = (
 				3DBAE3E7257161E200B019DB /* AppDelegate.swift */,
 				3DBAE3E9257161E200B019DB /* SceneDelegate.swift */,
+				3DBAE474257197FE00B019DB /* SceneDelegateMultiplexer.swift */,
+				3DBAE47A257198A200B019DB /* SceneDelegateWindowScene.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -188,6 +196,7 @@
 			children = (
 				3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */,
 				3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */,
+				3DBAE470257197B800B019DB /* SceneDelegateLogger.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -321,7 +330,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */,
+				3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */,
 				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
+				3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */,
+				3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
