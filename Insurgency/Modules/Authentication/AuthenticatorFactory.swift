@@ -19,7 +19,6 @@ struct AuthenticatorFactory {
 
         let authenticator = Authenticator()
         authenticator.delegate = delegate
-
         return authenticator
     }
 }
