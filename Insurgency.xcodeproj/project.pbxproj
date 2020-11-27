@@ -24,6 +24,7 @@
 		3DBAE45C25717C9B00B019DB /* AuthenticatorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */; };
 		3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */; };
 		3DBAE4672571868500B019DB /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE4662571868500B019DB /* SpecLeaks */; };
+		3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3DBAE44F25716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorDelegateMultiplexerSpec.swift; sourceTree = "<group>"; };
 		3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactorySpec.swift; sourceTree = "<group>"; };
 		3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactory.swift; sourceTree = "<group>"; };
+		3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorLogger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 		3DBAE4322571683E00B019DB /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
+				3DBAE46A25718F3B00B019DB /* AuthenticatorLogger.swift */,
 				3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */,
 			);
 			path = Analytics;
@@ -326,6 +329,7 @@
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE3EC257161E200B019DB /* ContentView.swift in Sources */,
+				3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

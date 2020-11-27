@@ -13,6 +13,7 @@ struct AuthenticatorFactory {
     func make() -> Authenticator {
         let delegate = AuthenticatorDelegateMultiplexer(delegates: [
             AuthenticatorPresenter(),
+            AuthenticatorLogger(),
             FirebaseAnalyticsAuthenticatorTracker()
         ])
 

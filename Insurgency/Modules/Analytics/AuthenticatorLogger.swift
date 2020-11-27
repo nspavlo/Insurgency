@@ -1,5 +1,5 @@
 //
-//  AuthenticatorPresenter.swift
+//  AuthenticatorLogger.swift
 //  Insurgency
 //
 //  Created by Jans Pavlovs on 27/11/2020.
@@ -9,16 +9,18 @@ import Foundation
 
 // MARK: Initialization
 
-final class AuthenticatorPresenter {}
+final class AuthenticatorLogger {
+    let id = "🔐"
+}
 
 // MARK: AuthenticatorDelegate
 
-extension AuthenticatorPresenter: AuthenticatorDelegate {
+extension AuthenticatorLogger: AuthenticatorDelegate {
     func authenticatorDidAuthenticate(_ authenticator: Authenticator) {
-        print("**** [📺] authenticatorDidAuthenticate: \(authenticator)")
+        print("**** [\(id)] authenticatorDidAuthenticate: \(authenticator)")
     }
 
     func authenticator(_ authenticator: Authenticator, didEncounter error: AuthenticatorError) {
-        print("**** [📺] authenticator: \(authenticator), didEncounterError: \(error)")
+        print("**** [\(id)] authenticator: \(authenticator), didEncounterError: \(error)")
     }
 }

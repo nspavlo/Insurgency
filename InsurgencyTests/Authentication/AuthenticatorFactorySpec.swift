@@ -34,6 +34,12 @@ class AuthenticatorFactorySpec: QuickSpec {
                         })
                     }
 
+                    it("delegates to 'AuthenticatorLogger'") {
+                        expect(multiplexer?.delegates).to(containElementSatisfying { delegate in
+                            delegate is AuthenticatorLogger
+                        })
+                    }
+
                     it("delegates to 'AuthenticatorPresenter'") {
                         expect(multiplexer?.delegates).to(containElementSatisfying { delegate in
                             delegate is AuthenticatorPresenter

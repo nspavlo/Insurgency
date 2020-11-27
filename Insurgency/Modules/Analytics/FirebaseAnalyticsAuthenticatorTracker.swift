@@ -9,16 +9,18 @@ import Foundation
 
 // MARK: Initialization
 
-final class FirebaseAnalyticsAuthenticatorTracker {}
+final class FirebaseAnalyticsAuthenticatorTracker {
+    let id = "🔥"
+}
 
 // MARK: AuthenticatorDelegate
 
 extension FirebaseAnalyticsAuthenticatorTracker: AuthenticatorDelegate {
     func authenticatorDidAuthenticate(_ authenticator: Authenticator) {
-        print("**** [Firebase] authenticatorDidAuthenticate: \(authenticator)")
+        print("**** [\(id)] authenticatorDidAuthenticate: \(authenticator)")
     }
 
     func authenticator(_ authenticator: Authenticator, didEncounter error: AuthenticatorError) {
-        print("**** [Firebase] authenticatorDidAuthenticate: \(authenticator), didEncounter: \(error)")
+        print("**** [\(id)] authenticator: \(authenticator), didEncounterError: \(error)")
     }
 }
