@@ -15,6 +15,11 @@
 		3DBAE4042571630D00B019DB /* PreviewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAE4032571630D00B019DB /* PreviewAssets.xcassets */; };
 		3DBAE41C257165C600B019DB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE41B257165C600B019DB /* Quick */; };
 		3DBAE421257165EF00B019DB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 3DBAE420257165EF00B019DB /* Nimble */; };
+		3DBAE4282571678200B019DB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4272571678200B019DB /* Credentials.swift */; };
+		3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE42D257167AA00B019DB /* Authenticator.swift */; };
+		3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */; };
+		3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */; };
+		3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		3DBAE4032571630D00B019DB /* PreviewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PreviewAssets.xcassets; sourceTree = "<group>"; };
 		3DBAE40E2571656200B019DB /* InsurgencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsurgencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBAE4122571656200B019DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DBAE4272571678200B019DB /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		3DBAE42D257167AA00B019DB /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
+		3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsAuthenticatorTracker.swift; sourceTree = "<group>"; };
+		3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorPresenter.swift; sourceTree = "<group>"; };
+		3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorDelegateMultiplexer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,8 @@
 		3DBAE4002571628700B019DB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3DBAE4322571683E00B019DB /* Analytics */,
+				3DBAE4262571676A00B019DB /* Authentication */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -138,6 +150,41 @@
 				3DBAE4122571656200B019DB /* Info.plist */,
 			);
 			path = InsurgencyTests;
+			sourceTree = "<group>";
+		};
+		3DBAE4262571676A00B019DB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4312571680100B019DB /* Models */,
+				3DBAE43F2571690400B019DB /* Presenters */,
+				3DBAE42D257167AA00B019DB /* Authenticator.swift */,
+				3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3DBAE4312571680100B019DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4272571678200B019DB /* Credentials.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DBAE4322571683E00B019DB /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		3DBAE43F2571690400B019DB /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,8 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */,
+				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
+				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
+				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
+				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE3EC257161E200B019DB /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
