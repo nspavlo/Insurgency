@@ -19,16 +19,8 @@ extension AppDelegate: UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
-        let multiplexer = AuthenticatorDelegateMultiplexer(delegates: [
-            AuthenticatorPresenter(),
-            FirebaseAnalyticsAuthenticatorTracker()
-        ])
-
-        let authenticator = Authenticator()
-        authenticator.delegate = multiplexer
-
-        let credentials = Credentials(username: "root", password: "password")
-        authenticator.login(with: credentials)
+        let authenticator = AuthenticatorFactory().make()
+        authenticator.login(with: Credentials(username: "root", password: "password"))
 
         return true
     }

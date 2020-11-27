@@ -20,6 +20,9 @@
 		3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */; };
 		3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */; };
 		3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */; };
+		3DBAE45025716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE44F25716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift */; };
+		3DBAE45C25717C9B00B019DB /* AuthenticatorFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */; };
+		3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		3DBAE4332571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalyticsAuthenticatorTracker.swift; sourceTree = "<group>"; };
 		3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorPresenter.swift; sourceTree = "<group>"; };
 		3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorDelegateMultiplexer.swift; sourceTree = "<group>"; };
+		3DBAE44F25716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorDelegateMultiplexerSpec.swift; sourceTree = "<group>"; };
+		3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactorySpec.swift; sourceTree = "<group>"; };
+		3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 		3DBAE40F2571656200B019DB /* InsurgencyTests */ = {
 			isa = PBXGroup;
 			children = (
+				3DBAE44E25716C4400B019DB /* Authentication */,
 				3DBAE4122571656200B019DB /* Info.plist */,
 			);
 			path = InsurgencyTests;
@@ -159,6 +166,7 @@
 				3DBAE43F2571690400B019DB /* Presenters */,
 				3DBAE42D257167AA00B019DB /* Authenticator.swift */,
 				3DBAE4462571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift */,
+				3DBAE46125717CEB00B019DB /* AuthenticatorFactory.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -185,6 +193,15 @@
 				3DBAE4402571691500B019DB /* AuthenticatorPresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		3DBAE44E25716C4400B019DB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE44F25716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift */,
+				3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +260,7 @@
 					};
 					3DBAE40D2571656200B019DB = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 						TestTargetID = 3DBAE3E3257161E200B019DB;
 					};
 				};
@@ -301,6 +319,7 @@
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
+				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE3EC257161E200B019DB /* ContentView.swift in Sources */,
 			);
@@ -310,6 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DBAE45025716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift in Sources */,
+				3DBAE45C25717C9B00B019DB /* AuthenticatorFactorySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JPE45M57J4;
 				INFOPLIST_FILE = InsurgencyTests/Info.plist;
@@ -507,6 +529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.nspavlo.InsurgencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Insurgency.app/Insurgency";
@@ -517,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JPE45M57J4;
 				INFOPLIST_FILE = InsurgencyTests/Info.plist;

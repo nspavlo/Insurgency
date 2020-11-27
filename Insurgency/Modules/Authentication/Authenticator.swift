@@ -23,7 +23,7 @@ enum AuthenticatorError: Error {
 // MARK: Initialization
 
 final class Authenticator {
-    weak var delegate: AuthenticatorDelegate?
+    var delegate: AuthenticatorDelegate?
 }
 
 // MARK: Public Methods

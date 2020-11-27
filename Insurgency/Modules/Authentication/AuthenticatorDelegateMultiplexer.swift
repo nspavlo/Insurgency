@@ -10,7 +10,7 @@ import Foundation
 // MARK: Initialization
 
 final class AuthenticatorDelegateMultiplexer {
-    private var delegates: [AuthenticatorDelegate] = []
+    var delegates: [AuthenticatorDelegate] = []
 
     init(delegates: [AuthenticatorDelegate]) {
         self.delegates = delegates
