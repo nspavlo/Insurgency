@@ -21,26 +21,34 @@ extension SceneDelegateLogger: UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options: UIScene.ConnectionOptions
     ) {
-        print("**** [\(id)] Connect: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Connect: \(message(for: scene))")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        print("**** [\(id)] Disconnect: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Disconnect: \(message(for: scene))")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        print("**** [\(id)] Become Active: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Become Active: \(message(for: scene))")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        print("**** [\(id)] Resign Active: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Resign Active: \(message(for: scene))")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print("**** [\(id)] Foreground: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Foreground: \(message(for: scene))")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        print("**** [\(id)] Background: \(scene.session.persistentIdentifier)")
+        print("**** [\(id)] Background: \(message(for: scene))")
+    }
+}
+
+// MARK: Private Methods
+
+private extension SceneDelegateLogger {
+    func message(for scene: UIScene) -> String {
+        scene.session.persistentIdentifier
     }
 }
