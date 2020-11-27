@@ -28,6 +28,7 @@
 		3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE470257197B800B019DB /* SceneDelegateLogger.swift */; };
 		3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE474257197FE00B019DB /* SceneDelegateMultiplexer.swift */; };
 		3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE47A257198A200B019DB /* SceneDelegateWindowScene.swift */; };
+		3DBAE48225719C8000B019DB /* SceneDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE48125719C8000B019DB /* SceneDelegateSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		3DBAE470257197B800B019DB /* SceneDelegateLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateLogger.swift; sourceTree = "<group>"; };
 		3DBAE474257197FE00B019DB /* SceneDelegateMultiplexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateMultiplexer.swift; sourceTree = "<group>"; };
 		3DBAE47A257198A200B019DB /* SceneDelegateWindowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateWindowScene.swift; sourceTree = "<group>"; };
+		3DBAE48125719C8000B019DB /* SceneDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				3DBAE44E25716C4400B019DB /* Authentication */,
+				3DBAE48025719C6D00B019DB /* Scene */,
 				3DBAE4122571656200B019DB /* Info.plist */,
 			);
 			path = InsurgencyTests;
@@ -216,6 +219,14 @@
 				3DBAE45B25717C9B00B019DB /* AuthenticatorFactorySpec.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		3DBAE48025719C6D00B019DB /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE48125719C8000B019DB /* SceneDelegateSpec.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DBAE45025716C8000B019DB /* AuthenticatorDelegateMultiplexerSpec.swift in Sources */,
+				3DBAE48225719C8000B019DB /* SceneDelegateSpec.swift in Sources */,
 				3DBAE45C25717C9B00B019DB /* AuthenticatorFactorySpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
