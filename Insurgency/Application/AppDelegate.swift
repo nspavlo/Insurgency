@@ -19,9 +19,6 @@ extension AppDelegate: UIApplicationDelegate {
         _: UIApplication,
         didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let authenticator = AuthenticatorFactory().make()
-        authenticator.login(with: Credentials(username: "root", password: "password"))
-
         return true
     }
 }
