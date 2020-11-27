@@ -10,15 +10,23 @@ import UIKit
 // MARK: Initialization
 
 @main
-class AppDelegate: NSObject {}
+class AppDelegate: NSObject {
+    func execute(with options: [UIApplication.LaunchOptionsKey: Any]?) {
+        AppDelegateCommandBuilder()
+            .setupLaunchingOptions(options)
+            .make()
+            .execute()
+    }
+}
 
 // MARK: UIApplicationDelegate
 
 extension AppDelegate: UIApplicationDelegate {
     func application(
         _: UIApplication,
-        didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?
+        didFinishLaunchingWithOptions options: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        execute(with: options)
         return true
     }
 }
