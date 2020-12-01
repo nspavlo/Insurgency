@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
+		3D8C499125779F9A00BA3748 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* Episode.swift */; };
+		3D8C49982577A03000BA3748 /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C49972577A03000BA3748 /* PodcastRepository.swift */; };
+		3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */; };
+		3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */; };
+		3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C49A32577A23E00BA3748 /* URLHost.swift */; };
 		3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E7257161E200B019DB /* AppDelegate.swift */; };
 		3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E9257161E200B019DB /* SceneDelegate.swift */; };
 		3DBAE3EC257161E200B019DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3EB257161E200B019DB /* ContentView.swift */; };
@@ -45,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
+		3D8C499025779F9A00BA3748 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		3D8C49972577A03000BA3748 /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
+		3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRepositoryResponse.swift; sourceTree = "<group>"; };
+		3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRepositoryProtocol.swift; sourceTree = "<group>"; };
+		3D8C49A32577A23E00BA3748 /* URLHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHost.swift; sourceTree = "<group>"; };
 		3DBAE3E4257161E200B019DB /* Insurgency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insurgency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBAE3E7257161E200B019DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DBAE3E9257161E200B019DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +106,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D8C47FC25754DC700BA3748 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C47FD25754DDD00BA3748 /* Networking */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		3D8C47FD25754DDD00BA3748 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C49A32577A23E00BA3748 /* URLHost.swift */,
+				3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */,
+				3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3D8C49772576B26300BA3748 /* Podcasts */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C499425779FF200BA3748 /* Repositories */,
+				3D8C498925779F5400BA3748 /* Models */,
+			);
+			path = Podcasts;
+			sourceTree = "<group>";
+		};
+		3D8C498925779F5400BA3748 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C499025779F9A00BA3748 /* Episode.swift */,
+				3D8C498A25779F6400BA3748 /* Podcast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D8C499425779FF200BA3748 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C49972577A03000BA3748 /* PodcastRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		3DBAE3DB257161E200B019DB = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +173,7 @@
 			children = (
 				3DBAE3FC257161EF00B019DB /* Application */,
 				3DBAE48725719FDF00B019DB /* Components */,
+				3D8C47FC25754DC700BA3748 /* Infrastructure */,
 				3DBAE4002571628700B019DB /* Modules */,
 				3DBAE3FD257161F600B019DB /* Resources */,
 				3DBAE3EB257161E200B019DB /* ContentView.swift */,
@@ -150,6 +207,7 @@
 			children = (
 				3DBAE4322571683E00B019DB /* Analytics */,
 				3DBAE4262571676A00B019DB /* Authentication */,
+				3D8C49772576B26300BA3748 /* Podcasts */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -366,21 +424,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */,
+				3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */,
 				3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */,
 				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
 				3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */,
 				3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
+				3D8C499125779F9A00BA3748 /* Episode.swift in Sources */,
+				3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
+				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
 				3DBAE48F2571A05C00B019DB /* AppDelegateCommandBuilder.swift in Sources */,
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
+				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE48925719FF200B019DB /* Command.swift in Sources */,
 				3DBAE3EC257161E200B019DB /* ContentView.swift in Sources */,
 				3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */,
+				3D8C49982577A03000BA3748 /* PodcastRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
