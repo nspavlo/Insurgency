@@ -9,10 +9,20 @@ import Foundation
 
 // MARK: Initialization
 
-struct Podcast: Decodable {
-    let trackId: Int
-    let artistName: String
-    let feedUrl: URL?
+struct Podcast {
+    let trackID: Int
+    let trackName: String
+    let feedURL: URL?
+}
+
+// MARK: Decodable
+
+extension Podcast: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case trackID = "trackId"
+        case trackName
+        case feedURL = "feedUrl"
+    }
 }
 
 // MARK: Network Container

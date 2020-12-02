@@ -12,10 +12,6 @@ import Combine
 
 struct PodcastListView: View {
     @ObservedObject var viewModel: PodcastListViewModel
-
-    init(viewModel: PodcastListViewModel) {
-        self.viewModel = viewModel
-    }
 }
 
 // MARK: View Construction
@@ -24,22 +20,15 @@ extension PodcastListView {
     var body: some View {
         NavigationView {
             List {
-                TextField("All Podcasts", text: $viewModel.term)
-                    .modifier(TextFieldClearButton(text: $viewModel.term))
-                    .padding(8)
-                    .foregroundColor(Color(UIColor.label))
-                    .background(Color(UIColor.secondarySystemBackground))
-                    .cornerRadius(8)
-
                 if !viewModel.rows.isEmpty {
                     Section {
-                        ForEach(viewModel.rows, content: PodcastRowView.init(viewModel:))
+                        ForEach(viewModel.rows, content: PodcastListItemView.init(viewModel:))
                     }
                 }
             }
-            .listStyle(DefaultListStyle())
             .environment(\.defaultMinListRowHeight, 48)
-            .navigationBarTitle("Search")
+            .navigationBarTitle(viewModel.title)
+            .overlay(NavigationSearch(text: $viewModel.term, placeholder: $viewModel.placeholder).frame(width: 0, height: 0))
         }
     }
 }
@@ -72,28 +61,5 @@ struct PodcastView_Previews: PreviewProvider {
         return PodcastListView(viewModel: viewModel)
             .previewLayout(PreviewLayout.sizeThatFits)
             .padding()
-            .previewDisplayName("Default preview")
-    }
-}
-
-struct TextFieldClearButton: ViewModifier {
-    @Binding var text: String
-
-    func body(content: Content) -> some View {
-        HStack {
-            content
-
-            if !text.isEmpty {
-                Button(
-                    action: {
-                        text = ""
-                    },
-                    label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(Color(UIColor.opaqueSeparator))
-                    }
-                )
-            }
-        }
     }
 }
