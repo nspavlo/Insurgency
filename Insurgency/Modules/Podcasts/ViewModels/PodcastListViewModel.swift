@@ -11,8 +11,10 @@ import Combine
 // MARK: Initialization
 
 final class PodcastListViewModel: ObservableObject {
+    @Published var title: String = "Search"
     @Published var term: String = ""
-    @Published var rows: [PodcastRowViewModel] = []
+    @Published var placeholder: String = "All Podcasts"
+    @Published var rows: [PodcastListItemViewModel] = []
 
     private let repository: PodcastRepositoryProtocol
     private let scheduler: DispatchQueue
@@ -39,7 +41,7 @@ private extension PodcastListViewModel {
     func fetchPodcasts(with term: String) {
         repository.fetchPodcasts(with: term)
             .map { response in
-                response.results.map(PodcastRowViewModel.init)
+                response.results.map(PodcastListItemViewModel.init)
             }
             .sink(
                 receiveCompletion: { [weak self] value in
