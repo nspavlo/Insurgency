@@ -11,10 +11,11 @@ import Combine
 // MARK: Initialization
 
 final class PodcastListViewModel: ObservableObject {
-    @Published var title: String = "Search"
-    @Published var term: String = ""
-    @Published var placeholder: String = "All Podcasts"
-    @Published var rows: [PodcastListItemViewModel] = []
+    @Published private(set) var title = "Search"
+    @Published private(set) var rows = [PodcastListItemViewModel]()
+
+    @Published var placeholder = "All Podcasts"
+    @Published var term = ""
 
     private let repository: PodcastRepositoryProtocol
     private let scheduler: DispatchQueue
