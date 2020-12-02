@@ -23,8 +23,22 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
 
+        let host: URLHost = .production
+        let repository = PodcastRepository(
+            session: .shared,
+            url: host.url,
+            queue: .main
+        )
+
+        let viewModel = PodcastListViewModel(
+            repository: repository,
+            scheduler: DispatchQueue(label: "me.insurgency.podcast.viewModel")
+        )
+
+        let rootView = PodcastListView(viewModel: viewModel)
+
         window = UIWindow(windowScene: windowScene)
-        window!.rootViewController = UIHostingController(rootView: ContentView())
+        window!.rootViewController = UIHostingController(rootView: rootView)
         window!.makeKeyAndVisible()
     }
 }
