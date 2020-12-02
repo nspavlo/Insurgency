@@ -10,6 +10,7 @@ import Foundation
 // MARK: Initialization
 
 struct Podcast: Decodable {
+    let trackId: Int
     let artistName: String
     let feedUrl: URL?
 }
