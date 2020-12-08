@@ -8,6 +8,10 @@
 import Foundation
 import Combine
 
+// MARK: Failure
+
+struct Failure: Error, Equatable {}
+
 // MARK: Initialization
 
 protocol URLRepositoryProtocol {
@@ -16,19 +20,20 @@ protocol URLRepositoryProtocol {
     var queue: DispatchQueue { get }
 }
 
-// MARK: Default implementation
+// MARK: Default Implementation
 
 internal extension URLRepositoryProtocol {
     func execute<T: Decodable>(
         _ request: URLRequest,
         _ decoder: JSONDecoder = JSONDecoder()
-    ) -> AnyPublisher<URLRepositoryResponse<T>, Error> {
+    ) -> AnyPublisher<URLRepositoryResponse<T>, Failure> {
         session
             .dataTaskPublisher(for: request)
             .tryMap { result -> URLRepositoryResponse<T> in
                 let value = try decoder.decode(T.self, from: result.data)
                 return URLRepositoryResponse(value: value, response: result.response)
             }
+            .mapError { _ in Failure() }
             .receive(on: queue)
             .eraseToAnyPublisher()
     }
@@ -36,7 +41,7 @@ internal extension URLRepositoryProtocol {
     func execute<T: Decodable>(
         _ request: URLRequest,
         _ decoder: JSONDecoder = JSONDecoder()
-    ) -> AnyPublisher<T, Error> {
+    ) -> AnyPublisher<T, Failure> {
         execute(request, decoder)
             .map(\.value)
             .eraseToAnyPublisher()

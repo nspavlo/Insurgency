@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 // MARK: Initialization
 
@@ -30,12 +31,16 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
             queue: .main
         )
 
-        let viewModel = PodcastListViewModel(
-            repository: repository,
-            scheduler: DispatchQueue(label: "me.insurgency.podcast.viewModel")
+        let rootView = PodcastSearchListView(
+            store: Store(
+                initialState: PodcastSearchViewModel.State.initial,
+                reducer: PodcastSearchViewModel.reducer().debug(),
+                environment: PodcastSearchViewModel.Environment(
+                    repository: repository,
+                    queue: DispatchQueue.main.eraseToAnyScheduler()
+                )
+            )
         )
-
-        let rootView = PodcastListView(viewModel: viewModel)
 
         window = UIWindow(windowScene: windowScene)
         window!.rootViewController = UIHostingController(rootView: rootView)

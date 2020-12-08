@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias Episodes = [Episode]
+
 // MARK: Initialization
 
 struct Episode: Decodable {
