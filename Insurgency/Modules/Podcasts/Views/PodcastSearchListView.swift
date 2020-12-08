@@ -27,39 +27,39 @@ extension PodcastSearchListView {
                 .navigationBarTitle(Locale.navigationBarTitle)
                 .navigationBarSearch(
                     text: store.binding(
-                        get: { state in state.searchTerm },
+                        get: { state in state.term },
                         send: PodcastSearchViewModel.Action.search
                     ),
                     placeholder: Locale.searchFieldPlaceholder
                 )
                 .environment(\.defaultMinListRowHeight, 48)
-                .onAppear { store.send(.appear) }
             }
         }
     }
 
+    @ViewBuilder
     private func content(for state: PodcastSearchViewModel.State) -> some View {
         switch state {
         case .initial,
              .search:
-            return EmptyView()
-                .eraseToAnyView()
+            EmptyView()
         case .loading:
-            return PodcastListLoaderView(text: Locale.loading)
-                .eraseToAnyView()
+            PodcastListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
-            return ForEach(viewModels, content: PodcastListItemView.init(viewModel:))
-                .eraseToAnyView()
+            ForEach(viewModels) { viewModel in
+                NavigationLink(destination: EmptyView()) {
+                    PodcastListItemView(viewModel: viewModel)
+                }
+            }
         case .result(.failure(let error)):
-            return Text(error.localizedDescription)
-                .eraseToAnyView()
+            Text(error.localizedDescription)
         }
     }
 }
 
 // MARK: Locale
 
-typealias Locale = String
+private typealias Locale = String
 
 private extension Locale {
     static let navigationBarTitle = "Search"

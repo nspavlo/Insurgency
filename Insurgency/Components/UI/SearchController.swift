@@ -42,6 +42,7 @@ private struct SearchController: UIViewControllerRepresentable {
     class Coordinator: NSObject, UISearchResultsUpdating {
         @Binding
         var text: String
+        var last: String?
         let searchController: UISearchController
 
         init(text: Binding<String>, placeholder: String) {
@@ -61,7 +62,10 @@ private struct SearchController: UIViewControllerRepresentable {
                 return
             }
 
-            self.text = text
+            if text != last {
+                self.last = text
+                self.text = text
+            }
         }
     }
 

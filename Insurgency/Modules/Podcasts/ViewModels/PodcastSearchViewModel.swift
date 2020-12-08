@@ -17,7 +17,6 @@ struct PodcastSearchViewModel {
     }
 
     enum Action: Equatable {
-        case appear
         case search(String)
         case result(Result<PodcastListItemViewModels, Failure>)
     }
@@ -28,7 +27,7 @@ struct PodcastSearchViewModel {
         case loading
         case result(Result<PodcastListItemViewModels, Failure>)
 
-        var searchTerm: String {
+        var term: String {
             if case .search(let term) = self {
                 return term
             } else {
@@ -44,8 +43,6 @@ extension PodcastSearchViewModel {
     static func reducer() -> Reducer<State, Action, Environment> {
         Reducer<State, Action, Environment> { state, action, environment in
             switch action {
-            case .appear:
-                return .none
             case .search(let term):
                 struct UniquieID: Hashable {}
 
