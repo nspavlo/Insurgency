@@ -7,9 +7,11 @@
 
 import Foundation
 
+typealias PodcastListItemViewModels = [PodcastListItemViewModel]
+
 // MARK: Initialization
 
-struct PodcastListItemViewModel {
+struct PodcastListItemViewModel: Equatable {
     private let podcast: Podcast
 
     init(podcast: Podcast) {

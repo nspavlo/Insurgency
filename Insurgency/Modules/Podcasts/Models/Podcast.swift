@@ -7,9 +7,11 @@
 
 import Foundation
 
+typealias Podcasts = [Podcast]
+
 // MARK: Initialization
 
-struct Podcast {
+struct Podcast: Equatable {
     let trackID: Int
     let trackName: String
     let feedURL: URL?
@@ -29,6 +31,6 @@ extension Podcast: Decodable {
 
 extension Podcast {
     struct NetworkResponse: Decodable {
-        var results: [Podcast]
+        var results: Podcasts
     }
 }
