@@ -10,7 +10,17 @@ import Combine
 
 // MARK: Failure
 
-struct Failure: Error, Equatable {}
+struct Failure: Error {
+    let underlyingError: Error
+}
+
+// MARK: Equatable
+
+extension Failure: Equatable {
+    static func == (lhs: Failure, rhs: Failure) -> Bool {
+        (lhs.underlyingError as NSError) == (rhs.underlyingError as NSError)
+    }
+}
 
 // MARK: Initialization
 
@@ -25,7 +35,7 @@ protocol URLRepositoryProtocol {
 internal extension URLRepositoryProtocol {
     func execute<T: Decodable>(
         _ request: URLRequest,
-        _ decoder: JSONDecoder = JSONDecoder()
+        _ decoder: JSONDecoder
     ) -> AnyPublisher<URLRepositoryResponse<T>, Failure> {
         session
             .dataTaskPublisher(for: request)
@@ -33,17 +43,21 @@ internal extension URLRepositoryProtocol {
                 let value = try decoder.decode(T.self, from: result.data)
                 return URLRepositoryResponse(value: value, response: result.response)
             }
-            .mapError { _ in Failure() }
+            .mapError { Failure(underlyingError: $0) }
             .receive(on: queue)
             .eraseToAnyPublisher()
     }
 
-    func execute<T: Decodable>(
-        _ request: URLRequest,
-        _ decoder: JSONDecoder = JSONDecoder()
-    ) -> AnyPublisher<T, Failure> {
-        execute(request, decoder)
-            .map(\.value)
+    func execute(
+        _ request: URLRequest
+    ) -> AnyPublisher<URLRepositoryResponse<Data>, Failure> {
+        session
+            .dataTaskPublisher(for: request)
+            .tryMap { result -> URLRepositoryResponse<Data> in
+                URLRepositoryResponse(value: result.data, response: result.response)
+            }
+            .mapError { Failure(underlyingError: $0) }
+            .receive(on: queue)
             .eraseToAnyPublisher()
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
-		3D8C499125779F9A00BA3748 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* Episode.swift */; };
+		3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */; };
 		3D8C49982577A03000BA3748 /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C49972577A03000BA3748 /* PodcastRepository.swift */; };
 		3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */; };
 		3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */; };
@@ -18,9 +18,8 @@
 		3D8C4A4F25784B7500BA3748 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */; };
 		3D8C4B12257ECFC700BA3748 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */; };
 		3D8C4B18257EF63A00BA3748 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B17257EF63900BA3748 /* SearchController.swift */; };
-		3D8C4B1E257EF6B400BA3748 /* View+Erase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B1D257EF6B400BA3748 /* View+Erase.swift */; };
-		3D8C4B22257EF6E300BA3748 /* PodcastSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B21257EF6E300BA3748 /* PodcastSearchListView.swift */; };
-		3D8C4B26257EF97A00BA3748 /* PodcastSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B25257EF97A00BA3748 /* PodcastSearchViewModel.swift */; };
+		3D8C4B22257EF6E300BA3748 /* PodcastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */; };
+		3D8C4B26257EF97A00BA3748 /* PodcastListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */; };
 		3D8C4B2A257EFFBC00BA3748 /* PodcastListLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B29257EFFBC00BA3748 /* PodcastListLoaderView.swift */; };
 		3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E7257161E200B019DB /* AppDelegate.swift */; };
 		3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E9257161E200B019DB /* SceneDelegate.swift */; };
@@ -46,6 +45,16 @@
 		3DBAE48925719FF200B019DB /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE48825719FF200B019DB /* Command.swift */; };
 		3DBAE48F2571A05C00B019DB /* AppDelegateCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE48E2571A05C00B019DB /* AppDelegateCommandBuilder.swift */; };
 		3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */; };
+		3DEE71B72580261500CE5055 /* PodcastEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */; };
+		3DEE71FD25815B9F00CE5055 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE71FC25815B9F00CE5055 /* FeedKit */; };
+		3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */; };
+		3DEE720825817C7000CE5055 /* PodcastEpisodeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */; };
+		3DEE721025817F5900CE5055 /* PodcastEpisodeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */; };
+		3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */; };
+		3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */; };
+		3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */; };
+		3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73472584193400CE5055 /* StoreServiceLocator.swift */; };
+		3DEE73582584292200CE5055 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE73572584292200CE5055 /* FetchImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +69,7 @@
 
 /* Begin PBXFileReference section */
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
-		3D8C499025779F9A00BA3748 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
 		3D8C49972577A03000BA3748 /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
 		3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRepositoryResponse.swift; sourceTree = "<group>"; };
 		3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -69,9 +78,8 @@
 		3D8C4A30257820C000BA3748 /* PodcastListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListItemViewModel.swift; sourceTree = "<group>"; };
 		3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3D8C4B17257EF63900BA3748 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		3D8C4B1D257EF6B400BA3748 /* View+Erase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Erase.swift"; sourceTree = "<group>"; };
-		3D8C4B21257EF6E300BA3748 /* PodcastSearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastSearchListView.swift; sourceTree = "<group>"; };
-		3D8C4B25257EF97A00BA3748 /* PodcastSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastSearchViewModel.swift; sourceTree = "<group>"; };
+		3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListView.swift; sourceTree = "<group>"; };
+		3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListViewModel.swift; sourceTree = "<group>"; };
 		3D8C4B29257EFFBC00BA3748 /* PodcastListLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListLoaderView.swift; sourceTree = "<group>"; };
 		3DBAE3E4257161E200B019DB /* Insurgency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insurgency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBAE3E7257161E200B019DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +106,14 @@
 		3DBAE48825719FF200B019DB /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		3DBAE48E2571A05C00B019DB /* AppDelegateCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateCommandBuilder.swift; sourceTree = "<group>"; };
 		3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDefaultsCommand.swift; sourceTree = "<group>"; };
+		3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListView.swift; sourceTree = "<group>"; };
+		3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PodcastEpisode+Feed.swift"; sourceTree = "<group>"; };
+		3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemView.swift; sourceTree = "<group>"; };
+		3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListViewModel.swift; sourceTree = "<group>"; };
+		3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemViewModel.swift; sourceTree = "<group>"; };
+		3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
+		3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Presets.swift"; sourceTree = "<group>"; };
+		3DEE73472584193400CE5055 /* StoreServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +121,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEE73582584292200CE5055 /* FetchImage in Frameworks */,
 				3D8C4B12257ECFC700BA3748 /* ComposableArchitecture in Frameworks */,
+				3DEE71FD25815B9F00CE5055 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +143,8 @@
 		3D8C47FC25754DC700BA3748 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				3D8C4A462578417F00BA3748 /* Constants */,
 				3D8C47FD25754DDD00BA3748 /* Networking */,
+				3DEE73472584193400CE5055 /* StoreServiceLocator.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -155,7 +173,6 @@
 		3D8C498925779F5400BA3748 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D8C499025779F9A00BA3748 /* Episode.swift */,
 				3D8C498A25779F6400BA3748 /* Podcast.swift */,
 			);
 			path = Models;
@@ -174,7 +191,7 @@
 			children = (
 				3D8C4A2125781F0400BA3748 /* PodcastListItemView.swift */,
 				3D8C4B29257EFFBC00BA3748 /* PodcastListLoaderView.swift */,
-				3D8C4B21257EF6E300BA3748 /* PodcastSearchListView.swift */,
+				3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,26 +200,18 @@
 			isa = PBXGroup;
 			children = (
 				3D8C4A30257820C000BA3748 /* PodcastListItemViewModel.swift */,
-				3D8C4B25257EF97A00BA3748 /* PodcastSearchViewModel.swift */,
+				3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		3D8C4A3D257836B000BA3748 /* UI */ = {
+		3D8C4A3D257836B000BA3748 /* RepresentableWrappers */ = {
 			isa = PBXGroup;
 			children = (
-				3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */,
-				3D8C4B17257EF63900BA3748 /* SearchController.swift */,
-				3D8C4B1D257EF6B400BA3748 /* View+Erase.swift */,
+				3DEE73322583FC0200CE5055 /* View */,
+				3DEE73332583FC3800CE5055 /* ViewController */,
 			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3D8C4A462578417F00BA3748 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
+			path = RepresentableWrappers;
 			sourceTree = "<group>";
 		};
 		3DBAE3DB257161E200B019DB = {
@@ -261,6 +270,7 @@
 			children = (
 				3DBAE4322571683E00B019DB /* Analytics */,
 				3DBAE4262571676A00B019DB /* Authentication */,
+				3DEE73202583F8BC00CE5055 /* PodcastEpisodes */,
 				3D8C49772576B26300BA3748 /* Podcasts */,
 			);
 			path = Modules;
@@ -351,9 +361,9 @@
 		3DBAE48725719FDF00B019DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				3D8C4A3D257836B000BA3748 /* UI */,
-				3DBAE4982571A89D00B019DB /* AppDelegateCommands */,
-				3DBAE48825719FF200B019DB /* Command.swift */,
+				3DEE73342583FC5800CE5055 /* Commands */,
+				3DEE733F25840B8200CE5055 /* Extensions */,
+				3D8C4A3D257836B000BA3748 /* RepresentableWrappers */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -365,6 +375,85 @@
 				3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */,
 			);
 			path = AppDelegateCommands;
+			sourceTree = "<group>";
+		};
+		3DEE73202583F8BC00CE5055 /* PodcastEpisodes */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE73212583F8D000CE5055 /* Models */,
+				3DEE73222583F8F500CE5055 /* Repositories */,
+				3DEE73232583F8FD00CE5055 /* ViewModels */,
+				3DEE73242583F90300CE5055 /* Views */,
+			);
+			path = PodcastEpisodes;
+			sourceTree = "<group>";
+		};
+		3DEE73212583F8D000CE5055 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */,
+				3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DEE73222583F8F500CE5055 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3DEE73232583F8FD00CE5055 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */,
+				3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3DEE73242583F90300CE5055 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */,
+				3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3DEE73322583FC0200CE5055 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DEE73332583FC3800CE5055 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C4B17257EF63900BA3748 /* SearchController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3DEE73342583FC5800CE5055 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAE4982571A89D00B019DB /* AppDelegateCommands */,
+				3DBAE48825719FF200B019DB /* Command.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		3DEE733F25840B8200CE5055 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +474,8 @@
 			name = Insurgency;
 			packageProductDependencies = (
 				3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */,
+				3DEE71FC25815B9F00CE5055 /* FeedKit */,
+				3DEE73572584292200CE5055 /* FetchImage */,
 			);
 			productName = Insurgency;
 			productReference = 3DBAE3E4257161E200B019DB /* Insurgency.app */;
@@ -446,6 +537,8 @@
 				3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */,
 				3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */,
 				3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				3DEE71FB25815B9F00CE5055 /* XCRemoteSwiftPackageReference "FeedKit" */,
+				3DEE73562584292200CE5055 /* XCRemoteSwiftPackageReference "FetchImage" */,
 			);
 			productRefGroup = 3DBAE3E5257161E200B019DB /* Products */;
 			projectDirPath = "";
@@ -482,30 +575,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEE720825817C7000CE5055 /* PodcastEpisodeListItemView.swift in Sources */,
 				3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */,
 				3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */,
 				3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */,
 				3D8C4B18257EF63A00BA3748 /* SearchController.swift in Sources */,
 				3D8C4A4F25784B7500BA3748 /* ActivityIndicator.swift in Sources */,
-				3D8C4B26257EF97A00BA3748 /* PodcastSearchViewModel.swift in Sources */,
+				3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */,
+				3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */,
+				3D8C4B26257EF97A00BA3748 /* PodcastListViewModel.swift in Sources */,
 				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
 				3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */,
 				3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */,
+				3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
-				3D8C499125779F9A00BA3748 /* Episode.swift in Sources */,
+				3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */,
 				3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
 				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
+				3DEE721025817F5900CE5055 /* PodcastEpisodeListViewModel.swift in Sources */,
+				3DEE71B72580261500CE5055 /* PodcastEpisodeListView.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
 				3DBAE48F2571A05C00B019DB /* AppDelegateCommandBuilder.swift in Sources */,
-				3D8C4B1E257EF6B400BA3748 /* View+Erase.swift in Sources */,
-				3D8C4B22257EF6E300BA3748 /* PodcastSearchListView.swift in Sources */,
+				3D8C4B22257EF6E300BA3748 /* PodcastListView.swift in Sources */,
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
 				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
+				3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE48925719FF200B019DB /* Command.swift in Sources */,
+				3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */,
 				3D8C4A3A257831FB00BA3748 /* PodcastListItemView.swift in Sources */,
 				3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */,
 				3D8C4A31257820C000BA3748 /* PodcastListItemViewModel.swift in Sources */,
@@ -667,6 +767,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = JPE45M57J4;
@@ -678,6 +779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.nspavlo.insurgency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -688,6 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = JPE45M57J4;
@@ -699,6 +802,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.nspavlo.insurgency;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -812,6 +916,22 @@
 				kind = branch;
 			};
 		};
+		3DEE71FB25815B9F00CE5055 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+		3DEE73562584292200CE5055 /* XCRemoteSwiftPackageReference "FetchImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/FetchImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -834,6 +954,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */;
 			productName = SpecLeaks;
+		};
+		3DEE71FC25815B9F00CE5055 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DEE71FB25815B9F00CE5055 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		3DEE73572584292200CE5055 /* FetchImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DEE73562584292200CE5055 /* XCRemoteSwiftPackageReference "FetchImage" */;
+			productName = FetchImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

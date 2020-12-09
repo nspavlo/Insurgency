@@ -12,18 +12,18 @@ typealias Podcasts = [Podcast]
 // MARK: Initialization
 
 struct Podcast: Equatable {
-    let trackID: Int
-    let trackName: String
-    let feedURL: URL?
+    let id: Int
+    let name: String
+    let url: URL?
 }
 
 // MARK: Decodable
 
 extension Podcast: Decodable {
     enum CodingKeys: String, CodingKey {
-        case trackID = "trackId"
-        case trackName
-        case feedURL = "feedUrl"
+        case id = "trackId"
+        case name = "trackName"
+        case url = "feedUrl"
     }
 }
 

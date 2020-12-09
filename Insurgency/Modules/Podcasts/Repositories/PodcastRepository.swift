@@ -11,8 +11,6 @@ import Combine
 // MARK: Protocol
 
 protocol PodcastRepositoryProtocol {
-    func fetchEpisode(with url: URL) -> AnyPublisher<URL, Failure>
-    func fetchPodcastFeed(with url: URL) -> AnyPublisher<[Episode], Failure>
     func fetchPodcasts(with term: String) -> AnyPublisher<Podcast.NetworkResponse, Failure>
 }
 
@@ -27,16 +25,10 @@ struct PodcastRepository: URLRepositoryProtocol {
 // MARK: Public Methods
 
 extension PodcastRepository: PodcastRepositoryProtocol {
-    func fetchEpisode(with url: URL) -> AnyPublisher<URL, Failure> {
-        execute(URLRequest(url: url))
-    }
-
-    func fetchPodcastFeed(with url: URL) -> AnyPublisher<[Episode], Failure> {
-        execute(URLRequest(url: url))
-    }
-
     func fetchPodcasts(with term: String) -> AnyPublisher<Podcast.NetworkResponse, Failure> {
-        execute(URLRequest(url: createPodcastEndpoint(with: term)))
+        execute(URLRequest(url: createPodcastEndpoint(with: term)), JSONDecoder())
+            .map(\.value)
+            .eraseToAnyPublisher()
     }
 }
 
