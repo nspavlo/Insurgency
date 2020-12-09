@@ -12,17 +12,22 @@ typealias PodcastListItemViewModels = [PodcastListItemViewModel]
 // MARK: Initialization
 
 struct PodcastListItemViewModel: Equatable {
-    private let podcast: Podcast
+    let podcast: Podcast
 
     init(podcast: Podcast) {
         self.podcast = podcast
     }
 }
 
-// MARK: Adapter
+// MARK: Identifiable
 
 extension PodcastListItemViewModel: Identifiable {
-    var id: Int { podcast.trackID }
-    var imageName: String { "magnifyingglass" }
-    var title: String { podcast.trackName }
+    var id: Int { podcast.id }
+}
+
+// MARK: Adapter
+
+extension PodcastListItemViewModel {
+    var title: String { podcast.name }
+    var systemImageNamed: String { "magnifyingglass" }
 }

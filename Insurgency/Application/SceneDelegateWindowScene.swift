@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ComposableArchitecture
 
 // MARK: Initialization
 
@@ -24,24 +23,7 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
 
-        let host: URLHost = .production
-        let repository = PodcastRepository(
-            session: .shared,
-            url: host.url,
-            queue: .main
-        )
-
-        let rootView = PodcastSearchListView(
-            store: Store(
-                initialState: PodcastSearchViewModel.State.initial,
-                reducer: PodcastSearchViewModel.reducer().debug(),
-                environment: PodcastSearchViewModel.Environment(
-                    repository: repository,
-                    queue: DispatchQueue.main.eraseToAnyScheduler()
-                )
-            )
-        )
-
+        let rootView = PodcastListView(store: StoreServiceLocator.podcasts())
         window = UIWindow(windowScene: windowScene)
         window!.rootViewController = UIHostingController(rootView: rootView)
         window!.makeKeyAndVisible()

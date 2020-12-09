@@ -32,7 +32,7 @@ extension PodcastListLoaderView {
 
 struct PodcastListLoaderView_Previews: PreviewProvider {
     static var previews: some View {
-        return PodcastListLoaderView(text: "Loading...")
+        PodcastListLoaderView(text: "Loading...")
             .previewLayout(PreviewLayout.sizeThatFits)
             .padding()
     }
