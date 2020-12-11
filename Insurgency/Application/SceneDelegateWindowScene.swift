@@ -26,6 +26,7 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
         let rootView = PodcastListView(store: StoreServiceLocator.podcasts())
         window = UIWindow(windowScene: windowScene)
         window!.rootViewController = UIHostingController(rootView: rootView)
+        window!.tintColor = .systemPink
         window!.makeKeyAndVisible()
     }
 }
