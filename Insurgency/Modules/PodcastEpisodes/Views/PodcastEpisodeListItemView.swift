@@ -41,29 +41,3 @@ extension PodcastEpisodeListItemView {
         .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
     }
 }
-
-// MARK: Helpers
-
-struct AsyncImage: View {
-    @ObservedObject
-    var image: FetchImage
-
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color(UIColor.secondarySystemBackground))
-
-            image.view?
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-        .animation(.default)
-        .onAppear {
-            image.priority = .normal
-            image.fetch()
-        }
-        .onDisappear {
-            image.priority = .low
-        }
-    }
-}
