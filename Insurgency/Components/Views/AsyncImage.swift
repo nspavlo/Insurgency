@@ -10,6 +10,10 @@ import FetchImage
 
 // MARK: Initialization
 
+// TODO:
+// Remove dependency for `FetchImage`
+// Use `URL` instead
+
 struct AsyncImage: View {
     @ObservedObject
     var image: FetchImage

@@ -34,7 +34,11 @@ extension PodcastEpisodeListView {
         case .loading:
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
-            ForEach(viewModels) { PodcastEpisodeListItemView(viewModel: $0) }
+            ForEach(viewModels) { viewModel in
+                NavigationLink(destination: StreamerView()) {
+                    PodcastEpisodeListItemView(viewModel: viewModel)
+                }
+            }
         case .result(.failure(let error)):
             Text(error.localizedDescription)
         }

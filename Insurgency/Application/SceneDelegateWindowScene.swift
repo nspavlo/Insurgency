@@ -15,6 +15,10 @@ final class SceneDelegateWindowScene: UIResponder {
 
 // MARK: UIWindowSceneDelegate
 
+// TODO:
+// Add support for no internet
+// Add support for non reachable backend
+
 extension SceneDelegateWindowScene: UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
