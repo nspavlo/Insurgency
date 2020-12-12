@@ -35,12 +35,17 @@ extension PodcastEpisodeListViewModel {
         Reducer<State, Action, Environment> { state, action, environment in
             switch action {
             case .appear:
-                state = .loading
-                return environment.repository
-                    .fetchEpisodes(from: environment.url)
-                    .map { $0.map(PodcastEpisodeListItemViewModel.init) }
-                    .catchToEffect()
-                    .map(Action.result)
+                switch state {
+                case .loading:
+                    return environment.repository
+                        .fetchEpisodes(from: environment.url)
+                        .map { $0.map(PodcastEpisodeListItemViewModel.init) }
+                        .catchToEffect()
+                        .map(Action.result)
+                case .result(let result):
+                    state = .result(result)
+                    return .none
+                }
             case .result(let result):
                 state = .result(result)
                 return .none
