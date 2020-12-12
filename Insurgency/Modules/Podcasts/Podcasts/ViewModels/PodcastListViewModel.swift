@@ -40,7 +40,7 @@ struct PodcastListViewModel {
 
 extension PodcastListViewModel {
     static func reducer() -> Reducer<State, Action, Environment> {
-        Reducer<State, Action, Environment> { state, action, environment in
+        .init { state, action, environment in
             switch action {
             case .search(let term):
                 struct UniquieID: Hashable {}
@@ -69,7 +69,7 @@ extension PodcastListViewModel {
 
 extension PodcastListViewModel {
     static func store(with enviroment: Environment) -> Store<State, Action> {
-        Store(
+        .init(
             initialState: .initial,
             reducer: reducer().debug(),
             environment: enviroment

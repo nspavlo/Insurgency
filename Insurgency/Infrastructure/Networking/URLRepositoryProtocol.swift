@@ -8,24 +8,6 @@
 import Foundation
 import Combine
 
-// MARK: Failure
-
-struct Failure: Error {
-    let underlyingError: Error
-
-    var localizedDescription: String {
-        underlyingError.localizedDescription
-    }
-}
-
-// MARK: Equatable
-
-extension Failure: Equatable {
-    static func == (lhs: Failure, rhs: Failure) -> Bool {
-        (lhs.underlyingError as NSError) == (rhs.underlyingError as NSError)
-    }
-}
-
 // MARK: Initialization
 
 protocol URLRepositoryProtocol {

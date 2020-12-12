@@ -32,7 +32,7 @@ struct PodcastEpisodeListViewModel {
 
 extension PodcastEpisodeListViewModel {
     static func reducer() -> Reducer<State, Action, Environment> {
-        Reducer<State, Action, Environment> { state, action, environment in
+        .init { state, action, environment in
             switch action {
             case .appear:
                 switch state {
@@ -58,7 +58,7 @@ extension PodcastEpisodeListViewModel {
 
 extension PodcastEpisodeListViewModel {
     static func store(with enviroment: Environment) -> Store<State, Action> {
-        Store(
+        .init(
             initialState: .loading,
             reducer: reducer().debug(),
             environment: enviroment

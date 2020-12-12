@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D1A601925858CBC0028FE79 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A601825858CBC0028FE79 /* Failure.swift */; };
+		3D1A601F258665A40028FE79 /* StreamerUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */; };
+		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
 		3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */; };
 		3D8C49982577A03000BA3748 /* PodcastRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C49972577A03000BA3748 /* PodcastRepository.swift */; };
@@ -72,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D1A601825858CBC0028FE79 /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
+		3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerUpdateViewModel.swift; sourceTree = "<group>"; };
+		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
 		3D8C49972577A03000BA3748 /* PodcastRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastRepository.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3D8C47FD25754DDD00BA3748 /* Networking */,
+				3D1A601825858CBC0028FE79 /* Failure.swift */,
 				3DEE73472584193400CE5055 /* StoreServiceLocator.swift */,
 			);
 			path = Infrastructure;
@@ -366,6 +373,7 @@
 		3DBAE48725719FDF00B019DB /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D3D163B2585628C00DD722B /* AudioStreamer.swift */,
 				3DEE73342583FC5800CE5055 /* Commands */,
 				3DEE733F25840B8200CE5055 /* Extensions */,
 				3D8C4A3D257836B000BA3748 /* RepresentableWrappers */,
@@ -504,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				3DEE73982584E0F500CE5055 /* StreamerViewModel.swift */,
+				3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -638,10 +647,13 @@
 				3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */,
 				3D8C4B26257EF97A00BA3748 /* PodcastListViewModel.swift in Sources */,
 				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
+				3D1A601F258665A40028FE79 /* StreamerUpdateViewModel.swift in Sources */,
 				3DEE738D2584B68400CE5055 /* StreamerView.swift in Sources */,
 				3DBAE471257197B800B019DB /* SceneDelegateLogger.swift in Sources */,
 				3DBAE47B257198A200B019DB /* SceneDelegateWindowScene.swift in Sources */,
+				3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */,
 				3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */,
+				3D1A601925858CBC0028FE79 /* Failure.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
 				3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */,
 				3DEE73992584E0F500CE5055 /* StreamerViewModel.swift in Sources */,

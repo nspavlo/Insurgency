@@ -5,160 +5,167 @@
 //  Created by Jans Pavlovs on 12/12/2020.
 //
 
+import Combine
+import ComposableArchitecture
 import SwiftUI
 import FetchImage
 
 // MARK: Initialization
 
 struct StreamerView: View {
-    @ObservedObject
-    var viewModel: StreamerViewModel
+    let store: Store<StreamerViewModel.State, StreamerViewModel.Action>
 }
 
 // MARK: View Construction
 
 extension StreamerView {
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Group {
-                HStack {
+        WithViewStore(store) { store in
+            VStack(alignment: .leading, spacing: 16) {
+                Group {
+                    HStack {
+                        Spacer()
+                        sourceArtwork(with: store.state)
+                        Spacer()
+                    }
+                    .padding(.bottom, 36)
+
+                    VStack(alignment: .leading, spacing: 24) {
+                        sourceTiming(with: store.state)
+                        sourceName(with: store.state)
+                    }
+
                     Spacer()
-                    sourceArtwork
+
+                    HStack {
+                        Spacer()
+
+                        Button(
+                            action: {
+                                store.send(.skipBackward)
+                            },
+                            label: {
+                                Image(systemName: "gobackward.15")
+                                    .resizable()
+                                    .modifier(ControlButtonModifier())
+                            }
+                        )
+
+                        Spacer()
+
+                        Button(
+                            action: {
+                                store.send(.playback)
+                            },
+                            label: {
+                                Image(systemName: store.state.isPlaying ? "pause.fill" : "play.fill")
+                                    .resizable()
+                                    .modifier(ControlButtonModifier())
+                            }
+                        )
+
+                        Spacer()
+
+                        Button(
+                            action: {
+                                store.send(.skipForward)
+                            },
+                            label: {
+                                Image(systemName: "goforward.30")
+                                    .resizable()
+                                    .modifier(ControlButtonModifier())
+                            }
+                        )
+
+                        Spacer()
+                    }
+
+                    Spacer()
+
+                    HStack(spacing: 8) {
+                        Image(systemName: "speaker.fill")
+                            .resizable()
+                            .foregroundColor(.secondary)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 6, height: 10)
+
+                        Slider(
+                            value: store.binding(
+                                get: { state in state.volume },
+                                send: StreamerViewModel.Action.changeVolume
+                            ),
+                            in: 0 ... 1
+                        )
+
+                        Image(systemName: "speaker.3.fill")
+                            .resizable()
+                            .foregroundColor(.secondary)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 18, height: 14)
+                    }
+
                     Spacer()
                 }
-                .padding(.bottom, 36)
-
-                VStack(alignment: .leading, spacing: 24) {
-                    durationProgress
-                    sourceName
-                }
-
-                Spacer()
-                controlls
-                Spacer()
-                volume
-                Spacer()
+                .padding([.leading, .trailing], 32)
             }
-            .padding([.leading, .trailing], 32)
+            .onAppear { store.send(.appear) }
+            .onDisappear { store.send(.disappear) }
         }
-        .onAppear { viewModel.play() }
-        .onDisappear { viewModel.stop() }
     }
 
-    private var sourceArtwork: some View {
-        AsyncImage(image: FetchImage(url: viewModel.imageURL))
+    @ViewBuilder
+    private func sourceArtwork(with state: StreamerViewModel.State) -> some View {
+        AsyncImage(image: FetchImage(url: state.image))
             .frame(width: 260, height: 260)
             .cornerRadius(8)
-            .shadow(color: Color(UIColor.tertiaryLabel), radius: 4, x: 0, y: 0)
+            .shadow(
+                color: Color(UIColor.tertiaryLabel),
+                radius: 4, x: 0, y: 0
+            )
     }
 
-    private var durationProgress: some View {
+    @ViewBuilder
+    private func sourceTiming(with state: StreamerViewModel.State) -> some View {
         VStack {
             ProgressView(
-                value: viewModel.progress,
+                value: CGFloat(state.progress),
                 trackColor: Color(UIColor.tertiaryLabel),
-                progressColor: Color(UIColor.secondaryLabel),
+                progressColor: .secondary,
                 height: 3)
 
             HStack {
-                Text(viewModel.duration)
+                Text(state.duration)
                     .modifier(MonospacedLabelModifier())
 
                 Spacer()
 
-                Text(viewModel.time)
+                Text(state.remaining)
                     .modifier(MonospacedLabelModifier())
             }
         }
     }
 
-    private var sourceName: some View {
+    @ViewBuilder
+    private func sourceName(with state: StreamerViewModel.State) -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(viewModel.title)
-                .foregroundColor(Color(UIColor.label))
+            Text(state.title)
+                .foregroundColor(.primary)
                 .font(.title2)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .frame(alignment: .leading)
 
-            Text(viewModel.subtitle)
-                .foregroundColor(Color(UIColor.secondaryLabel))
+            Text(state.subtitle)
+                .foregroundColor(.secondary)
                 .font(.title3)
                 .fontWeight(.none)
                 .lineLimit(1)
                 .frame(alignment: .leading)
         }
     }
-
-    private var controlls: some View {
-        VStack {
-            HStack {
-                Spacer()
-
-                Button(
-                    action: {
-                        viewModel.backward()
-                    },
-                    label: {
-                        Image(systemName: "gobackward.15")
-                            .resizable()
-                            .modifier(ControlButtonModifier())
-                    }
-                )
-
-                Spacer()
-
-                Button(
-                    action: {
-                        viewModel.isPlaying
-                            ? viewModel.pause()
-                            : viewModel.resume()
-                    },
-                    label: {
-                        Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
-                            .resizable()
-                            .modifier(ControlButtonModifier())
-                    }
-                )
-
-                Spacer()
-
-                Button(
-                    action: {
-                        viewModel.forward()
-                    },
-                    label: {
-                        Image(systemName: "goforward.30")
-                            .resizable()
-                            .modifier(ControlButtonModifier())
-                    }
-                )
-
-                Spacer()
-            }
-        }
-    }
-
-    private var volume: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "speaker.fill")
-                .resizable()
-                .foregroundColor(Color(UIColor.secondaryLabel))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 6, height: 10)
-
-            Slider(value: $viewModel.volume, in: 0 ... 1)
-
-            Image(systemName: "speaker.3.fill")
-                .resizable()
-                .foregroundColor(Color(UIColor.secondaryLabel))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 18, height: 14)
-        }
-    }
 }
 
-// MARK: Modifiers
+// MARK: ViewModifiers
 
 struct MonospacedLabelModifier: ViewModifier {
     func body(content: Content) -> some View {

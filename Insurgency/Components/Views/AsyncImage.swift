@@ -29,7 +29,7 @@ extension AsyncImage {
 
             image.view?
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
         }
         .animation(.default)
         .onAppear {

@@ -19,8 +19,8 @@ struct PodcastListView: View {
 
 extension PodcastListView {
     var body: some View {
-        WithViewStore(store) { store in
-            NavigationView {
+        NavigationView {
+            WithViewStore(store) { store in
                 List {
                     content(for: store.state)
                 }

@@ -26,6 +26,9 @@ struct PodcastRepository: URLRepositoryProtocol {
 
 extension PodcastRepository: PodcastRepositoryProtocol {
     func fetchPodcasts(with term: String) -> AnyPublisher<Podcast.NetworkResponse, Failure> {
+        // TODO:
+        // Filter out podcasts w/o `url`
+        // Make `url` mandatory
         execute(URLRequest(url: createPodcastEndpoint(with: term)), JSONDecoder())
             .map(\.value)
             .eraseToAnyPublisher()

@@ -24,16 +24,16 @@ extension PodcastEpisodeListItemView {
                 .frame(width: 64, height: 64)
 
             VStack(alignment: .leading, spacing: 2) {
-                Text("\(viewModel.date)")
+                Text(viewModel.date)
                     .font(.caption)
                     .fontWeight(.medium)
                     .lineLimit(1)
 
-                Text("\(viewModel.title)")
+                Text(viewModel.title)
                     .font(.body)
                     .lineLimit(2)
 
-                Text("\(viewModel.subtitle)")
+                Text(viewModel.subtitle)
                     .font(.caption)
                     .lineLimit(2)
             }

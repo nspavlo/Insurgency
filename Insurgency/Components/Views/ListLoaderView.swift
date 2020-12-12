@@ -23,7 +23,7 @@ extension ListLoaderView {
                 style: .medium
             )
             Text(text)
-                .foregroundColor(Color(UIColor.secondaryLabel))
+                .foregroundColor(.secondary)
         }
     }
 }
@@ -33,7 +33,7 @@ extension ListLoaderView {
 struct ListLoaderView_Previews: PreviewProvider {
     static var previews: some View {
         ListLoaderView(text: "Loading...")
-            .previewLayout(PreviewLayout.sizeThatFits)
+            .previewLayout(.sizeThatFits)
             .padding()
     }
 }

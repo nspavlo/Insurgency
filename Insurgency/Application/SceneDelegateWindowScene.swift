@@ -16,6 +16,11 @@ final class SceneDelegateWindowScene: UIResponder {
 // MARK: UIWindowSceneDelegate
 
 extension SceneDelegateWindowScene: UIWindowSceneDelegate {
+    var rootView: some View {
+        let store = StoreServiceLocator.podcasts()
+        return PodcastListView(store: store)
+    }
+
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
@@ -23,7 +28,6 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
 
-        let rootView = PodcastListView(store: StoreServiceLocator.podcasts())
         window = UIWindow(windowScene: windowScene)
         window!.rootViewController = UIHostingController(rootView: rootView)
         window!.tintColor = .systemPink

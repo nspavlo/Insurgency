@@ -19,8 +19,8 @@ extension PodcastEpisode {
         }
 
         if let subtitle = rss.iTunes?.iTunesSubtitle ?? rss.iTunes?.iTunesSummary {
-            self.subtitle = subtitle
-                .replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression)
+            // Some podcasts will have html tags in description
+            self.subtitle = subtitle.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
         } else {
             self.subtitle = ""
         }
@@ -36,6 +36,8 @@ extension PodcastEpisode {
         {
             self.image = image
         } else {
+            // TODO:
+            // Return `nil` here and use general `Podcast` image
             self.image = URL(string: "https://http.cat/404")!
         }
 

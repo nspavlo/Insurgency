@@ -19,7 +19,7 @@ extension PodcastListItemView {
     var body: some View {
         HStack {
             Image(systemName: viewModel.systemImageNamed)
-                .foregroundColor(Color(UIColor.secondaryLabel))
+                .foregroundColor(.secondary)
 
             Text(viewModel.title)
                 .padding(.vertical, 8)
@@ -34,7 +34,7 @@ struct PodcastListItemView_Previews: PreviewProvider {
     static var previews: some View {
         let podcast = Podcast(id: 1, name: "John Snow", url: URL(string: "https://itunes.apple.com/")!)
         return PodcastListItemView(viewModel: PodcastListItemViewModel(podcast: podcast))
-            .previewLayout(PreviewLayout.sizeThatFits)
+            .previewLayout(.sizeThatFits)
             .padding()
     }
 }

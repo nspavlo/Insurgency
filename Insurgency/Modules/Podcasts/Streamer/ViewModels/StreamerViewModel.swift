@@ -5,142 +5,115 @@
 //  Created by Jans Pavlovs on 12/12/2020.
 //
 
+import ComposableArchitecture
 import Foundation
-import AVFoundation
-
-import Combine
 
 // MARK: Initialization
 
-final class StreamerViewModel: ObservableObject {
-    @Published var time: String = "00:00"
-    @Published var duration: String = "00:00"
-    @Published var progress: CGFloat = 0
-    @Published var volume: CGFloat = 1
-    @Published var isPlaying: Bool = false
+struct StreamerViewModel {
+    struct Environment {
+        let episode: PodcastEpisode
+        let streamer: AudioStreamer
+    }
 
-    private let episode: PodcastEpisode
-    private var player: AVPlayer?
-    private var timeObserverToken: Any?
-    private var disposables = Set<AnyCancellable>()
+    struct State: Equatable {
+        var isPlaying: Bool
+        var progress: Float
+        var duration: String
+        var remaining: String
+        var volume: Float
+        var image: URL
+        var title: String
+        var subtitle: String
+    }
 
-    init(episode: PodcastEpisode) {
-        self.episode = episode
+    enum Action: Equatable {
+        case appear
+        case disappear
+        case skipForward
+        case skipBackward
+        case playback
+        case changeVolume(Float)
+        case updateFromStreamer
     }
 }
 
-// MARK:
+// MARK: Reducer
 
 extension StreamerViewModel {
-    var imageURL: URL { episode.image }
-    var title: String { episode.title }
-    var subtitle: String { episode.subtitle }
-}
+    static func reducer() -> Reducer<State, Action, Environment> {
+        .init { state, action, environment in
+            struct TimerID: Hashable {}
 
-// MARK:
+            let streamerUpdateFromTimer = Effect
+                .timer(id: TimerID(), every: 0.25, on: RunLoop.main)
+                .map { _ in Action.updateFromStreamer }
 
-extension StreamerViewModel {
-    func play() {
-        let playerItem = AVPlayerItem(url: episode.stream)
-        let player = AVPlayer(playerItem: playerItem)
+            let updateFromStreamer = Effect<Action, Never>(value: .updateFromStreamer)
 
-        player.volume = 0.2
-        player.play()
+            switch action {
+            case .appear:
+                environment.streamer.play()
+                return streamerUpdateFromTimer
+            case .disappear:
+                environment.streamer.stop()
+                return .cancel(id: TimerID())
+            case .skipForward:
+                environment.streamer.forward()
+                return updateFromStreamer
+            case .skipBackward:
+                environment.streamer.backward()
+                return updateFromStreamer
+            case .playback:
+                if state.isPlaying {
+                    environment.streamer.pause()
+                    return .merge(
+                        .cancel(id: TimerID()),
+                        updateFromStreamer
+                    )
+                } else {
+                    environment.streamer.resume()
+                    return .merge(
+                        streamerUpdateFromTimer,
+                        updateFromStreamer
+                    )
+                }
+            case .changeVolume(let volume):
+                environment.streamer.volume = volume
+                return updateFromStreamer
+            case .updateFromStreamer:
+                let instance =
+                    StreamerUpdateViewModel(
+                        streamer: environment.streamer,
+                        formatter: .durationDateComponentsFormatter
+                    )
 
-        self.player = player
-
-        isPlaying = true
-        volume = CGFloat(player.volume)
-
-        $volume
-            .subscribe(on: DispatchQueue.main)
-            .sink { [weak self] volume in
-                self?.player?.volume = Float(volume)
+                state = state.updated(with: instance)
+                return .none
             }
-            .store(in: &disposables)
-
-        setupPeriodicTimeObserver()
-    }
-
-    func backward() {
-        guard let time = player?.currentTime() else {
-            return
-        }
-
-        var adjustedTimeInSeconds = CMTimeGetSeconds(time) - 15
-
-        if adjustedTimeInSeconds < 0 {
-            adjustedTimeInSeconds = 0
-        }
-
-        player?.seek(to: CMTimeMake(
-            value: Int64(adjustedTimeInSeconds * 1000),
-            timescale: 1000
-        ))
-    }
-
-    func forward() {
-        guard let time = player?.currentTime(),
-              let duration = player?.currentItem?.duration else {
-            return
-        }
-
-        let adjustedTimeInSeconds = CMTimeGetSeconds(time) + 30
-
-        if adjustedTimeInSeconds < CMTimeGetSeconds(duration) {
-            player?.seek(to: CMTimeMake(
-                value: Int64(adjustedTimeInSeconds * 1000),
-                timescale: 1000
-            ))
         }
     }
+}
 
-    func pause() {
-        isPlaying = false
-        player?.pause()
-    }
+// MARK: Store
 
-    func resume() {
-        isPlaying = true
-        player?.play()
-    }
+extension StreamerViewModel {
+    static func store(with environment: Environment) -> Store<State, Action> {
+        let state = State(
+            isPlaying: false,
+            progress: 0.0,
+            duration: StreamerUpdateViewModel.kEmptyTimeField,
+            remaining: StreamerUpdateViewModel.kEmptyTimeField,
+            volume: 0.8,
+            image: environment.episode.image,
+            title: environment.episode.title,
+            subtitle: environment.episode.subtitle
+        )
 
-    func stop() {
-        isPlaying = false
-        player?.pause()
-        removePeriodicTimeObserver()
-
-        player = nil
-    }
-
-    func duration(for seconds: Double) -> String? {
-        let formatter: DateComponentsFormatter = .durationDateComponentsFormatter
-        return formatter.string(from: TimeInterval(Int(seconds)))
-    }
-
-    func setupPeriodicTimeObserver() {
-        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        timeObserverToken = player?
-            .addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
-                guard let asset = self?.player?.currentItem?.asset else {
-                    return
-                }
-
-                self?.progress = CGFloat(time.seconds / asset.duration.seconds)
-
-                if let time = self?.duration(for: asset.duration.seconds - time.seconds),
-                   let duration = self?.duration(for: asset.duration.seconds)
-                {
-                    self?.time = "-\(time)"
-                    self?.duration = duration
-                }
-        }
-    }
-
-    func removePeriodicTimeObserver() {
-        if let timeObserverToken = timeObserverToken {
-            player?.removeTimeObserver(timeObserverToken)
-            self.timeObserverToken = nil
-        }
+        return .init(
+            initialState: state,
+            reducer: reducer().debug(),
+            environment: environment
+        )
     }
 }

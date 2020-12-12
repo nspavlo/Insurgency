@@ -36,8 +36,8 @@ extension PodcastEpisodeListView {
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
-                let destination = StreamerView(viewModel: StreamerViewModel(episode: viewModel.episode))
-                NavigationLink(destination: destination) {
+                let store = StoreServiceLocator.streamer(with: viewModel.episode)
+                NavigationLink(destination: StreamerView(store: store)) {
                     PodcastEpisodeListItemView(viewModel: viewModel)
                 }
             }
