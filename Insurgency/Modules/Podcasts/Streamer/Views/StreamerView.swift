@@ -62,16 +62,12 @@ extension StreamerView {
 
             HStack {
                 Text(viewModel.duration)
-                    .foregroundColor(Color(UIColor.tertiaryLabel))
-                    .font(.system(.caption, design: .monospaced))
-                    .fontWeight(.bold)
+                    .modifier(MonospacedLabelModifier())
 
                 Spacer()
 
                 Text(viewModel.time)
-                    .foregroundColor(Color(UIColor.tertiaryLabel))
-                    .font(.system(.caption, design: .monospaced))
-                    .fontWeight(.bold)
+                    .modifier(MonospacedLabelModifier())
             }
         }
     }
@@ -106,9 +102,7 @@ extension StreamerView {
                     label: {
                         Image(systemName: "gobackward.15")
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 34, height: 34)
-                            .font(Font.title.weight(.medium))
+                            .modifier(ControlButtonModifier())
                     }
                 )
 
@@ -123,8 +117,7 @@ extension StreamerView {
                     label: {
                         Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
+                            .modifier(ControlButtonModifier())
                     }
                 )
 
@@ -137,9 +130,7 @@ extension StreamerView {
                     label: {
                         Image(systemName: "goforward.30")
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 34, height: 34)
-                            .font(Font.title.weight(.medium))
+                            .modifier(ControlButtonModifier())
                     }
                 )
 
@@ -167,8 +158,21 @@ extension StreamerView {
     }
 }
 
-// MARK: Locale
+// MARK: Modifiers
 
-private typealias Locale = String
+struct MonospacedLabelModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(Color(UIColor.tertiaryLabel))
+            .font(Font.system(.caption, design: .monospaced).weight(.bold))
+    }
+}
 
-private extension Locale {}
+struct ControlButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 34, height: 34)
+            .font(Font.title.weight(.medium))
+    }
+}
