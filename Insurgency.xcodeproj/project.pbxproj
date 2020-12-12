@@ -58,6 +58,7 @@
 		3DEE736B2584328800CE5055 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE736A2584328800CE5055 /* AsyncImage.swift */; };
 		3DEE738D2584B68400CE5055 /* StreamerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE738C2584B68400CE5055 /* StreamerView.swift */; };
 		3DEE73932584D99700CE5055 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73922584D99700CE5055 /* ProgressView.swift */; };
+		3DEE73992584E0F500CE5055 /* StreamerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73982584E0F500CE5055 /* StreamerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		3DEE736A2584328800CE5055 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		3DEE738C2584B68400CE5055 /* StreamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerView.swift; sourceTree = "<group>"; };
 		3DEE73922584D99700CE5055 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		3DEE73982584E0F500CE5055 /* StreamerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 		3DEE738B2584B64900CE5055 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3DEE73982584E0F500CE5055 /* StreamerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
 				3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */,
+				3DEE73992584E0F500CE5055 /* StreamerViewModel.swift in Sources */,
 				3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
 				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,

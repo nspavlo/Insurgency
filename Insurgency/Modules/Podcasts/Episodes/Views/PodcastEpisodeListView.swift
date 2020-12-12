@@ -23,6 +23,7 @@ extension PodcastEpisodeListView {
             List {
                 content(for: store.state)
             }
+            .environment(\.defaultMinListRowHeight, 48)
             .navigationTitle(Locale.navigationBarTitle)
             .onAppear { store.send(.appear) }
         }
@@ -35,7 +36,8 @@ extension PodcastEpisodeListView {
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
-                NavigationLink(destination: StreamerView()) {
+                let destination = StreamerView(viewModel: StreamerViewModel(episode: viewModel.episode))
+                NavigationLink(destination: destination) {
                     PodcastEpisodeListItemView(viewModel: viewModel)
                 }
             }

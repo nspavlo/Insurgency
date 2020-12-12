@@ -11,7 +11,8 @@ import FetchImage
 // MARK: Initialization
 
 struct StreamerView: View {
-    @State private var value: Double = 0.8
+    @ObservedObject
+    var viewModel: StreamerViewModel
 }
 
 // MARK: View Construction
@@ -40,10 +41,12 @@ extension StreamerView {
             }
             .padding([.leading, .trailing], 32)
         }
+        .onAppear { viewModel.play() }
+        .onDisappear { viewModel.stop() }
     }
 
     private var sourceArtwork: some View {
-        AsyncImage(image: FetchImage(url: URL(string: "https://www.swiftbysundell.com/images/podcastArtwork.png")!))
+        AsyncImage(image: FetchImage(url: viewModel.imageURL))
             .frame(width: 260, height: 260)
             .cornerRadius(8)
             .shadow(color: Color(UIColor.tertiaryLabel), radius: 4, x: 0, y: 0)
@@ -52,22 +55,22 @@ extension StreamerView {
     private var durationProgress: some View {
         VStack {
             ProgressView(
-                value: CGFloat(0.8),
+                value: viewModel.progress,
                 trackColor: Color(UIColor.tertiaryLabel),
                 progressColor: Color(UIColor.secondaryLabel),
                 height: 3)
 
             HStack {
-                Text("1:38:30")
+                Text(viewModel.duration)
                     .foregroundColor(Color(UIColor.tertiaryLabel))
-                    .font(.caption)
+                    .font(.system(.caption, design: .monospaced))
                     .fontWeight(.bold)
 
                 Spacer()
 
-                Text("-26:48")
+                Text(viewModel.time)
                     .foregroundColor(Color(UIColor.tertiaryLabel))
-                    .font(.caption)
+                    .font(.system(.caption, design: .monospaced))
                     .fontWeight(.bold)
             }
         }
@@ -75,23 +78,19 @@ extension StreamerView {
 
     private var sourceName: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("251. Training without events")
+            Text(viewModel.title)
                 .foregroundColor(Color(UIColor.label))
                 .font(.title2)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .frame(alignment: .leading)
 
-            Button(
-                action: {},
-                label: {
-                    Text("Ask a Cycling Coach - TrainerRoad")
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .lineLimit(1)
-                        .frame(alignment: .leading)
-                }
-            )
+            Text(viewModel.subtitle)
+                .foregroundColor(Color(UIColor.secondaryLabel))
+                .font(.title3)
+                .fontWeight(.none)
+                .lineLimit(1)
+                .frame(alignment: .leading)
         }
     }
 
@@ -101,11 +100,12 @@ extension StreamerView {
                 Spacer()
 
                 Button(
-                    action: {},
+                    action: {
+                        viewModel.backward()
+                    },
                     label: {
                         Image(systemName: "gobackward.15")
                             .resizable()
-                            .foregroundColor(Color(UIColor.label))
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 34, height: 34)
                             .font(Font.title.weight(.medium))
@@ -115,11 +115,14 @@ extension StreamerView {
                 Spacer()
 
                 Button(
-                    action: {},
+                    action: {
+                        viewModel.isPlaying
+                            ? viewModel.pause()
+                            : viewModel.resume()
+                    },
                     label: {
-                        Image(systemName: "play.fill")
+                        Image(systemName: viewModel.isPlaying ? "pause.fill" : "play.fill")
                             .resizable()
-                            .foregroundColor(Color(UIColor.label))
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 40, height: 40)
                     }
@@ -128,11 +131,12 @@ extension StreamerView {
                 Spacer()
 
                 Button(
-                    action: {},
+                    action: {
+                        viewModel.forward()
+                    },
                     label: {
                         Image(systemName: "goforward.30")
                             .resizable()
-                            .foregroundColor(Color(UIColor.label))
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 34, height: 34)
                             .font(Font.title.weight(.medium))
@@ -152,7 +156,7 @@ extension StreamerView {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 6, height: 10)
 
-            Slider(value: $value, in: 0 ... 1)
+            Slider(value: $viewModel.volume, in: 0 ... 1)
 
             Image(systemName: "speaker.3.fill")
                 .resizable()

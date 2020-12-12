@@ -12,7 +12,7 @@ typealias PodcastEpisodeListItemViewModels = [PodcastEpisodeListItemViewModel]
 // MARK: Initialization
 
 struct PodcastEpisodeListItemViewModel: Equatable {
-    private let episode: PodcastEpisode
+    let episode: PodcastEpisode
 
     init(episode: PodcastEpisode) {
         self.episode = episode
