@@ -114,10 +114,7 @@ extension StreamerViewModel {
     }
 
     func duration(for seconds: Double) -> String? {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
-
+        let formatter: DateComponentsFormatter = .durationDateComponentsFormatter
         return formatter.string(from: TimeInterval(Int(seconds)))
     }
 

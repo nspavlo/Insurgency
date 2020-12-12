@@ -16,3 +16,14 @@ extension DateFormatter {
         return formatter
     }()
 }
+
+// MARK: DateComponentsFormatter
+
+extension DateComponentsFormatter {
+    static let durationDateComponentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional
+        return formatter
+    }()
+}
