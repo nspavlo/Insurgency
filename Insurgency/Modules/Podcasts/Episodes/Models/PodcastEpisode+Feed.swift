@@ -12,16 +12,17 @@ import Foundation
 
 extension PodcastEpisode {
     init?(_ rss: RSSFeedItem) {
-        if let title = rss.iTunes?.iTunesTitle {
+        if let title = rss.iTunes?.iTunesTitle ?? rss.title {
             self.title = title
         } else {
             return nil
         }
 
-        if let subtitle = rss.iTunes?.iTunesSubtitle {
+        if let subtitle = rss.iTunes?.iTunesSubtitle ?? rss.iTunes?.iTunesSummary {
             self.subtitle = subtitle
+                .replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression)
         } else {
-            return nil
+            self.subtitle = ""
         }
 
         if let date = rss.pubDate {
@@ -35,7 +36,7 @@ extension PodcastEpisode {
         {
             self.image = image
         } else {
-            return nil
+            self.image = URL(string: "https://http.cat/404")!
         }
 
         if let string = rss.enclosure?.attributes?.url,

@@ -109,7 +109,7 @@ extension StreamerViewModel {
         isPlaying = false
         player?.pause()
         removePeriodicTimeObserver()
-        
+
         player = nil
     }
 
