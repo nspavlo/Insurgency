@@ -43,7 +43,7 @@ extension PodcastListView {
         case .initial:
             EmptyView()
         case .search:
-            PodcastListLoaderView(text: Locale.loading)
+            ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
                 let store = StoreServiceLocator.podcastEpisodes(with: viewModel.podcast.url!)

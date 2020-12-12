@@ -1,5 +1,5 @@
 //
-//  PodcastListLoaderView.swift
+//  ListLoaderView.swift
 //  Insurgency
 //
 //  Created by Jans Pavlovs on 08/12/2020.
@@ -9,13 +9,13 @@ import SwiftUI
 
 // MARK: Initialization
 
-struct PodcastListLoaderView: View {
+struct ListLoaderView: View {
     let text: String
 }
 
 // MARK: View Construction
 
-extension PodcastListLoaderView {
+extension ListLoaderView {
     var body: some View {
         HStack {
             ActivityIndicator(
@@ -30,9 +30,9 @@ extension PodcastListLoaderView {
 
 // MARK: Preview
 
-struct PodcastListLoaderView_Previews: PreviewProvider {
+struct ListLoaderView_Previews: PreviewProvider {
     static var previews: some View {
-        PodcastListLoaderView(text: "Loading...")
+        ListLoaderView(text: "Loading...")
             .previewLayout(PreviewLayout.sizeThatFits)
             .padding()
     }

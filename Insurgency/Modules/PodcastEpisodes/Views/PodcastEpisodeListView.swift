@@ -32,7 +32,7 @@ extension PodcastEpisodeListView {
     private func content(for state: PodcastEpisodeListViewModel.State) -> some View {
         switch state {
         case .loading:
-            PodcastListLoaderView(text: Locale.loading)
+            ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { PodcastEpisodeListItemView(viewModel: $0) }
         case .result(.failure(let error)):
