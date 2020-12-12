@@ -12,6 +12,10 @@ import Combine
 
 struct Failure: Error {
     let underlyingError: Error
+
+    var localizedDescription: String {
+        underlyingError.localizedDescription
+    }
 }
 
 // MARK: Equatable
