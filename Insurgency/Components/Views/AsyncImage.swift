@@ -32,12 +32,7 @@ extension AsyncImage {
                 .aspectRatio(contentMode: .fit)
         }
         .animation(.default)
-        .onAppear {
-            image.priority = .normal
-            image.fetch()
-        }
-        .onDisappear {
-            image.priority = .low
-        }
+        .onAppear(perform: image.fetch)
+        .onDisappear(perform: image.cancel)
     }
 }
