@@ -28,7 +28,8 @@ extension StreamerView {
                         sourceArtwork(with: store.state)
                         Spacer()
                     }
-                    .padding(.bottom, 36)
+                    .frame(height: 280)
+                    .padding(.bottom, 16)
 
                     VStack(alignment: .leading, spacing: 24) {
                         sourceTiming(with: store.state)
@@ -116,12 +117,16 @@ extension StreamerView {
     @ViewBuilder
     private func sourceArtwork(with state: StreamerViewModel.State) -> some View {
         AsyncImage(image: FetchImage(url: state.artworkURL))
-            .frame(width: 260, height: 260)
+            .frame(
+                width: state.isPlaying ? 280 : 260,
+                height: state.isPlaying ? 280 : 260
+            )
             .cornerRadius(8)
             .shadow(
                 color: Color(UIColor.tertiaryLabel),
                 radius: 4, x: 0, y: 0
             )
+            .animation(.default)
     }
 
     @ViewBuilder
