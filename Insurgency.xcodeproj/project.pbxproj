@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D1A601925858CBC0028FE79 /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A601825858CBC0028FE79 /* Failure.swift */; };
 		3D1A601F258665A40028FE79 /* StreamerUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */; };
+		3D1A60252586C9DE0028FE79 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60242586C9DE0028FE79 /* TabBarView.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
 		3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		3D1A601825858CBC0028FE79 /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerUpdateViewModel.swift; sourceTree = "<group>"; };
+		3D1A60242586C9DE0028FE79 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
@@ -154,6 +156,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D1A60222586C9C80028FE79 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3D1A60232586C9D50028FE79 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3D1A60232586C9D50028FE79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D1A60242586C9DE0028FE79 /* TabBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3D8C47FC25754DC700BA3748 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +301,7 @@
 			children = (
 				3DBAE4322571683E00B019DB /* Analytics */,
 				3DBAE4262571676A00B019DB /* Authentication */,
+				3D1A60222586C9C80028FE79 /* Home */,
 				3D8C49772576B26300BA3748 /* Podcasts */,
 			);
 			path = Modules;
@@ -670,6 +689,7 @@
 				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
 				3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
+				3D1A60252586C9DE0028FE79 /* TabBarView.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE48925719FF200B019DB /* Command.swift in Sources */,
 				3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */,
