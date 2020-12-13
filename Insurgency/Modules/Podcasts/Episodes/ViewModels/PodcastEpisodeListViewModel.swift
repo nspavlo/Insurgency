@@ -40,8 +40,8 @@ extension PodcastEpisodeListViewModel {
                     if let feedURL = environment.podcast.feedURL {
                         return environment.repository
                             .fetchEpisodes(from: feedURL)
-                            .map { resuts in
-                                resuts.map {
+                            .map { results in
+                                results.map {
                                     PodcastEpisodeListItemViewModel(
                                         episode: $0,
                                         podcastArtworkURL: environment.podcast.artworkURL
@@ -68,11 +68,11 @@ extension PodcastEpisodeListViewModel {
 // MARK: Store
 
 extension PodcastEpisodeListViewModel {
-    static func store(with enviroment: Environment) -> Store<State, Action> {
+    static func store(with environment: Environment) -> Store<State, Action> {
         .init(
             initialState: .loading,
             reducer: reducer().debug(),
-            environment: enviroment
+            environment: environment
         )
     }
 }

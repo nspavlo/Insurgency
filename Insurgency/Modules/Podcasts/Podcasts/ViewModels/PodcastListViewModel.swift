@@ -43,18 +43,18 @@ extension PodcastListViewModel {
         .init { state, action, environment in
             switch action {
             case .search(let term):
-                struct UniquieID: Hashable {}
+                struct UniqueID: Hashable {}
 
                 if term.isEmpty {
                     state = .initial
-                    return .cancel(id: UniquieID())
+                    return .cancel(id: UniqueID())
                 } else {
                     state = .search(term)
                     return environment.repository
                         .fetchPodcasts(with: term)
                         .map { $0.results.map(PodcastListItemViewModel.init) }
                         .catchToEffect()
-                        .debounce(id: UniquieID(), for: 0.3, scheduler: environment.queue)
+                        .debounce(id: UniqueID(), for: 0.3, scheduler: environment.queue)
                         .map(Action.result)
                 }
             case .result(let result):
@@ -68,11 +68,11 @@ extension PodcastListViewModel {
 // MARK: Store
 
 extension PodcastListViewModel {
-    static func store(with enviroment: Environment) -> Store<State, Action> {
+    static func store(with environment: Environment) -> Store<State, Action> {
         .init(
             initialState: .initial,
             reducer: reducer().debug(),
-            environment: enviroment
+            environment: environment
         )
     }
 }
