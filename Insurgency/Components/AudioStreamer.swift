@@ -90,11 +90,7 @@ extension AudioStreamer {
 
 extension AudioStreamer {
     func forward() {
-        guard let duration = player?.currentItem?.duration else {
-            return
-        }
-
-        currentTime = min(currentTime + 30, CMTimeGetSeconds(duration))
+        currentTime = min(currentTime + 30, duration)
     }
 
     func backward() {
