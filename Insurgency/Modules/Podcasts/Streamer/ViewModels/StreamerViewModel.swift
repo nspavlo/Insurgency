@@ -91,7 +91,6 @@ extension StreamerViewModel {
                         streamer: environment.streamer,
                         formatter: .durationDateComponentsFormatter
                     )
-
                 state = state.updated(with: instance)
                 return .none
             }

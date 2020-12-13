@@ -56,6 +56,10 @@ final class AudioStreamer {
     init(url: URL) {
         self.url = url
     }
+
+    deinit {
+        stop()
+    }
 }
 
 // MARK: Playback Controls
