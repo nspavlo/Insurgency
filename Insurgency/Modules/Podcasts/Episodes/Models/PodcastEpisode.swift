@@ -15,6 +15,6 @@ struct PodcastEpisode: Equatable {
     let title: String
     let subtitle: String
     let date: Date
-    let image: URL
-    let stream: URL
+    let artworkURL: URL?
+    let mediaURL: URL
 }

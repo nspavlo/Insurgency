@@ -13,9 +13,11 @@ typealias PodcastEpisodeListItemViewModels = [PodcastEpisodeListItemViewModel]
 
 struct PodcastEpisodeListItemViewModel: Equatable {
     let episode: PodcastEpisode
+    let podcastArtworkURL: URL
 
-    init(episode: PodcastEpisode) {
+    init(episode: PodcastEpisode, podcastArtworkURL: URL) {
         self.episode = episode
+        self.podcastArtworkURL = podcastArtworkURL
     }
 }
 
@@ -23,11 +25,12 @@ struct PodcastEpisodeListItemViewModel: Equatable {
 
 extension PodcastEpisodeListItemViewModel: Identifiable {
     var id: URL {
-        episode.stream
+        episode.mediaURL
     }
 
     var image: URL {
-        episode.image
+        episode.artworkURL
+            ?? podcastArtworkURL
     }
 
     var title: String {

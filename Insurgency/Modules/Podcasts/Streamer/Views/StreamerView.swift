@@ -115,7 +115,7 @@ extension StreamerView {
 
     @ViewBuilder
     private func sourceArtwork(with state: StreamerViewModel.State) -> some View {
-        AsyncImage(image: FetchImage(url: state.image))
+        AsyncImage(image: FetchImage(url: state.artworkURL))
             .frame(width: 260, height: 260)
             .cornerRadius(8)
             .shadow(

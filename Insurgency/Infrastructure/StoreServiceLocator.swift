@@ -23,7 +23,7 @@ enum StoreServiceLocator {
         )
     }
 
-    static func podcastEpisodes(with url: URL) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
+    static func podcastEpisodes(with podcast: Podcast) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
         PodcastEpisodeListViewModel.store(
             with: PodcastEpisodeListViewModel.Environment(
                 repository: PodcastEpisodeRepository(
@@ -31,17 +31,18 @@ enum StoreServiceLocator {
                     url: URLHost.production.url,
                     queue: .main
                 ),
-                url: url,
+                podcast: podcast,
                 queue: DispatchQueue.main.eraseToAnyScheduler()
             )
         )
     }
 
-    static func streamer(with episode: PodcastEpisode) -> Store<StreamerViewModel.State, StreamerViewModel.Action> {
+    static func streamer(with episode: PodcastEpisode, podcastArtworkURL: URL) -> Store<StreamerViewModel.State, StreamerViewModel.Action> {
         StreamerViewModel.store(
             with: StreamerViewModel.Environment(
                 episode: episode,
-                streamer: AudioStreamer(url: episode.stream)
+                podcastArtworkURL: podcastArtworkURL,
+                streamer: AudioStreamer(url: episode.mediaURL)
             )
         )
     }

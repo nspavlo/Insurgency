@@ -62,7 +62,7 @@ extension StreamerViewModel.State {
             duration: instance.duration,
             remaining: instance.remaining,
             volume: instance.volume,
-            image: image,
+            artworkURL: artworkURL,
             title: title,
             subtitle: subtitle
         )

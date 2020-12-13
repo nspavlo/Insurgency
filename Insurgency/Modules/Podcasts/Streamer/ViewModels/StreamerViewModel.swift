@@ -13,16 +13,20 @@ import Foundation
 struct StreamerViewModel {
     struct Environment {
         let episode: PodcastEpisode
+        let podcastArtworkURL: URL
         let streamer: AudioStreamer
     }
 
+    // TODO:
+    // Add `initial` or `loading` state
+    // We need this state for ui
     struct State: Equatable {
         var isPlaying: Bool
         var progress: Float
         var duration: String
         var remaining: String
         var volume: Float
-        var image: URL
+        var artworkURL: URL
         var title: String
         var subtitle: String
     }
@@ -99,15 +103,17 @@ extension StreamerViewModel {
 
 extension StreamerViewModel {
     static func store(with environment: Environment) -> Store<State, Action> {
+        let episode = environment.episode
+
         let state = State(
             isPlaying: false,
             progress: 0.0,
             duration: StreamerUpdateViewModel.kEmptyTimeField,
             remaining: StreamerUpdateViewModel.kEmptyTimeField,
             volume: 0.8,
-            image: environment.episode.image,
-            title: environment.episode.title,
-            subtitle: environment.episode.subtitle
+            artworkURL: episode.artworkURL ?? environment.podcastArtworkURL,
+            title: episode.title,
+            subtitle: episode.subtitle
         )
 
         return .init(

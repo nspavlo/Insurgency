@@ -46,13 +46,9 @@ extension PodcastListView {
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
-                if let url = viewModel.podcast.url {
-                    let store = StoreServiceLocator.podcastEpisodes(with: url)
-                    NavigationLink(destination: PodcastEpisodeListView(store: store)) {
-                        PodcastListItemView(viewModel: viewModel)
-                    }
-                } else {
-                    EmptyView()
+                let store = StoreServiceLocator.podcastEpisodes(with: viewModel.podcast)
+                NavigationLink(destination: PodcastEpisodeListView(store: store)) {
+                    PodcastListItemView(viewModel: viewModel)
                 }
             }
         case .result(.failure(let error)):

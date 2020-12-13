@@ -13,7 +13,7 @@ import Foundation
 struct PodcastEpisodeListViewModel {
     struct Environment {
         let repository: PodcastEpisodeRepositoryProtocol
-        let url: URL
+        let podcast: Podcast
         let queue: AnySchedulerOf<DispatchQueue>
     }
 
@@ -37,11 +37,22 @@ extension PodcastEpisodeListViewModel {
             case .appear:
                 switch state {
                 case .loading:
-                    return environment.repository
-                        .fetchEpisodes(from: environment.url)
-                        .map { $0.map(PodcastEpisodeListItemViewModel.init) }
-                        .catchToEffect()
-                        .map(Action.result)
+                    if let feedURL = environment.podcast.feedURL {
+                        return environment.repository
+                            .fetchEpisodes(from: feedURL)
+                            .map { resuts in
+                                resuts.map {
+                                    PodcastEpisodeListItemViewModel(
+                                        episode: $0,
+                                        podcastArtworkURL: environment.podcast.artworkURL
+                                    )
+                                }
+                            }
+                            .catchToEffect()
+                            .map(Action.result)
+                    } else {
+                        return .none
+                    }
                 case .result(let result):
                     state = .result(result)
                     return .none

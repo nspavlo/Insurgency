@@ -27,14 +27,3 @@ extension PodcastListItemView {
         }
     }
 }
-
-// MARK: Preview
-
-struct PodcastListItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        let podcast = Podcast(id: 1, name: "John Snow", url: URL(string: "https://itunes.apple.com/")!)
-        return PodcastListItemView(viewModel: PodcastListItemViewModel(podcast: podcast))
-            .previewLayout(.sizeThatFits)
-            .padding()
-    }
-}

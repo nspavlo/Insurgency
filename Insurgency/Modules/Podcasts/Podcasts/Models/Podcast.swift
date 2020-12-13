@@ -14,7 +14,8 @@ typealias Podcasts = [Podcast]
 struct Podcast: Equatable {
     let id: Int
     let name: String
-    let url: URL?
+    let feedURL: URL?
+    let artworkURL: URL
 }
 
 // MARK: Decodable
@@ -23,7 +24,8 @@ extension Podcast: Decodable {
     enum CodingKeys: String, CodingKey {
         case id = "trackId"
         case name = "trackName"
-        case url = "feedUrl"
+        case feedURL = "feedUrl"
+        case artworkURL = "artworkUrl600"
     }
 }
 

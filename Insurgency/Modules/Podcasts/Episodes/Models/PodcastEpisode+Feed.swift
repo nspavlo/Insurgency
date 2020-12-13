@@ -31,20 +31,16 @@ extension PodcastEpisode {
             return nil
         }
 
-        if let string = rss.iTunes?.iTunesImage?.attributes?.href,
-           let image = URL(string: string)
-        {
-            self.image = image
+        if let string = rss.iTunes?.iTunesImage?.attributes?.href {
+            self.artworkURL = URL(string: string)
         } else {
-            // TODO:
-            // Return `nil` here and use general `Podcast` image
-            self.image = URL(string: "https://http.cat/404")!
+            self.artworkURL = nil
         }
 
         if let string = rss.enclosure?.attributes?.url,
-           let stream = URL(string: string)
+           let url = URL(string: string)
         {
-            self.stream = stream
+            self.mediaURL = url
         } else {
             return nil
         }
