@@ -5,9 +5,9 @@
 //  Created by Jans Pavlovs on 11/12/2020.
 //
 
+import Combine
 import FeedKit
 import Foundation
-import Combine
 
 // MARK: Protocol
 

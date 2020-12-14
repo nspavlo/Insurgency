@@ -5,10 +5,9 @@
 //  Created by Jans Pavlovs on 12/12/2020.
 //
 
-import Combine
 import ComposableArchitecture
-import SwiftUI
 import FetchImage
+import SwiftUI
 
 // MARK: Initialization
 
