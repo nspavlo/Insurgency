@@ -31,7 +31,8 @@ extension StreamerView {
                         .frame(height: geometry.size.width * 0.9)
                         .padding(.bottom, 16)
 
-                    sourceMediaState()
+                    MediaTimingView(store: self.store)
+                    MediaNameView(store: self.store)
 
                     Spacer()
 
@@ -56,7 +57,10 @@ extension StreamerView {
     }
 
     @ViewBuilder
-    private func sourceArtwork(with state: StreamerViewModel.State, geometry: GeometryProxy) -> some View {
+    private func sourceArtwork(
+        with state: StreamerViewModel.State,
+        geometry: GeometryProxy
+    ) -> some View {
         HStack {
             Spacer()
 
@@ -77,14 +81,6 @@ extension StreamerView {
                 .animation(.default)
 
             Spacer()
-        }
-    }
-
-    @ViewBuilder
-    private func sourceMediaState() -> some View {
-        VStack(alignment: .leading, spacing: 24) {
-            MediaTimingView(store: store)
-            MediaNameView(store: store)
         }
     }
 }
