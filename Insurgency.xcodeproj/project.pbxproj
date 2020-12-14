@@ -11,6 +11,7 @@
 		3D1A601F258665A40028FE79 /* StreamerUpdateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */; };
 		3D1A60252586C9DE0028FE79 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60242586C9DE0028FE79 /* TabBarView.swift */; };
 		3D1A602F2586D7790028FE79 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A602E2586D7790028FE79 /* AppInteractor.swift */; };
+		3D1A60AE2587DEC60028FE79 /* MediaControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */; };
 		3D1A60B22587DF450028FE79 /* MediaVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
@@ -82,6 +83,7 @@
 		3D1A601E258665A40028FE79 /* StreamerUpdateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerUpdateViewModel.swift; sourceTree = "<group>"; };
 		3D1A60242586C9DE0028FE79 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3D1A602E2586D7790028FE79 /* AppInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInteractor.swift; sourceTree = "<group>"; };
+		3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaControlView.swift; sourceTree = "<group>"; };
 		3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVolumeView.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				3DEE738C2584B68400CE5055 /* StreamerView.swift */,
+				3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */,
 				3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */,
 			);
 			path = Views;
@@ -717,6 +720,7 @@
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3DBAE48925719FF200B019DB /* Command.swift in Sources */,
 				3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */,
+				3D1A60AE2587DEC60028FE79 /* MediaControlView.swift in Sources */,
 				3D8C4A3A257831FB00BA3748 /* PodcastListItemView.swift in Sources */,
 				3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */,
 				3D8C4A31257820C000BA3748 /* PodcastListItemViewModel.swift in Sources */,
