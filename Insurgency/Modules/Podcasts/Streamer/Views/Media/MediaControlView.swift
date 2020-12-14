@@ -67,7 +67,7 @@ extension MediaControlView {
 
 // MARK: ViewModifiers
 
-struct ControlButtonModifier: ViewModifier {
+private struct ControlButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .aspectRatio(contentMode: .fit)

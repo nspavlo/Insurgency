@@ -18,18 +18,18 @@ struct StreamerView: View {
 
 // MARK: View Construction
 
+// TODO:
+// Remove 0.9 constant
+// Currently used only to fit content with navigation
+
 extension StreamerView {
     var body: some View {
-        WithViewStore(store) { store in
-            VStack(alignment: .leading, spacing: 16) {
-                Group {
-                    HStack {
-                        Spacer()
-                        sourceArtwork(with: store.state)
-                        Spacer()
-                    }
-                    .frame(height: 280)
-                    .padding(.bottom, 16)
+        GeometryReader { geometry in
+            WithViewStore(store) { store in
+                VStack(alignment: .leading, spacing: 16) {
+                    sourceArtwork(with: store.state, geometry: geometry)
+                        .frame(height: geometry.size.width * 0.9)
+                        .padding(.bottom, 16)
 
                     sourceMediaState()
 
@@ -48,33 +48,43 @@ extension StreamerView {
 
                     Spacer()
                 }
-                .padding([.leading, .trailing], 32)
+                .onAppear { store.send(.appear) }
+                .onDisappear { store.send(.disappear) }
             }
-            .onAppear { store.send(.appear) }
-            .onDisappear { store.send(.disappear) }
         }
+        .padding([.leading, .trailing], 32)
     }
 
     @ViewBuilder
-    private func sourceArtwork(with state: StreamerViewModel.State) -> some View {
-        AsyncImage(image: FetchImage(url: state.artworkURL))
-            .frame(
-                width: state.isPlaying ? 280 : 260,
-                height: state.isPlaying ? 280 : 260
-            )
-            .cornerRadius(8)
-            .shadow(
-                color: Color(UIColor.tertiaryLabel),
-                radius: 4, x: 0, y: 0
-            )
-            .animation(.default)
+    private func sourceArtwork(with state: StreamerViewModel.State, geometry: GeometryProxy) -> some View {
+        HStack {
+            Spacer()
+
+            AsyncImage(image: FetchImage(url: state.artworkURL))
+                .frame(
+                    width: state.isPlaying
+                        ? geometry.size.width * 0.9
+                        : geometry.size.width * 0.8,
+                    height: state.isPlaying
+                        ? geometry.size.width * 0.9
+                        : geometry.size.width * 0.8
+                )
+                .cornerRadius(8)
+                .shadow(
+                    color: Color(UIColor.tertiaryLabel),
+                    radius: 4, x: 0, y: 0
+                )
+                .animation(.default)
+
+            Spacer()
+        }
     }
 
     @ViewBuilder
     private func sourceMediaState() -> some View {
         VStack(alignment: .leading, spacing: 24) {
-            MediaTimingView(store: self.store)
-            MediaNameView(store: self.store)
+            MediaTimingView(store: store)
+            MediaNameView(store: store)
         }
     }
 }

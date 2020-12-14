@@ -42,7 +42,7 @@ extension MediaTimingView {
 
 // MARK: ViewModifiers
 
-struct MonospacedLabelModifier: ViewModifier {
+private struct MonospacedLabelModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundColor(Color(UIColor.tertiaryLabel))
