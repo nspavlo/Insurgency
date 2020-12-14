@@ -83,27 +83,12 @@ extension StreamerView {
 
                     Spacer()
 
-                    HStack(spacing: 8) {
-                        Image(systemName: "speaker.fill")
-                            .resizable()
-                            .foregroundColor(.secondary)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 6, height: 10)
-
-                        Slider(
-                            value: store.binding(
-                                get: { state in state.volume },
-                                send: StreamerViewModel.Action.changeVolume
-                            ),
-                            in: 0 ... 1
+                    MediaVolumeView(
+                        value: store.binding(
+                            get: { state in state.volume },
+                            send: StreamerViewModel.Action.changeVolume
                         )
-
-                        Image(systemName: "speaker.3.fill")
-                            .resizable()
-                            .foregroundColor(.secondary)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 18, height: 14)
-                    }
+                    )
 
                     Spacer()
                 }
