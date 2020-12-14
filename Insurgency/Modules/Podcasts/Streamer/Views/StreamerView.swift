@@ -31,10 +31,7 @@ extension StreamerView {
                     .frame(height: 280)
                     .padding(.bottom, 16)
 
-                    VStack(alignment: .leading, spacing: 24) {
-                        MediaTimingView(store: self.store)
-                        sourceName(with: store.state)
-                    }
+                    sourceMediaState()
 
                     Spacer()
 
@@ -74,40 +71,10 @@ extension StreamerView {
     }
 
     @ViewBuilder
-    private func sourceName(with state: StreamerViewModel.State) -> some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(state.title)
-                .foregroundColor(.primary)
-                .font(.title2)
-                .fontWeight(.bold)
-                .lineLimit(1)
-                .frame(alignment: .leading)
-
-            Text(state.subtitle)
-                .foregroundColor(.secondary)
-                .font(.title3)
-                .fontWeight(.none)
-                .lineLimit(1)
-                .frame(alignment: .leading)
+    private func sourceMediaState() -> some View {
+        VStack(alignment: .leading, spacing: 24) {
+            MediaTimingView(store: self.store)
+            MediaNameView(store: self.store)
         }
-    }
-}
-
-// MARK: ViewModifiers
-
-struct MonospacedLabelModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .foregroundColor(Color(UIColor.tertiaryLabel))
-            .font(Font.system(.caption, design: .monospaced).weight(.bold))
-    }
-}
-
-struct ControlButtonModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 34, height: 34)
-            .font(Font.title.weight(.medium))
     }
 }

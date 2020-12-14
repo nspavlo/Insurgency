@@ -39,3 +39,13 @@ extension MediaTimingView {
         }
     }
 }
+
+// MARK: ViewModifiers
+
+struct MonospacedLabelModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(Color(UIColor.tertiaryLabel))
+            .font(Font.system(.caption, design: .monospaced).weight(.bold))
+    }
+}

@@ -64,3 +64,14 @@ extension MediaControlView {
         }
     }
 }
+
+// MARK: ViewModifiers
+
+struct ControlButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 34, height: 34)
+            .font(Font.title.weight(.medium))
+    }
+}
