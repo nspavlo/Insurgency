@@ -27,7 +27,7 @@ extension MediaControlView {
                         store.send(.skipBackward)
                     },
                     label: {
-                        Image(systemName: "gobackward.15")
+                        Image(symbol: .backward_15)
                             .resizable()
                             .modifier(ControlButtonModifier())
                     }
@@ -40,7 +40,7 @@ extension MediaControlView {
                         store.send(.playback)
                     },
                     label: {
-                        Image(systemName: store.state.isPlaying ? "pause.fill" : "play.fill")
+                        Image(symbol: store.state.isPlaying ? .pauseFill : .playFill)
                             .resizable()
                             .modifier(ControlButtonModifier())
                     }
@@ -53,7 +53,7 @@ extension MediaControlView {
                         store.send(.skipForward)
                     },
                     label: {
-                        Image(systemName: "goforward.30")
+                        Image(symbol: .forward_30)
                             .resizable()
                             .modifier(ControlButtonModifier())
                     }

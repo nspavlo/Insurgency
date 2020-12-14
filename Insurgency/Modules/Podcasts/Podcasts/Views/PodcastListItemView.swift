@@ -18,7 +18,7 @@ struct PodcastListItemView: View {
 extension PodcastListItemView {
     var body: some View {
         HStack {
-            Image(systemName: viewModel.systemImageNamed)
+            Image(symbol: viewModel.symbol)
                 .foregroundColor(.secondary)
 
             Text(viewModel.title)

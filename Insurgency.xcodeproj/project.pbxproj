@@ -16,6 +16,7 @@
 		3D1A60B62587E27F0028FE79 /* MediaTimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */; };
 		3D1A60BB2587E3A90028FE79 /* MediaNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60BA2587E3A90028FE79 /* MediaNameView.swift */; };
 		3D1A60CD2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */; };
+		3D1A60DA258810200028FE79 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60D9258810200028FE79 /* Symbol.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
 		3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */; };
@@ -91,6 +92,7 @@
 		3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTimingView.swift; sourceTree = "<group>"; };
 		3D1A60BA2587E3A90028FE79 /* MediaNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaNameView.swift; sourceTree = "<group>"; };
 		3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponentsFormatter+Presets.swift"; sourceTree = "<group>"; };
+		3D1A60D9258810200028FE79 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				3DEE733F25840B8200CE5055 /* Extensions */,
 				3D8C4A3D257836B000BA3748 /* RepresentableWrappers */,
 				3DEE73692584327A00CE5055 /* Views */,
+				3D1A60D9258810200028FE79 /* Symbol.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */,
 				3D1A601925858CBC0028FE79 /* Failure.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
+				3D1A60DA258810200028FE79 /* Symbol.swift in Sources */,
 				3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */,
 				3DEE73992584E0F500CE5055 /* StreamerViewModel.swift in Sources */,
 				3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */,

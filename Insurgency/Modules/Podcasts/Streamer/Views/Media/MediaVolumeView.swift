@@ -18,7 +18,7 @@ struct MediaVolumeView: View {
 extension MediaVolumeView {
     var body: some View {
         HStack(spacing: 8) {
-            Image(systemName: "speaker.fill")
+            Image(symbol: .speakerMaxFill)
                 .resizable()
                 .foregroundColor(.secondary)
                 .aspectRatio(contentMode: .fit)
@@ -29,7 +29,7 @@ extension MediaVolumeView {
                 in: 0 ... 1
             )
 
-            Image(systemName: "speaker.3.fill")
+            Image(symbol: .speakerMinFill)
                 .resizable()
                 .foregroundColor(.secondary)
                 .aspectRatio(contentMode: .fit)

@@ -29,5 +29,5 @@ extension PodcastListItemViewModel: Identifiable {
 
 extension PodcastListItemViewModel {
     var title: String { podcast.name }
-    var systemImageNamed: String { "magnifyingglass" }
+    var symbol: Symbol { .search }
 }

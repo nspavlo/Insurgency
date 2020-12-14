@@ -28,7 +28,7 @@ extension TabBarView {
                         )
                     )
                     .tabItem {
-                        Image(systemName: "magnifyingglass")
+                        Image(symbol: .search)
                         Text(Locale.searchItemName)
                     }
                 }
