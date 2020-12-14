@@ -47,10 +47,8 @@ extension ProgressView {
                         : 0)
             }
         }
-        .onAppear(perform: {
-            appeared = true
-        })
         .frame(height: height)
         .background(Color.clear)
+        .onAppear { appeared = true }
     }
 }

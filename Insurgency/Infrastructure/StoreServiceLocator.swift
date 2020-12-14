@@ -9,20 +9,10 @@ import ComposableArchitecture
 
 // MARK: Service Locator
 
-enum StoreServiceLocator {
-    static func podcasts() -> Store<PodcastListViewModel.State, PodcastListViewModel.Action> {
-        PodcastListViewModel.store(
-            with: PodcastListViewModel.Environment(
-                repository: PodcastRepository(
-                    session: .shared,
-                    url: URLHost.production.url,
-                    queue: .main
-                ),
-                queue: DispatchQueue.main.eraseToAnyScheduler()
-            )
-        )
-    }
+// TODO:
+// Remove / Inject using scope
 
+enum StoreServiceLocator {
     static func podcastEpisodes(with podcast: Podcast) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
         PodcastEpisodeListViewModel.store(
             with: PodcastEpisodeListViewModel.Environment(

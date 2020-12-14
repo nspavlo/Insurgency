@@ -21,11 +21,28 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options: UIScene.ConnectionOptions
     ) {
-        guard let windowScene = scene as? UIWindowScene else { return }
+        window = (scene as? UIWindowScene)
+            .map(UIWindow.init(windowScene:))
 
-        window = UIWindow(windowScene: windowScene)
-        window!.rootViewController = UIHostingController(rootView: TabBarView())
-        window!.tintColor = .systemPink
-        window!.makeKeyAndVisible()
+        window?.rootViewController = UIHostingController(
+            rootView: TabBarView(
+                store: .init(
+                    initialState: .init(),
+                    reducer: AppInteractor.reducer().debug(),
+                    environment: .init(
+                        podcasts: .init(
+                            repository: PodcastRepository(
+                                session: .shared,
+                                url: URLHost.production.url,
+                                queue: .main
+                            ),
+                            queue: DispatchQueue.main.eraseToAnyScheduler()
+                        )
+                    )
+                )
+            )
+        )
+        window?.tintColor = .systemPink
+        window?.makeKeyAndVisible()
     }
 }
