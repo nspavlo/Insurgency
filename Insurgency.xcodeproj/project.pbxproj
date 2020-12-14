@@ -30,7 +30,7 @@
 		3D8C4B12257ECFC700BA3748 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */; };
 		3D8C4B18257EF63A00BA3748 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B17257EF63900BA3748 /* SearchController.swift */; };
 		3D8C4B22257EF6E300BA3748 /* PodcastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */; };
-		3D8C4B26257EF97A00BA3748 /* PodcastListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */; };
+		3D8C4B26257EF97A00BA3748 /* PodcastListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B25257EF97A00BA3748 /* PodcastListInteractor.swift */; };
 		3D8C4B2A257EFFBC00BA3748 /* ListLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B29257EFFBC00BA3748 /* ListLoaderView.swift */; };
 		3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E7257161E200B019DB /* AppDelegate.swift */; };
 		3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE3E9257161E200B019DB /* SceneDelegate.swift */; };
@@ -105,7 +105,7 @@
 		3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3D8C4B17257EF63900BA3748 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListView.swift; sourceTree = "<group>"; };
-		3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListViewModel.swift; sourceTree = "<group>"; };
+		3D8C4B25257EF97A00BA3748 /* PodcastListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastListInteractor.swift; sourceTree = "<group>"; };
 		3D8C4B29257EFFBC00BA3748 /* ListLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoaderView.swift; sourceTree = "<group>"; };
 		3DBAE3E4257161E200B019DB /* Insurgency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insurgency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBAE3E7257161E200B019DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +214,14 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
+		3D1A60E1258822280028FE79 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				3D8C4B25257EF97A00BA3748 /* PodcastListInteractor.swift */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
 		3D8C47FC25754DC700BA3748 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				3D8C4A30257820C000BA3748 /* PodcastListItemViewModel.swift */,
-				3D8C4B25257EF97A00BA3748 /* PodcastListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 		3DEE73792584B4BD00CE5055 /* Podcasts */ = {
 			isa = PBXGroup;
 			children = (
+				3D1A60E1258822280028FE79 /* Interactors */,
 				3D8C498925779F5400BA3748 /* Models */,
 				3D8C499425779FF200BA3748 /* Repositories */,
 				3D8C4A292578205E00BA3748 /* ViewModels */,
@@ -709,7 +717,7 @@
 				3D8C4A4F25784B7500BA3748 /* ActivityIndicator.swift in Sources */,
 				3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */,
 				3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */,
-				3D8C4B26257EF97A00BA3748 /* PodcastListViewModel.swift in Sources */,
+				3D8C4B26257EF97A00BA3748 /* PodcastListInteractor.swift in Sources */,
 				3DBAE42E257167AA00B019DB /* Authenticator.swift in Sources */,
 				3D1A60CD2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift in Sources */,
 				3D1A601F258665A40028FE79 /* StreamerUpdateViewModel.swift in Sources */,

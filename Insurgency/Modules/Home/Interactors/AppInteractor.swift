@@ -12,16 +12,16 @@ import Foundation
 
 struct AppInteractor {
     struct Environment {
-        var podcasts: PodcastListViewModel.Environment
+        var podcasts: PodcastListInteractor.Environment
     }
 
     struct State: Equatable {
-        var podcasts: PodcastListViewModel.State = .initial
+        var podcasts: PodcastListInteractor.State = .initial
     }
 
     enum Action: Equatable {
         case appear
-        case podcasts(PodcastListViewModel.Action)
+        case podcasts(PodcastListInteractor.Action)
     }
 }
 
@@ -39,7 +39,7 @@ extension AppInteractor {
                     return .none
                 }
             },
-            PodcastListViewModel.reducer()
+            PodcastListInteractor.reducer()
                 .pullback(
                     state: \.podcasts,
                     action: /AppInteractor.Action.podcasts,

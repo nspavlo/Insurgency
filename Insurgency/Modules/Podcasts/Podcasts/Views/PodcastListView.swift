@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: Initialization
 
 struct PodcastListView: View {
-    let store: Store<PodcastListViewModel.State, PodcastListViewModel.Action>
+    let store: Store<PodcastListInteractor.State, PodcastListInteractor.Action>
 }
 
 // MARK: View Construction
@@ -28,7 +28,7 @@ extension PodcastListView {
                 .navigationBarSearch(
                     text: store.binding(
                         get: { state in state.term },
-                        send: PodcastListViewModel.Action.search
+                        send: PodcastListInteractor.Action.search
                     ),
                     placeholder: Locale.searchFieldPlaceholder
                 )
@@ -37,7 +37,7 @@ extension PodcastListView {
     }
 
     @ViewBuilder
-    private func content(for state: PodcastListViewModel.State) -> some View {
+    private func content(for state: PodcastListInteractor.State) -> some View {
         switch state {
         case .initial:
             EmptyView()

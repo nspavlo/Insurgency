@@ -1,5 +1,5 @@
 //
-//  PodcastListViewModel.swift
+//  PodcastListInteractor.swift
 //  Insurgency
 //
 //  Created by Jans Pavlovs on 08/12/2020.
@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Initialization
 
-struct PodcastListViewModel {
+struct PodcastListInteractor {
     struct Environment {
         let repository: PodcastRepositoryProtocol
         let queue: AnySchedulerOf<DispatchQueue>
@@ -38,36 +38,38 @@ struct PodcastListViewModel {
 
 // MARK: Reducer
 
-extension PodcastListViewModel {
+extension PodcastListInteractor {
     static func reducer() -> Reducer<State, Action, Environment> {
-        .init { state, action, environment in
-            switch action {
-            case .search(let term):
-                struct UniqueID: Hashable {}
+        .combine(
+            .init { state, action, environment in
+                switch action {
+                case .search(let term):
+                    struct UniqueID: Hashable {}
 
-                if term.isEmpty {
-                    state = .initial
-                    return .cancel(id: UniqueID())
-                } else {
-                    state = .search(term)
-                    return environment.repository
-                        .fetchPodcasts(with: term)
-                        .map { $0.results.map(PodcastListItemViewModel.init) }
-                        .catchToEffect()
-                        .debounce(id: UniqueID(), for: 0.3, scheduler: environment.queue)
-                        .map(Action.result)
+                    if term.isEmpty {
+                        state = .initial
+                        return .cancel(id: UniqueID())
+                    } else {
+                        state = .search(term)
+                        return environment.repository
+                            .fetchPodcasts(with: term)
+                            .map { $0.results.map(PodcastListItemViewModel.init) }
+                            .catchToEffect()
+                            .debounce(id: UniqueID(), for: 0.3, scheduler: environment.queue)
+                            .map(Action.result)
+                    }
+                case .result(let result):
+                    state = .result(result)
+                    return .none
                 }
-            case .result(let result):
-                state = .result(result)
-                return .none
             }
-        }
+        )
     }
 }
 
 // MARK: Store
 
-extension PodcastListViewModel {
+extension PodcastListInteractor {
     static func store(with environment: Environment) -> Store<State, Action> {
         .init(
             initialState: .initial,
