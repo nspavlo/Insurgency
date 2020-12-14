@@ -13,6 +13,7 @@
 		3D1A602F2586D7790028FE79 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A602E2586D7790028FE79 /* AppInteractor.swift */; };
 		3D1A60AE2587DEC60028FE79 /* MediaControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */; };
 		3D1A60B22587DF450028FE79 /* MediaVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */; };
+		3D1A60B62587E27F0028FE79 /* MediaTimingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
 		3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */; };
@@ -85,6 +86,7 @@
 		3D1A602E2586D7790028FE79 /* AppInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInteractor.swift; sourceTree = "<group>"; };
 		3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaControlView.swift; sourceTree = "<group>"; };
 		3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaVolumeView.swift; sourceTree = "<group>"; };
+		3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTimingView.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		3D8C499025779F9A00BA3748 /* PodcastEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisode.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				3DEE738C2584B68400CE5055 /* StreamerView.swift */,
 				3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */,
 				3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */,
+				3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
 				3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
+				3D1A60B62587E27F0028FE79 /* MediaTimingView.swift in Sources */,
 				3D1A60252586C9DE0028FE79 /* TabBarView.swift in Sources */,
 				3D1A60B22587DF450028FE79 /* MediaVolumeView.swift in Sources */,
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,

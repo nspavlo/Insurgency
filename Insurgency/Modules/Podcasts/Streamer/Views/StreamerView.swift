@@ -32,7 +32,7 @@ extension StreamerView {
                     .padding(.bottom, 16)
 
                     VStack(alignment: .leading, spacing: 24) {
-                        sourceTiming(with: store.state)
+                        MediaTimingView(store: self.store)
                         sourceName(with: store.state)
                     }
 
@@ -71,27 +71,6 @@ extension StreamerView {
                 radius: 4, x: 0, y: 0
             )
             .animation(.default)
-    }
-
-    @ViewBuilder
-    private func sourceTiming(with state: StreamerViewModel.State) -> some View {
-        VStack {
-            ProgressView(
-                value: CGFloat(state.progress),
-                trackColor: Color(UIColor.tertiaryLabel),
-                progressColor: .secondary,
-                height: 3)
-
-            HStack {
-                Text(state.duration)
-                    .modifier(MonospacedLabelModifier())
-
-                Spacer()
-
-                Text(state.remaining)
-                    .modifier(MonospacedLabelModifier())
-            }
-        }
     }
 
     @ViewBuilder
