@@ -7,23 +7,12 @@
 
 import Foundation
 
-// MARK: DateFormatter
+// MARK: Presets
 
 extension DateFormatter {
     static let mediumFormatDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("dd MMMM")
-        return formatter
-    }()
-}
-
-// MARK: DateComponentsFormatter
-
-extension DateComponentsFormatter {
-    static let durationDateComponentsFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.unitsStyle = .positional
         return formatter
     }()
 }
