@@ -21,19 +21,24 @@ extension TabBarView {
         WithViewStore(store.stateless) { store in
             ZStack(alignment: .bottom) {
                 TabView {
-                    PodcastListView(
-                        store: self.store.scope(
-                            state: { $0.podcasts },
-                            action: AppInteractor.Action.podcasts
-                        )
-                    )
-                    .tabItem {
-                        Image(symbol: .search)
-                        Text(Locale.searchItemName)
-                    }
+                    podcastsList()
                 }
             }
             .onAppear { store.send(.appear) }
+        }
+    }
+
+    @ViewBuilder
+    private func podcastsList() -> some View {
+        PodcastListView(
+            store: store.scope(
+                state: { $0.podcasts },
+                action: AppInteractor.Action.podcasts
+            )
+        )
+        .tabItem {
+            Image(symbol: .search)
+            Text(Locale.searchItemName)
         }
     }
 }
