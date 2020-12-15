@@ -66,15 +66,3 @@ extension PodcastListInteractor {
         )
     }
 }
-
-// MARK: Store
-
-extension PodcastListInteractor {
-    static func store(with environment: Environment) -> Store<State, Action> {
-        .init(
-            initialState: .initial,
-            reducer: reducer().debug(),
-            environment: environment
-        )
-    }
-}
