@@ -6,7 +6,6 @@
 //
 
 import ComposableArchitecture
-import FetchImage
 import SwiftUI
 
 // MARK: Initialization
@@ -63,7 +62,7 @@ extension StreamerView {
         HStack {
             Spacer()
 
-            AsyncImage(image: FetchImage(url: state.artworkURL))
+            AsyncImage(url: state.artworkURL)
                 .frame(
                     width: state.isPlaying
                         ? geometry.size.width * 0.9

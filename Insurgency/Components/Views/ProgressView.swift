@@ -52,3 +52,18 @@ extension ProgressView {
         .onAppear { appeared = true }
     }
 }
+
+// MARK: PreviewProvider
+
+struct ProgressView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressView(
+            value: 0.8,
+            trackColor: .secondary,
+            progressColor: .red,
+            height: 2
+        )
+        .previewLayout(.sizeThatFits)
+        .padding()
+    }
+}

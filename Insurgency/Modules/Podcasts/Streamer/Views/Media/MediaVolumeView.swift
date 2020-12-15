@@ -37,3 +37,13 @@ extension MediaVolumeView {
         }
     }
 }
+
+// MARK: PreviewProvider
+
+struct MediaVolumeView_Previews: PreviewProvider {
+    static var previews: some View {
+        MediaVolumeView(value: .constant(0.8))
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}

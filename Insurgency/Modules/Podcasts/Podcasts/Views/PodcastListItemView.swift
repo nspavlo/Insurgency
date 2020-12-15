@@ -27,3 +27,21 @@ extension PodcastListItemView {
         }
     }
 }
+
+// MARK: PreviewProvider
+
+struct PodcastListItemView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = PodcastListItemViewModel(
+            podcast: Podcast(
+                id: 1,
+                name: "Name",
+                feedURL: nil,
+                artworkURL: URL(string: "https://http.cat/100")!
+            )
+        )
+        PodcastListItemView(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}

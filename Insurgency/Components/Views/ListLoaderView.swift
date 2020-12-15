@@ -28,7 +28,7 @@ extension ListLoaderView {
     }
 }
 
-// MARK: Preview
+// MARK: PreviewProvider
 
 struct ListLoaderView_Previews: PreviewProvider {
     static var previews: some View {

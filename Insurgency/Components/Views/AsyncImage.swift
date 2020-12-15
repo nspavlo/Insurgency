@@ -10,13 +10,9 @@ import FetchImage
 
 // MARK: Initialization
 
-// TODO:
-// Remove dependency for `FetchImage`
-// Use `URL` instead
-
 struct AsyncImage: View {
     @ObservedObject
-    var image: FetchImage
+    private var image: FetchImage
 }
 
 // MARK: View Construction
@@ -34,5 +30,23 @@ extension AsyncImage {
         .animation(.default)
         .onAppear(perform: image.fetch)
         .onDisappear(perform: image.cancel)
+    }
+}
+
+// MARK: Convenience
+
+extension AsyncImage {
+    init(url: URL) {
+        self.init(image: FetchImage(url: url))
+    }
+}
+
+// MARK: PreviewProvider
+
+struct AsyncImage_Previews: PreviewProvider {
+    static var previews: some View {
+        AsyncImage(url: URL(string: "https://http.cat/100")!)
+            .previewLayout(.sizeThatFits)
+            .padding()
     }
 }
