@@ -37,8 +37,18 @@ extension TabBarView {
             )
         )
         .tabItem {
-            Image(symbol: .search)
-            Text(Locale.searchItemName)
+            createItem(
+                with: .search,
+                title: Locale.searchItemName
+            )
+        }
+    }
+
+    @ViewBuilder
+    private func createItem(with symbol: Symbol, title: String) -> some View {
+        Group {
+            Image(symbol: symbol)
+            Text(title)
         }
     }
 }
