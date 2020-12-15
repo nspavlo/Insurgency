@@ -36,7 +36,7 @@ struct PodcastListItemView_Previews: PreviewProvider {
             podcast: Podcast(
                 id: 1,
                 name: "Name",
-                feedURL: nil,
+                feedURL: URL(string: "http://localhost")!,
                 artworkURL: URL(string: "https://http.cat/100")!
             )
         )

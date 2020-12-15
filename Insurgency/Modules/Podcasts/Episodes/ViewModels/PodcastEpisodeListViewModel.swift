@@ -37,22 +37,18 @@ extension PodcastEpisodeListViewModel {
             case .appear:
                 switch state {
                 case .loading:
-                    if let feedURL = environment.podcast.feedURL {
-                        return environment.repository
-                            .fetchEpisodes(from: feedURL)
-                            .map { results in
-                                results.map {
-                                    PodcastEpisodeListItemViewModel(
-                                        episode: $0,
-                                        podcastArtworkURL: environment.podcast.artworkURL
-                                    )
-                                }
+                    return environment.repository
+                        .fetchEpisodes(from: environment.podcast.feedURL)
+                        .map { results in
+                            results.map {
+                                PodcastEpisodeListItemViewModel(
+                                    episode: $0,
+                                    podcastArtworkURL: environment.podcast.artworkURL
+                                )
                             }
-                            .catchToEffect()
-                            .map(Action.result)
-                    } else {
-                        return .none
-                    }
+                        }
+                        .catchToEffect()
+                        .map(Action.result)
                 case .result(let result):
                     state = .result(result)
                     return .none

@@ -14,7 +14,7 @@ typealias Podcasts = [Podcast]
 struct Podcast: Equatable {
     let id: Int
     let name: String
-    let feedURL: URL?
+    let feedURL: URL
     let artworkURL: URL
 }
 
@@ -33,6 +33,7 @@ extension Podcast: Decodable {
 
 extension Podcast {
     struct NetworkResponse: Decodable {
+        @LosslessArray
         var results: Podcasts
     }
 }
