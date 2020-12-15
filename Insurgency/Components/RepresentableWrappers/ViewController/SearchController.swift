@@ -11,7 +11,8 @@ import SwiftUI
 
 extension View {
     func navigationBarSearch(text: Binding<String>, placeholder: String) -> some View {
-        overlay(SearchController(text: text, placeholder: placeholder).frame(width: 0, height: 0))
+        let controller = SearchController(text: text, placeholder: placeholder)
+        return overlay(controller.frame(width: 0, height: 0))
     }
 }
 
@@ -31,7 +32,10 @@ private struct SearchController: UIViewControllerRepresentable {
         SearchBarWrapperController()
     }
 
-    func updateUIViewController(_ controller: SearchBarWrapperController, context: Context) {
+    func updateUIViewController(
+        _ controller: SearchBarWrapperController,
+        context: Context
+    ) {
         controller.searchController = context.coordinator.searchController
     }
 

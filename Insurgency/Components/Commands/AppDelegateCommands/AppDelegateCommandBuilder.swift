@@ -16,7 +16,9 @@ final class AppDelegateCommandBuilder {
 // MARK: Public Methods
 
 extension AppDelegateCommandBuilder {
-    func setupLaunchingOptions(_ options: [UIApplication.LaunchOptionsKey: Any]?) -> AppDelegateCommandBuilder {
+    func setupLaunchingOptions(
+        _ options: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> AppDelegateCommandBuilder {
         self.options = options
         return self
     }

@@ -20,7 +20,8 @@ extension PodcastEpisode {
 
         if let subtitle = rss.iTunes?.iTunesSubtitle ?? rss.iTunes?.iTunesSummary {
             // Some podcasts will have html tags in description
-            self.subtitle = subtitle.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+            self.subtitle = subtitle
+                .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
         } else {
             self.subtitle = ""
         }

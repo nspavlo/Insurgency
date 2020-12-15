@@ -13,7 +13,9 @@ import ComposableArchitecture
 // Remove / Inject using scope
 
 enum StoreServiceLocator {
-    static func podcastEpisodes(with podcast: Podcast) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
+    static func podcastEpisodes(
+        with podcast: Podcast
+    ) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
         PodcastEpisodeListViewModel.store(
             with: PodcastEpisodeListViewModel.Environment(
                 repository: PodcastEpisodeRepository(
@@ -27,7 +29,9 @@ enum StoreServiceLocator {
         )
     }
 
-    static func streamer(with episode: PodcastEpisode, podcastArtworkURL: URL) -> Store<StreamerViewModel.State, StreamerViewModel.Action> {
+    static func streamer(
+        with episode: PodcastEpisode, podcastArtworkURL: URL
+    ) -> Store<StreamerViewModel.State, StreamerViewModel.Action> {
         StreamerViewModel.store(
             with: StreamerViewModel.Environment(
                 episode: episode,
