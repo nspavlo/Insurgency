@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Initialization
 
-struct AppInteractor {
+enum AppInteractor {
     struct Environment {
         var podcasts: PodcastListInteractor.Environment
     }

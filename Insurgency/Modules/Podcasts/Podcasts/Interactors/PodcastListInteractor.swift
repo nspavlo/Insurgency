@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Initialization
 
-struct PodcastListInteractor {
+enum PodcastListInteractor {
     struct Environment {
         let repository: PodcastRepositoryProtocol
         let queue: AnySchedulerOf<DispatchQueue>

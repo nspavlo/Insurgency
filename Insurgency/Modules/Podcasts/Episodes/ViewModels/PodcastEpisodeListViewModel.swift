@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Initialization
 
-struct PodcastEpisodeListViewModel {
+enum PodcastEpisodeListViewModel {
     struct Environment {
         let repository: PodcastEpisodeRepositoryProtocol
         let podcast: Podcast

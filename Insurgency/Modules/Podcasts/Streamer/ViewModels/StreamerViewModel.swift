@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Initialization
 
-struct StreamerViewModel {
+enum StreamerViewModel {
     struct Environment {
         let episode: PodcastEpisode
         let podcastArtworkURL: URL
