@@ -33,7 +33,7 @@ extension Podcast: Decodable {
 
 extension Podcast {
     struct NetworkResponse: Decodable {
-        @LosslessArray
+        @LossyArray
         var results: Podcasts
     }
 }
