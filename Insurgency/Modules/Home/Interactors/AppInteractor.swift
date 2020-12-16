@@ -20,7 +20,6 @@ enum AppInteractor {
     }
 
     enum Action: Equatable {
-        case appear
         case podcasts(PodcastListInteractor.Action)
     }
 }
@@ -32,9 +31,6 @@ extension AppInteractor {
         .combine(
             .init { state, action, _ in
                 switch action {
-                case .appear:
-                    state = .init()
-                    return .none
                 case .podcasts:
                     return .none
                 }

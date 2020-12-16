@@ -24,7 +24,6 @@ extension TabBarView {
                     podcastsList()
                 }
             }
-            .onAppear { store.send(.appear) }
         }
     }
 
