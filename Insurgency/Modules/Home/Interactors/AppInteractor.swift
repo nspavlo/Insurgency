@@ -12,7 +12,7 @@ import Foundation
 
 enum AppInteractor {
     struct Environment {
-        var podcasts: PodcastListInteractor.Environment
+        let podcasts: PodcastListInteractor.Environment
     }
 
     struct State: Equatable {
