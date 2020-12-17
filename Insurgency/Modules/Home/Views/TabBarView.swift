@@ -19,36 +19,23 @@ struct TabBarView: View {
 extension TabBarView {
     var body: some View {
         WithViewStore(store.stateless) { store in
-            ZStack(alignment: .bottom) {
-                TabView {
-                    podcastsList()
-                }
+            TabView {
+                podcastList()
+                    .tabItem {
+                        Image(symbol: .search)
+                        Text(Locale.searchItemName)
+                    }
             }
         }
     }
 
-    @ViewBuilder
-    private func podcastsList() -> some View {
+    private func podcastList() -> some View {
         PodcastListView(
             store: store.scope(
                 state: { $0.podcasts },
                 action: AppInteractor.Action.podcasts
             )
         )
-        .tabItem {
-            createItem(
-                with: .search,
-                title: Locale.searchItemName
-            )
-        }
-    }
-
-    @ViewBuilder
-    private func createItem(with symbol: Symbol, title: String) -> some View {
-        Group {
-            Image(symbol: symbol)
-            Text(title)
-        }
     }
 }
 
