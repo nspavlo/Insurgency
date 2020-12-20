@@ -18,14 +18,12 @@ struct TabBarView: View {
 
 extension TabBarView {
     var body: some View {
-        WithViewStore(store.stateless) { store in
-            TabView {
-                podcastList()
-                    .tabItem {
-                        Image(symbol: .search)
-                        Text(Locale.searchItemName)
-                    }
-            }
+        TabView {
+            podcastList()
+                .tabItem {
+                    Image(symbol: .search)
+                    Text(Locale.searchItemName)
+                }
         }
     }
 

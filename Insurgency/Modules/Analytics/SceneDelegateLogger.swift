@@ -18,8 +18,8 @@ final class SceneDelegateLogger: UIResponder {
 extension SceneDelegateLogger: UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options: UIScene.ConnectionOptions
+        willConnectTo _: UISceneSession,
+        options _: UIScene.ConnectionOptions
     ) {
         print("**** [\(emoji)] Connect: \(message(for: scene))")
     }

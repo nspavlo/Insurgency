@@ -17,13 +17,13 @@ struct ActivityIndicator {
 // MARK: UIViewRepresentable
 
 extension ActivityIndicator: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
+    func makeUIView(context _: Context) -> UIActivityIndicatorView {
         let spinner = UIActivityIndicatorView(style: style)
         spinner.hidesWhenStopped = true
         return spinner
     }
 
-    func updateUIView(_ view: UIActivityIndicatorView, context: Context) {
+    func updateUIView(_ view: UIActivityIndicatorView, context _: Context) {
         if isAnimating {
             view.startAnimating()
         } else {

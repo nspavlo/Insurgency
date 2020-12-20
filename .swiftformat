@@ -50,5 +50,5 @@
 --wrapparameters preserve
 --xcodeindentation disabled
 --yodaswap always
---disable andOperator,blankLinesAroundMark,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,braces,elseOnSameLine,fileHeader,hoistPatternLet,indent,initCoderUnavailable,leadingDelimiters,modifierOrder,numberFormatting,redundantSelf,sortedImports,strongOutlets,trailingCommas,unusedArguments,wrap,wrapArguments,wrapAttributes,wrapMultilineStatementBraces
+--disable andOperator,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,braces,elseOnSameLine,fileHeader,hoistPatternLet,indent,initCoderUnavailable,leadingDelimiters,modifierOrder,numberFormatting,redundantSelf,sortedImports,strongOutlets,trailingCommas,wrap,wrapArguments,wrapAttributes,wrapMultilineStatementBraces
 --enable isEmpty,wrapSwitchCases

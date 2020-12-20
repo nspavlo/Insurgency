@@ -18,8 +18,8 @@ final class SceneDelegateWindowScene: UIResponder {
 extension SceneDelegateWindowScene: UIWindowSceneDelegate {
     func scene(
         _ scene: UIScene,
-        willConnectTo session: UISceneSession,
-        options: UIScene.ConnectionOptions
+        willConnectTo _: UISceneSession,
+        options _: UIScene.ConnectionOptions
     ) {
         window = (scene as? UIWindowScene)
             .map(UIWindow.init(windowScene:))

@@ -28,7 +28,7 @@ private struct SearchController: UIViewControllerRepresentable {
         self.placeholder = placeholder
     }
 
-    func makeUIViewController(context: Context) -> SearchBarWrapperController {
+    func makeUIViewController(context _: Context) -> SearchBarWrapperController {
         SearchBarWrapperController()
     }
 
@@ -80,11 +80,11 @@ private struct SearchController: UIViewControllerRepresentable {
             }
         }
 
-        override func viewWillAppear(_ animated: Bool) {
+        override func viewWillAppear(_: Bool) {
             parent?.navigationItem.searchController = searchController
         }
 
-        override func viewDidAppear(_ animated: Bool) {
+        override func viewDidAppear(_: Bool) {
             parent?.navigationItem.searchController = searchController
         }
     }
