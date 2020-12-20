@@ -21,7 +21,7 @@ extension PodcastListView {
         NavigationView {
             WithViewStore(store) { store in
                 List {
-                    content(for: store.state)
+                    content(for: store.state.status)
                 }
                 .environment(\.defaultMinListRowHeight, 48)
                 .navigationBarTitle(Locale.navigationBarTitle)
@@ -37,7 +37,7 @@ extension PodcastListView {
     }
 
     @ViewBuilder
-    private func content(for state: PodcastListInteractor.State) -> some View {
+    private func content(for state: PodcastListInteractor.Status) -> some View {
         switch state {
         case .initial:
             EmptyView()

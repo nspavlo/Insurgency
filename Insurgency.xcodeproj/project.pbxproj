@@ -62,7 +62,7 @@
 		3DEE71FD25815B9F00CE5055 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE71FC25815B9F00CE5055 /* FeedKit */; };
 		3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */; };
 		3DEE720825817C7000CE5055 /* PodcastEpisodeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */; };
-		3DEE721025817F5900CE5055 /* PodcastEpisodeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */; };
+		3DEE721025817F5900CE5055 /* PodcastEpisodeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720F25817F5900CE5055 /* PodcastEpisodeListInteractor.swift */; };
 		3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */; };
 		3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */; };
 		3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */; };
@@ -139,7 +139,7 @@
 		3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListView.swift; sourceTree = "<group>"; };
 		3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PodcastEpisode+Feed.swift"; sourceTree = "<group>"; };
 		3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemView.swift; sourceTree = "<group>"; };
-		3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListViewModel.swift; sourceTree = "<group>"; };
+		3DEE720F25817F5900CE5055 /* PodcastEpisodeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListInteractor.swift; sourceTree = "<group>"; };
 		3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemViewModel.swift; sourceTree = "<group>"; };
 		3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
 		3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Presets.swift"; sourceTree = "<group>"; };
@@ -233,6 +233,14 @@
 				3D7BB6FF25894602006DB49F /* LossyArray.swift */,
 			);
 			path = LossyElements;
+			sourceTree = "<group>";
+		};
+		3D87919D258F906600E040F2 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				3DEE720F25817F5900CE5055 /* PodcastEpisodeListInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 		3D8C47FC25754DC700BA3748 /* Infrastructure */ = {
@@ -495,7 +503,6 @@
 			isa = PBXGroup;
 			children = (
 				3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */,
-				3DEE720F25817F5900CE5055 /* PodcastEpisodeListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -568,6 +575,7 @@
 		3DEE737A2584B4CB00CE5055 /* Episodes */ = {
 			isa = PBXGroup;
 			children = (
+				3D87919D258F906600E040F2 /* Interactors */,
 				3DEE73212583F8D000CE5055 /* Models */,
 				3DEE73222583F8F500CE5055 /* Repositories */,
 				3DEE73232583F8FD00CE5055 /* ViewModels */,
@@ -750,7 +758,7 @@
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
 				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
-				3DEE721025817F5900CE5055 /* PodcastEpisodeListViewModel.swift in Sources */,
+				3DEE721025817F5900CE5055 /* PodcastEpisodeListInteractor.swift in Sources */,
 				3D7BB70025894602006DB49F /* LossyArray.swift in Sources */,
 				3DEE71B72580261500CE5055 /* PodcastEpisodeListView.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,

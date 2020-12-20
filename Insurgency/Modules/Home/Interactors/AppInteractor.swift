@@ -16,7 +16,7 @@ enum AppInteractor {
     }
 
     struct State: Equatable {
-        var podcasts: PodcastListInteractor.State = .initial
+        var podcasts: PodcastListInteractor.State = .init()
     }
 
     enum Action: Equatable {

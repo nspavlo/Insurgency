@@ -16,23 +16,27 @@ enum PodcastListInteractor {
         let queue: AnySchedulerOf<DispatchQueue>
     }
 
-    enum Action: Equatable {
-        case search(String)
-        case result(Result<PodcastListItemViewModels, Failure>)
-    }
-
-    enum State: Equatable {
-        case initial
-        case search(String)
-        case result(Result<PodcastListItemViewModels, Failure>)
+    struct State: Equatable {
+        var status: Status = .initial
 
         var term: String {
-            if case .search(let term) = self {
+            if case .search(let term) = status {
                 return term
             } else {
                 return ""
             }
         }
+    }
+
+    enum Status: Equatable {
+        case initial
+        case search(String)
+        case result(Result<PodcastListItemViewModels, Failure>)
+    }
+
+    enum Action: Equatable {
+        case search(String)
+        case result(Result<PodcastListItemViewModels, Failure>)
     }
 }
 
@@ -47,10 +51,10 @@ extension PodcastListInteractor {
                     struct UniqueID: Hashable {}
 
                     if term.isEmpty {
-                        state = .initial
+                        state.status = .initial
                         return .cancel(id: UniqueID())
                     } else {
-                        state = .search(term)
+                        state.status = .search(term)
                         return environment.repository
                             .fetchPodcasts(with: term)
                             .map { $0.results.map(PodcastListItemViewModel.init) }
@@ -59,7 +63,7 @@ extension PodcastListInteractor {
                             .map(Action.result)
                     }
                 case .result(let result):
-                    state = .result(result)
+                    state.status = .result(result)
                     return .none
                 }
             }

@@ -1,5 +1,5 @@
 //
-//  PodcastEpisodeListViewModel.swift
+//  PodcastEpisodeListInteractor.swift
 //  Insurgency
 //
 //  Created by Jans Pavlovs on 09/12/2020.
@@ -10,32 +10,36 @@ import Foundation
 
 // MARK: Initialization
 
-enum PodcastEpisodeListViewModel {
+enum PodcastEpisodeListInteractor {
     struct Environment {
         let repository: PodcastEpisodeRepositoryProtocol
         let podcast: Podcast
         let queue: AnySchedulerOf<DispatchQueue>
     }
 
-    enum Action: Equatable {
-        case appear
+    struct State: Equatable {
+        var status: Status = .loading
+    }
+
+    enum Status: Equatable {
+        case loading
         case result(Result<PodcastEpisodeListItemViewModels, Failure>)
     }
 
-    enum State: Equatable {
-        case loading
+    enum Action: Equatable {
+        case appear
         case result(Result<PodcastEpisodeListItemViewModels, Failure>)
     }
 }
 
 // MARK: Reducer
 
-extension PodcastEpisodeListViewModel {
+extension PodcastEpisodeListInteractor {
     static func reducer() -> Reducer<State, Action, Environment> {
         .init { state, action, environment in
             switch action {
             case .appear:
-                switch state {
+                switch state.status {
                 case .loading:
                     return environment.repository
                         .fetchEpisodes(from: environment.podcast.feedURL)
@@ -50,11 +54,11 @@ extension PodcastEpisodeListViewModel {
                         .catchToEffect()
                         .map(Action.result)
                 case .result(let result):
-                    state = .result(result)
+                    state.status = .result(result)
                     return .none
                 }
             case .result(let result):
-                state = .result(result)
+                state.status = .result(result)
                 return .none
             }
         }
@@ -63,10 +67,10 @@ extension PodcastEpisodeListViewModel {
 
 // MARK: Store
 
-extension PodcastEpisodeListViewModel {
+extension PodcastEpisodeListInteractor {
     static func store(with environment: Environment) -> Store<State, Action> {
         .init(
-            initialState: .loading,
+            initialState: .init(),
             reducer: reducer().debug(),
             environment: environment
         )

@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: Initialization
 
 struct PodcastEpisodeListView: View {
-    let store: Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action>
+    let store: Store<PodcastEpisodeListInteractor.State, PodcastEpisodeListInteractor.Action>
 }
 
 // MARK: View Construction
@@ -20,7 +20,7 @@ extension PodcastEpisodeListView {
     var body: some View {
         WithViewStore(store) { store in
             List {
-                content(for: store.state)
+                content(for: store.state.status)
             }
             .environment(\.defaultMinListRowHeight, 48)
             .navigationTitle(Locale.navigationBarTitle)
@@ -29,7 +29,7 @@ extension PodcastEpisodeListView {
     }
 
     @ViewBuilder
-    private func content(for state: PodcastEpisodeListViewModel.State) -> some View {
+    private func content(for state: PodcastEpisodeListInteractor.Status) -> some View {
         switch state {
         case .loading:
             ListLoaderView(text: Locale.loading)

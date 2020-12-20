@@ -15,9 +15,9 @@ import ComposableArchitecture
 enum StoreServiceLocator {
     static func podcastEpisodes(
         with podcast: Podcast
-    ) -> Store<PodcastEpisodeListViewModel.State, PodcastEpisodeListViewModel.Action> {
-        PodcastEpisodeListViewModel.store(
-            with: PodcastEpisodeListViewModel.Environment(
+    ) -> Store<PodcastEpisodeListInteractor.State, PodcastEpisodeListInteractor.Action> {
+        PodcastEpisodeListInteractor.store(
+            with: PodcastEpisodeListInteractor.Environment(
                 repository: PodcastEpisodeRepository(
                     session: .shared,
                     url: URLHost.production.url,
