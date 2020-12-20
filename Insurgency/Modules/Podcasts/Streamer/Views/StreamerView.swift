@@ -17,8 +17,8 @@ struct StreamerView: View {
 // MARK: View Construction
 
 // TODO:
-// Remove 0.9 constant
-// Currently used only to fit content with navigation
+// Remove 0.9 constant (Currently used only to fit content with navigation)
+// Extract artwork to `MediaArtworkView`
 
 extension StreamerView {
     var body: some View {
