@@ -15,9 +15,6 @@ struct ProgressView: View {
     let progressColor: Color
     let height: CGFloat
 
-    @State
-    private var appeared = false
-
     init(
         value: CGFloat,
         trackColor: Color,
@@ -42,14 +39,13 @@ extension ProgressView {
                     .frame(width: geomery.size.width)
                 Capsule()
                     .foregroundColor(progressColor)
-                    .frame(width: (geomery.size.width * value) > 0 && appeared
+                    .frame(width: (geomery.size.width * value) > 0
                         ? max(height, geomery.size.width * value)
                         : 0)
             }
         }
         .frame(height: height)
         .background(Color.clear)
-        .onAppear { appeared = true }
     }
 }
 

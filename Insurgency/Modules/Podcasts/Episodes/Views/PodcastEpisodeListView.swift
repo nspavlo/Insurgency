@@ -25,6 +25,21 @@ extension PodcastEpisodeListView {
             .environment(\.defaultMinListRowHeight, 48)
             .navigationTitle(Locale.navigationBarTitle)
             .onAppear { store.send(.appear) }
+            .sheet(
+                isPresented: store.binding(
+                    get: { $0.isSheetPresented },
+                    send: PodcastEpisodeListInteractor.Action.sheet(isPresented:)
+                ),
+                content: {
+                    IfLetStore(
+                        self.store.scope(
+                            state: { $0.streamer },
+                            action: PodcastEpisodeListInteractor.Action.streamer
+                        ),
+                        then: StreamerView.init(store:)
+                    )
+                }
+            )
         }
     }
 
@@ -35,12 +50,15 @@ extension PodcastEpisodeListView {
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
-                let store = StoreServiceLocator.streamer(
-                    with: viewModel.episode,
-                    podcastArtworkURL: viewModel.podcastArtworkURL
-                )
-                NavigationLink(destination: StreamerView(store: store)) {
-                    PodcastEpisodeListItemView(viewModel: viewModel)
+                WithViewStore(store) { store in
+                    Button(
+                        action: {
+                            store.send(.select(container: viewModel.container))
+                        },
+                        label: {
+                            PodcastEpisodeListItemView(viewModel: viewModel)
+                        }
+                    )
                 }
             }
         case .result(.failure(let error)):

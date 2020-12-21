@@ -11,13 +11,12 @@ import SwiftUI
 // MARK: Initialization
 
 struct StreamerView: View {
-    let store: Store<StreamerViewModel.State, StreamerViewModel.Action>
+    let store: Store<StreamerInteractor.State, StreamerInteractor.Action>
 }
 
 // MARK: View Construction
 
 // TODO:
-// Remove 0.9 constant (Currently used only to fit content with navigation)
 // Extract artwork to `MediaArtworkView`
 
 extension StreamerView {
@@ -26,7 +25,7 @@ extension StreamerView {
             WithViewStore(store) { store in
                 VStack(alignment: .leading, spacing: 16) {
                     sourceArtwork(with: store.state, geometry: geometry)
-                        .frame(height: geometry.size.width * 0.9)
+                        .frame(width: geometry.size.width, height: geometry.size.width)
                         .padding(.bottom, 16)
 
                     MediaTimingView(store: self.store)
@@ -41,7 +40,7 @@ extension StreamerView {
                     MediaVolumeView(
                         value: store.binding(
                             get: { state in state.volume },
-                            send: StreamerViewModel.Action.changeVolume
+                            send: StreamerInteractor.Action.changeVolume
                         )
                     )
 
@@ -51,12 +50,12 @@ extension StreamerView {
                 .onDisappear { store.send(.disappear) }
             }
         }
-        .padding([.leading, .trailing], 32)
+        .padding([.top, .leading, .trailing, .bottom], 32)
     }
 
     @ViewBuilder
     private func sourceArtwork(
-        with state: StreamerViewModel.State,
+        with state: StreamerInteractor.State,
         geometry: GeometryProxy
     ) -> some View {
         HStack {
@@ -65,10 +64,10 @@ extension StreamerView {
             AsyncImage(url: state.artworkURL)
                 .frame(
                     width: state.isPlaying
-                        ? geometry.size.width * 0.9
+                        ? geometry.size.width
                         : geometry.size.width * 0.8,
                     height: state.isPlaying
-                        ? geometry.size.width * 0.9
+                        ? geometry.size.width
                         : geometry.size.width * 0.8
                 )
                 .cornerRadius(8)

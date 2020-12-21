@@ -28,17 +28,4 @@ enum StoreServiceLocator {
             )
         )
     }
-
-    static func streamer(
-        with episode: PodcastEpisode,
-        podcastArtworkURL: URL
-    ) -> Store<StreamerViewModel.State, StreamerViewModel.Action> {
-        StreamerViewModel.store(
-            with: StreamerViewModel.Environment(
-                episode: episode,
-                podcastArtworkURL: podcastArtworkURL,
-                streamer: AudioStreamer(url: episode.mediaURL)
-            )
-        )
-    }
 }

@@ -50,12 +50,7 @@ final class AudioStreamer {
         }
     }
 
-    private let url: URL
     private var player: AVPlayer?
-
-    init(url: URL) {
-        self.url = url
-    }
 
     deinit {
         stop()
@@ -65,7 +60,7 @@ final class AudioStreamer {
 // MARK: Playback Controls
 
 extension AudioStreamer {
-    func play() {
+    func play(_ url: URL) {
         player = AVPlayer(playerItem: AVPlayerItem(url: url))
         player?.volume = volume
 

@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: Initialization
 
 struct MediaTimingView: View {
-    let store: Store<StreamerViewModel.State, StreamerViewModel.Action>
+    let store: Store<StreamerInteractor.State, StreamerInteractor.Action>
 }
 
 // MARK: View Construction

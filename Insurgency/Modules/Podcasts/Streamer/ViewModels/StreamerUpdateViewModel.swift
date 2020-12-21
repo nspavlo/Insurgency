@@ -54,8 +54,8 @@ extension StreamerUpdateViewModel {
 
 // MARK: Convenience
 
-extension StreamerViewModel.State {
-    func updated(with instance: StreamerUpdateViewModel) -> StreamerViewModel.State {
+extension StreamerInteractor.State {
+    func updated(with instance: StreamerUpdateViewModel) -> StreamerInteractor.State {
         .init(
             isPlaying: instance.isPlaying,
             progress: instance.progress,
@@ -63,6 +63,7 @@ extension StreamerViewModel.State {
             remaining: instance.remaining,
             volume: instance.volume,
             artworkURL: artworkURL,
+            mediaURL: mediaURL,
             title: title,
             subtitle: subtitle
         )

@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: Initialization
 
 struct MediaNameView: View {
-    let store: Store<StreamerViewModel.State, StreamerViewModel.Action>
+    let store: Store<StreamerInteractor.State, StreamerInteractor.Action>
 }
 
 // MARK: View Construction

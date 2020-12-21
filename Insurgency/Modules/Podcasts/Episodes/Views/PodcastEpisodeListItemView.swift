@@ -45,16 +45,18 @@ extension PodcastEpisodeListItemView {
 
 struct PodcastEpisodeListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = PodcastEpisodeListItemViewModel(
+        let container = PodcastEpisodeContainer(
+            podcastArtworkURL: URL(string: "https://http.cat/100")!,
             episode: PodcastEpisode(
                 title: "Title",
                 subtitle: "Subtitle",
                 date: .init(),
                 artworkURL: nil,
                 mediaURL: URL(string: "http://localhost")!
-            ),
-            podcastArtworkURL: URL(string: "https://http.cat/100")!
+            )
         )
+
+        let viewModel = PodcastEpisodeListItemViewModel(container: container)
         PodcastEpisodeListItemView(viewModel: viewModel)
             .previewLayout(.sizeThatFits)
             .padding()

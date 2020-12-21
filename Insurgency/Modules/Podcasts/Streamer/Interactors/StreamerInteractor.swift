@@ -1,5 +1,5 @@
 //
-//  StreamerViewModel.swift
+//  StreamerInteractor.swift
 //  Insurgency
 //
 //  Created by Jans Pavlovs on 12/12/2020.
@@ -10,10 +10,8 @@ import Foundation
 
 // MARK: Initialization
 
-enum StreamerViewModel {
+enum StreamerInteractor {
     struct Environment {
-        let episode: PodcastEpisode
-        let podcastArtworkURL: URL
         let streamer: AudioStreamer
     }
 
@@ -27,6 +25,7 @@ enum StreamerViewModel {
         var remaining: String
         var volume: Float
         var artworkURL: URL
+        var mediaURL: URL
         var title: String
         var subtitle: String
     }
@@ -44,20 +43,20 @@ enum StreamerViewModel {
 
 // MARK: Reducer
 
-extension StreamerViewModel {
+extension StreamerInteractor {
     static func reducer() -> Reducer<State, Action, Environment> {
         .init { state, action, environment in
             struct TimerID: Hashable {}
 
             let streamerUpdateFromTimer = Effect
-                .timer(id: TimerID(), every: 0.25, on: RunLoop.main)
+                .timer(id: TimerID(), every: 0.5, on: RunLoop.main)
                 .map { _ in Action.updateFromStreamer }
 
             let updateFromStreamer = Effect<Action, Never>(value: .updateFromStreamer)
 
             switch action {
             case .appear:
-                environment.streamer.play()
+                environment.streamer.play(state.mediaURL)
                 return streamerUpdateFromTimer
             case .disappear:
                 environment.streamer.stop()
@@ -95,30 +94,5 @@ extension StreamerViewModel {
                 return .none
             }
         }
-    }
-}
-
-// MARK: Store
-
-extension StreamerViewModel {
-    static func store(with environment: Environment) -> Store<State, Action> {
-        let episode = environment.episode
-
-        let state = State(
-            isPlaying: false,
-            progress: 0.0,
-            duration: StreamerUpdateViewModel.kEmptyTimeField,
-            remaining: StreamerUpdateViewModel.kEmptyTimeField,
-            volume: 0.8,
-            artworkURL: episode.artworkURL ?? environment.podcastArtworkURL,
-            title: episode.title,
-            subtitle: episode.subtitle
-        )
-
-        return .init(
-            initialState: state,
-            reducer: reducer().debug(),
-            environment: environment
-        )
     }
 }
