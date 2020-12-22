@@ -28,7 +28,7 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
             rootView: TabBarView(
                 store: .init(
                     initialState: .init(),
-                    reducer: AppInteractor.reducer().debug(),
+                    reducer: AppInteractor.reducer(),
                     environment: .init(
                         podcasts: .init(
                             repository: PodcastRepository(
@@ -36,7 +36,15 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
                                 url: URLHost.production.url,
                                 queue: .main
                             ),
-                            queue: DispatchQueue.main.eraseToAnyScheduler()
+                            scheduler: DispatchQueue.main.eraseToAnyScheduler(),
+                            episode: .init(
+                                repository: PodcastEpisodeRepository(
+                                    session: .shared,
+                                    url: URLHost.production.url,
+                                    queue: .main
+                                ),
+                                streamer: .init(streamer: AudioStreamer())
+                            )
                         )
                     )
                 )

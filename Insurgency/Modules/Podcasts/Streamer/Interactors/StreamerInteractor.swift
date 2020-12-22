@@ -19,11 +19,11 @@ enum StreamerInteractor {
     // Add `initial` or `loading` state
     // We need this state for ui
     struct State: Equatable {
-        var isPlaying: Bool
-        var progress: Float
+        var isPlaying = false
+        var progress: Float = 0.0
         var duration: String
         var remaining: String
-        var volume: Float
+        var volume: Float = 0.0
         var artworkURL: URL
         var mediaURL: URL
         var title: String

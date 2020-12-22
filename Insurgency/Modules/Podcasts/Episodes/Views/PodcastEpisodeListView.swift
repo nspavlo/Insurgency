@@ -20,7 +20,7 @@ extension PodcastEpisodeListView {
     var body: some View {
         WithViewStore(store) { store in
             List {
-                content(for: store.state.status)
+                content(for: store)
             }
             .environment(\.defaultMinListRowHeight, 48)
             .navigationTitle(Locale.navigationBarTitle)
@@ -44,22 +44,22 @@ extension PodcastEpisodeListView {
     }
 
     @ViewBuilder
-    private func content(for state: PodcastEpisodeListInteractor.Status) -> some View {
-        switch state {
+    private func content(
+        for store: ViewStore<PodcastEpisodeListInteractor.State, PodcastEpisodeListInteractor.Action>
+    ) -> some View {
+        switch store.status {
         case .loading:
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
             ForEach(viewModels) { viewModel in
-                WithViewStore(store) { store in
-                    Button(
-                        action: {
-                            store.send(.select(container: viewModel.container))
-                        },
-                        label: {
-                            PodcastEpisodeListItemView(viewModel: viewModel)
-                        }
-                    )
-                }
+                Button(
+                    action: {
+                        store.send(.select(container: viewModel.container))
+                    },
+                    label: {
+                        PodcastEpisodeListItemView(viewModel: viewModel)
+                    }
+                )
             }
         case .result(.failure(let error)):
             Text(error.localizedDescription)

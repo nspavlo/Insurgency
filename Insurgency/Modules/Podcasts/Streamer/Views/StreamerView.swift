@@ -16,9 +16,6 @@ struct StreamerView: View {
 
 // MARK: View Construction
 
-// TODO:
-// Extract artwork to `MediaArtworkView`
-
 extension StreamerView {
     var body: some View {
         GeometryReader { geometry in

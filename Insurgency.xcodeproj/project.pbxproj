@@ -67,7 +67,6 @@
 		3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */; };
 		3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */; };
 		3DEE733C258409D100CE5055 /* DateFormatter+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */; };
-		3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73472584193400CE5055 /* StoreServiceLocator.swift */; };
 		3DEE73582584292200CE5055 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE73572584292200CE5055 /* FetchImage */; };
 		3DEE736B2584328800CE5055 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE736A2584328800CE5055 /* AsyncImage.swift */; };
 		3DEE738D2584B68400CE5055 /* StreamerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE738C2584B68400CE5055 /* StreamerView.swift */; };
@@ -145,7 +144,6 @@
 		3DEE721325817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemViewModel.swift; sourceTree = "<group>"; };
 		3DEE73252583F94B00CE5055 /* EpisodeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeRepository.swift; sourceTree = "<group>"; };
 		3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Presets.swift"; sourceTree = "<group>"; };
-		3DEE73472584193400CE5055 /* StoreServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreServiceLocator.swift; sourceTree = "<group>"; };
 		3DEE736A2584328800CE5055 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		3DEE738C2584B68400CE5055 /* StreamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerView.swift; sourceTree = "<group>"; };
 		3DEE73922584D99700CE5055 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 			children = (
 				3D8C47FD25754DDD00BA3748 /* Networking */,
 				3D1A601825858CBC0028FE79 /* Failure.swift */,
-				3DEE73472584193400CE5055 /* StoreServiceLocator.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -786,7 +783,6 @@
 				3DBAE4282571678200B019DB /* Credentials.swift in Sources */,
 				3D1A60BB2587E3A90028FE79 /* MediaNameView.swift in Sources */,
 				3DBAE48925719FF200B019DB /* Command.swift in Sources */,
-				3DEE73482584193400CE5055 /* StoreServiceLocator.swift in Sources */,
 				3D1A60AE2587DEC60028FE79 /* MediaControlView.swift in Sources */,
 				3D8C4A3A257831FB00BA3748 /* PodcastListItemView.swift in Sources */,
 				3DBAE46B25718F3B00B019DB /* AuthenticatorLogger.swift in Sources */,

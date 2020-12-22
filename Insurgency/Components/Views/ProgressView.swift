@@ -37,6 +37,7 @@ extension ProgressView {
                 Capsule()
                     .foregroundColor(trackColor.opacity(0.2))
                     .frame(width: geomery.size.width)
+
                 Capsule()
                     .foregroundColor(progressColor)
                     .frame(width: (geomery.size.width * value) > 0

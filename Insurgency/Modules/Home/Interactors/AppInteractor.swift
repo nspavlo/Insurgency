@@ -29,11 +29,8 @@ enum AppInteractor {
 extension AppInteractor {
     static func reducer() -> Reducer<State, Action, Environment> {
         .combine(
-            .init { _, action, _ in
-                switch action {
-                case .podcasts:
-                    return .none
-                }
+            .init { _, _, _ in
+                return .none
             },
             PodcastListInteractor.reducer()
                 .pullback(

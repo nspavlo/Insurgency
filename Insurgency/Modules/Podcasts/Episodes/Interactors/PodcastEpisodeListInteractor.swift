@@ -13,13 +13,12 @@ import Foundation
 enum PodcastEpisodeListInteractor {
     struct Environment {
         let repository: PodcastEpisodeRepositoryProtocol
-        let podcast: Podcast
-        let queue: AnySchedulerOf<DispatchQueue>
-        let streamer: StreamerInteractor.Environment = .init(streamer: AudioStreamer())
+        let streamer: StreamerInteractor.Environment
     }
 
     struct State: Equatable {
         var status: Status = .loading
+        var podcast: Podcast
         var streamer: StreamerInteractor.State?
         var container: PodcastEpisodeContainer?
         var isSheetPresented: Bool { container != nil }
@@ -55,18 +54,17 @@ extension PodcastEpisodeListInteractor {
                 case .streamer:
                     return .none
                 case .select(let container):
-                    state.container = container
+                    let emptyTimeField = StreamerUpdateViewModel.kEmptyTimeField
+                    let artworkURL = container.episode.artworkURL ?? container.podcastArtworkURL
                     state.streamer = .init(
-                        isPlaying: false,
-                        progress: 0.0,
-                        duration: StreamerUpdateViewModel.kEmptyTimeField,
-                        remaining: StreamerUpdateViewModel.kEmptyTimeField,
-                        volume: 0.8,
-                        artworkURL: container.episode.artworkURL ?? container.podcastArtworkURL,
+                        duration: emptyTimeField,
+                        remaining: emptyTimeField,
+                        artworkURL: artworkURL,
                         mediaURL: container.episode.mediaURL,
                         title: container.episode.title,
                         subtitle: container.episode.subtitle
                     )
+                    state.container = container
                     return .none
                 case .sheet:
                     state.container = nil
@@ -74,13 +72,14 @@ extension PodcastEpisodeListInteractor {
                 case .appear:
                     switch state.status {
                     case .loading:
+                        let podcastArtworkURL = state.podcast.artworkURL
                         return environment.repository
-                            .fetchEpisodes(from: environment.podcast.feedURL)
+                            .fetchEpisodes(from: state.podcast.feedURL)
                             .map { results in
                                 results
                                     .map { episode in
                                         let container = PodcastEpisodeContainer(
-                                            podcastArtworkURL: environment.podcast.artworkURL,
+                                            podcastArtworkURL: podcastArtworkURL,
                                             episode: episode
                                         )
                                         return PodcastEpisodeListItemViewModel(container: container)
@@ -97,18 +96,6 @@ extension PodcastEpisodeListInteractor {
                     return .none
                 }
             }
-        )
-    }
-}
-
-// MARK: Store
-
-extension PodcastEpisodeListInteractor {
-    static func store(with environment: Environment) -> Store<State, Action> {
-        .init(
-            initialState: .init(),
-            reducer: reducer(),
-            environment: environment
         )
     }
 }
