@@ -19,6 +19,10 @@ struct StreamerUpdateViewModel {
 // MARK: Adapter
 
 extension StreamerUpdateViewModel {
+    var isLoading: Bool {
+        streamer.isLoading
+    }
+
     var isPlaying: Bool {
         streamer.isPlaying
     }
@@ -57,6 +61,7 @@ extension StreamerUpdateViewModel {
 extension StreamerInteractor.State {
     func updated(with instance: StreamerUpdateViewModel) -> StreamerInteractor.State {
         .init(
+            isLoading: instance.isLoading,
             isPlaying: instance.isPlaying,
             progress: instance.progress,
             duration: instance.duration,

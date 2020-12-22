@@ -15,10 +15,8 @@ enum StreamerInteractor {
         let streamer: AudioStreamer
     }
 
-    // TODO:
-    // Add `initial` or `loading` state
-    // We need this state for ui
     struct State: Equatable {
+        var isLoading = true
         var isPlaying = false
         var progress: Float = 0.0
         var duration: String

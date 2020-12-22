@@ -16,6 +16,10 @@ final class AudioStreamer {
         }
     }
 
+    var isLoading: Bool {
+        player?.status != .readyToPlay
+    }
+
     var isPlaying: Bool {
         if let player = player {
             return player.rate != 0

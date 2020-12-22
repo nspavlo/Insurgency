@@ -32,6 +32,7 @@ extension MediaControlView {
                             .modifier(ControlButtonModifier())
                     }
                 )
+                .disabled(store.isLoading)
 
                 Spacer()
 
@@ -45,6 +46,7 @@ extension MediaControlView {
                             .modifier(ControlButtonModifier())
                     }
                 )
+                .disabled(store.isLoading)
 
                 Spacer()
 
@@ -58,6 +60,7 @@ extension MediaControlView {
                             .modifier(ControlButtonModifier())
                     }
                 )
+                .disabled(store.isLoading)
 
                 Spacer()
             }
