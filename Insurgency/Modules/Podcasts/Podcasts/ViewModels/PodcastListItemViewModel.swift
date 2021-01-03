@@ -25,6 +25,10 @@ extension PodcastListItemViewModel: Identifiable {
     var id: Int { podcast.id }
 }
 
+// MARK: Hashable
+
+extension PodcastListItemViewModel: Hashable {}
+
 // MARK: Adapter
 
 extension PodcastListItemViewModel {

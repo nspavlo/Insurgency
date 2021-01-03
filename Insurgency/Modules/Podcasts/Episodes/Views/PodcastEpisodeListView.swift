@@ -51,7 +51,7 @@ extension PodcastEpisodeListView {
         case .loading:
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
-            ForEach(viewModels) { viewModel in
+            ForEach(viewModels, id: \.self) { viewModel in
                 Button(
                     action: {
                         store.send(.select(container: viewModel.container))

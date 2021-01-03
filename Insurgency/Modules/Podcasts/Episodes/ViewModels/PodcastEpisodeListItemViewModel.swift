@@ -11,7 +11,7 @@ typealias PodcastEpisodeListItemViewModels = [PodcastEpisodeListItemViewModel]
 
 // MARK: Initialization
 
-struct PodcastEpisodeListItemViewModel: Equatable {
+struct PodcastEpisodeListItemViewModel: Hashable {
     var episode: PodcastEpisode {
         container.episode
     }

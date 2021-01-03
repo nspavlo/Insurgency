@@ -29,6 +29,10 @@ extension Podcast: Decodable {
     }
 }
 
+// MARK: Hashable
+
+extension Podcast: Hashable {}
+
 // MARK: Network Container
 
 extension Podcast {

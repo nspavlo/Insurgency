@@ -11,10 +11,14 @@ typealias PodcastEpisodes = [PodcastEpisode]
 
 // MARK: Initialization
 
-struct PodcastEpisode: Equatable {
+struct PodcastEpisode {
     let title: String
     let subtitle: String
     let date: Date
     let artworkURL: URL?
     let mediaURL: URL
 }
+
+// MARK: Hashable
+
+extension PodcastEpisode: Hashable {}

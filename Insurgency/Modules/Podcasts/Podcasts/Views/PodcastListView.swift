@@ -46,7 +46,7 @@ extension PodcastListView {
         case .search:
             ListLoaderView(text: Locale.loading)
         case .result(.success(let viewModels)):
-            ForEach(viewModels) { viewModel in
+            ForEach(viewModels, id: \.self) { viewModel in
                 NavigationLink(
                     destination: IfLetStore(
                         self.store.scope(

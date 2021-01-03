@@ -9,7 +9,11 @@ import Foundation
 
 // MARK: Initialization
 
-struct PodcastEpisodeContainer: Equatable {
+struct PodcastEpisodeContainer {
     let podcastArtworkURL: URL
     let episode: PodcastEpisode
 }
+
+// MARK: Hashable
+
+extension PodcastEpisodeContainer: Hashable {}
