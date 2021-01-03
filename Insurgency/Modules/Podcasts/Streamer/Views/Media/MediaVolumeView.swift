@@ -33,7 +33,7 @@ extension MediaVolumeView {
                 .resizable()
                 .foregroundColor(.secondary)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 18, height: 14)
+                .frame(width: 18, height: 12)
         }
     }
 }
