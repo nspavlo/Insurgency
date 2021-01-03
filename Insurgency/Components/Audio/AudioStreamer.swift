@@ -89,10 +89,12 @@ extension AudioStreamer {
 
 extension AudioStreamer {
     func forward() {
-        currentTime = min(currentTime + 30, duration)
+        let interval = 30.0
+        currentTime = min(currentTime + interval, duration)
     }
 
     func backward() {
-        currentTime = max(currentTime - 15, 0)
+        let interval = 15.0
+        currentTime = max(currentTime - interval, 0)
     }
 }
