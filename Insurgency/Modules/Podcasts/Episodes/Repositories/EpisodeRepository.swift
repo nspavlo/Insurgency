@@ -27,7 +27,7 @@ struct PodcastEpisodeRepository: URLRepositoryProtocol {
 
 extension PodcastEpisodeRepository: PodcastEpisodeRepositoryProtocol {
     func fetchEpisodes(from url: URL) -> AnyPublisher<PodcastEpisodes, Failure> {
-        execute(URLRequest(url: url))
+        execute(URLRequest(url: url), BinaryDecoder())
             .receive(on: DispatchQueue.global(qos: .default))
             .tryMap { result in try parseEpisodes(from: result.value) }
             .mapError { Failure(underlyingError: $0) }

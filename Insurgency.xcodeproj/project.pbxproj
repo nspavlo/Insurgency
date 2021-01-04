@@ -59,6 +59,9 @@
 		3DBAE48925719FF200B019DB /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE48825719FF200B019DB /* Command.swift */; };
 		3DBAE48F2571A05C00B019DB /* AppDelegateCommandBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE48E2571A05C00B019DB /* AppDelegateCommandBuilder.swift */; };
 		3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */; };
+		3DBD905125A39F97008223CD /* DecodableDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD905025A39F97008223CD /* DecodableDecoder.swift */; };
+		3DBD905725A39FEF008223CD /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD905625A39FEF008223CD /* BinaryDecoder.swift */; };
+		3DBD905B25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBD905A25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift */; };
 		3DEE71B72580261500CE5055 /* PodcastEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */; };
 		3DEE71FD25815B9F00CE5055 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE71FC25815B9F00CE5055 /* FeedKit */; };
 		3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */; };
@@ -136,6 +139,9 @@
 		3DBAE48825719FF200B019DB /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		3DBAE48E2571A05C00B019DB /* AppDelegateCommandBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateCommandBuilder.swift; sourceTree = "<group>"; };
 		3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserDefaultsCommand.swift; sourceTree = "<group>"; };
+		3DBD905025A39F97008223CD /* DecodableDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableDecoder.swift; sourceTree = "<group>"; };
+		3DBD905625A39FEF008223CD /* BinaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryDecoder.swift; sourceTree = "<group>"; };
+		3DBD905A25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+DecodableDecoder.swift"; sourceTree = "<group>"; };
 		3DEE71B62580261500CE5055 /* PodcastEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListView.swift; sourceTree = "<group>"; };
 		3DEE720025816BE200CE5055 /* PodcastEpisode+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PodcastEpisode+Feed.swift"; sourceTree = "<group>"; };
 		3DEE720725817C7000CE5055 /* PodcastEpisodeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeListItemView.swift; sourceTree = "<group>"; };
@@ -469,6 +475,7 @@
 			children = (
 				3D1A602A2586CE570028FE79 /* Audio */,
 				3DEE73342583FC5800CE5055 /* Commands */,
+				3DBD904F25A39F73008223CD /* Decodable */,
 				3DEE733F25840B8200CE5055 /* Extensions */,
 				3D7BB6F6258945BB006DB49F /* LossyElements */,
 				3D8C4A3D257836B000BA3748 /* RepresentableWrappers */,
@@ -485,6 +492,15 @@
 				3DBAE4922571A3CA00B019DB /* RegisterUserDefaultsCommand.swift */,
 			);
 			path = AppDelegateCommands;
+			sourceTree = "<group>";
+		};
+		3DBD904F25A39F73008223CD /* Decodable */ = {
+			isa = PBXGroup;
+			children = (
+				3DBD905625A39FEF008223CD /* BinaryDecoder.swift */,
+				3DBD905025A39F97008223CD /* DecodableDecoder.swift */,
+			);
+			path = Decodable;
 			sourceTree = "<group>";
 		};
 		3DEE73212583F8D000CE5055 /* Models */ = {
@@ -552,6 +568,7 @@
 			children = (
 				3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */,
 				3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */,
+				3DBD905A25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -754,6 +771,7 @@
 				3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */,
 				3D1A602F2586D7790028FE79 /* AppInteractor.swift in Sources */,
 				3DEE721425817F8600CE5055 /* PodcastEpisodeListItemViewModel.swift in Sources */,
+				3DBD905125A39F97008223CD /* DecodableDecoder.swift in Sources */,
 				3D1A601925858CBC0028FE79 /* Failure.swift in Sources */,
 				3D8791A32590F5B700E040F2 /* PodcastEpisodeContainer.swift in Sources */,
 				3DBAE4932571A3CA00B019DB /* RegisterUserDefaultsCommand.swift in Sources */,
@@ -765,12 +783,14 @@
 				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
 				3DEE721025817F5900CE5055 /* PodcastEpisodeListInteractor.swift in Sources */,
+				3DBD905725A39FEF008223CD /* BinaryDecoder.swift in Sources */,
 				3D7BB70025894602006DB49F /* LossyArray.swift in Sources */,
 				3DEE71B72580261500CE5055 /* PodcastEpisodeListView.swift in Sources */,
 				3DBAE4342571689F00B019DB /* FirebaseAnalyticsAuthenticatorTracker.swift in Sources */,
 				3DBAE48F2571A05C00B019DB /* AppDelegateCommandBuilder.swift in Sources */,
 				3D8C4B22257EF6E300BA3748 /* PodcastListView.swift in Sources */,
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
+				3DBD905B25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift in Sources */,
 				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
 				3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,

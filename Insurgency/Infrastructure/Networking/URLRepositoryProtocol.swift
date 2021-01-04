@@ -21,26 +21,13 @@ protocol URLRepositoryProtocol {
 internal extension URLRepositoryProtocol {
     func execute<T: Decodable>(
         _ request: URLRequest,
-        _ decoder: JSONDecoder
+        _ decoder: DecodableDecoder
     ) -> AnyPublisher<URLRepositoryResponse<T>, Failure> {
         session
             .dataTaskPublisher(for: request)
             .tryMap { result -> URLRepositoryResponse<T> in
                 let value = try decoder.decode(T.self, from: result.data)
                 return URLRepositoryResponse(value: value, response: result.response)
-            }
-            .mapError { Failure(underlyingError: $0) }
-            .receive(on: queue)
-            .eraseToAnyPublisher()
-    }
-
-    func execute(
-        _ request: URLRequest
-    ) -> AnyPublisher<URLRepositoryResponse<Data>, Failure> {
-        session
-            .dataTaskPublisher(for: request)
-            .tryMap { result -> URLRepositoryResponse<Data> in
-                URLRepositoryResponse(value: result.data, response: result.response)
             }
             .mapError { Failure(underlyingError: $0) }
             .receive(on: queue)

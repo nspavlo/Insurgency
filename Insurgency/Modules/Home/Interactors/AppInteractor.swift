@@ -30,7 +30,7 @@ extension AppInteractor {
     static func reducer() -> Reducer<State, Action, Environment> {
         .combine(
             .init { _, _, _ in
-                return .none
+                .none
             },
             PodcastListInteractor.reducer()
                 .pullback(
