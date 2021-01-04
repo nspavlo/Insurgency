@@ -50,7 +50,6 @@ extension StreamerView {
         .padding([.top, .leading, .trailing, .bottom], 32)
     }
 
-    @ViewBuilder
     private func sourceArtwork(
         with state: StreamerInteractor.State,
         geometry: GeometryProxy
