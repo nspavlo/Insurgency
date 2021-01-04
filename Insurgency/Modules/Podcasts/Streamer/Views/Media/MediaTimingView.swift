@@ -20,11 +20,9 @@ extension MediaTimingView {
     var body: some View {
         WithViewStore(store) { store in
             VStack {
-                ProgressView(
-                    value: CGFloat(store.state.progress),
-                    trackColor: Color(UIColor.tertiaryLabel),
-                    progressColor: .secondary,
-                    height: 3)
+                ProgressView(value: CGFloat(store.state.progress))
+                    .progressViewStyle(LinearProgressViewStyle())
+                    .accentColor(.secondary)
 
                 HStack {
                     Text(store.state.duration)

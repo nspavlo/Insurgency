@@ -70,7 +70,6 @@
 		3DEE73582584292200CE5055 /* FetchImage in Frameworks */ = {isa = PBXBuildFile; productRef = 3DEE73572584292200CE5055 /* FetchImage */; };
 		3DEE736B2584328800CE5055 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE736A2584328800CE5055 /* AsyncImage.swift */; };
 		3DEE738D2584B68400CE5055 /* StreamerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE738C2584B68400CE5055 /* StreamerView.swift */; };
-		3DEE73932584D99700CE5055 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73922584D99700CE5055 /* ProgressView.swift */; };
 		3DEE73992584E0F500CE5055 /* StreamerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEE73982584E0F500CE5055 /* StreamerInteractor.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,7 +145,6 @@
 		3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Presets.swift"; sourceTree = "<group>"; };
 		3DEE736A2584328800CE5055 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		3DEE738C2584B68400CE5055 /* StreamerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerView.swift; sourceTree = "<group>"; };
-		3DEE73922584D99700CE5055 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		3DEE73982584E0F500CE5055 /* StreamerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamerInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -563,7 +561,6 @@
 			children = (
 				3DEE736A2584328800CE5055 /* AsyncImage.swift */,
 				3D8C4B29257EFFBC00BA3748 /* ListLoaderView.swift */,
-				3DEE73922584D99700CE5055 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -789,7 +786,6 @@
 				3D8C4A31257820C000BA3748 /* PodcastListItemViewModel.swift in Sources */,
 				3D8C4B2A257EFFBC00BA3748 /* ListLoaderView.swift in Sources */,
 				3D8C49982577A03000BA3748 /* PodcastRepository.swift in Sources */,
-				3DEE73932584D99700CE5055 /* ProgressView.swift in Sources */,
 				3D7BB7042589465C006DB49F /* Lossy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
