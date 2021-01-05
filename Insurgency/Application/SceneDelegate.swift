@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: Initialization
 
 class SceneDelegate: UIResponder {
-    var multiplexer = SceneDelegateMultiplexer(delegates: [
+    let multiplexer = SceneDelegateMultiplexer(delegates: [
         SceneDelegateWindowScene(),
         SceneDelegateLogger()
     ])

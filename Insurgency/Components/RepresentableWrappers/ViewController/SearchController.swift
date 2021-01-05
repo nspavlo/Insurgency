@@ -21,7 +21,7 @@ extension View {
 private struct SearchController: UIViewControllerRepresentable {
     @Binding
     var text: String
-    var placeholder: String
+    let placeholder: String
 
     init(text: Binding<String>, placeholder: String) {
         self._text = text

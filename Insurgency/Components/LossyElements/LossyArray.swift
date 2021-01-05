@@ -21,6 +21,8 @@ struct LossyArray<T: Decodable> {
 // MARK: Decodable
 
 extension LossyArray: Decodable {
+    private struct AnyDecodable: Decodable {}
+
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         var wrappers: [Lossy<T>] = []
@@ -30,7 +32,7 @@ extension LossyArray: Decodable {
                 let wrapper = try container.decode(Lossy<T>.self)
                 wrappers.append(wrapper)
             } catch {
-                print("Encountered an error while parsing item: \(error)")
+                _ = try? container.decode(AnyDecodable.self)
             }
         }
 
