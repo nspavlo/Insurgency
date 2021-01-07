@@ -25,17 +25,17 @@ extension LossyArray: Decodable {
 
     init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
-        var wrappers: [Lossy<T>] = []
+        var elements: [T] = []
 
         while !container.isAtEnd {
             do {
-                let wrapper = try container.decode(Lossy<T>.self)
-                wrappers.append(wrapper)
+                let wrapper = try container.decode(T.self)
+                elements.append(wrapper)
             } catch {
                 _ = try? container.decode(AnyDecodable.self)
             }
         }
 
-        wrappedValue = wrappers.compactMap { try? $0.result.get() }
+        wrappedValue = elements
     }
 }
