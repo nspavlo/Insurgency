@@ -10,6 +10,8 @@ import SwiftUI
 
 // MARK: Initialization
 
+// swiftlint:disable identifier_name
+
 enum Symbol: String {
     case backward_15 = "gobackward.15"
     case forward_30 = "goforward.30"

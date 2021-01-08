@@ -1,0 +1,13 @@
+disabled_rules:
+    - opening_brace
+    - function_body_length
+opt_in_rules:
+    - anyobject_protocol
+    - convenience_type
+identifier_name:
+    min_length: 2
+    excluded: # excluded via string array
+        - id
+        - URL
+        - x
+        - y

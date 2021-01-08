@@ -22,6 +22,8 @@ enum AuthenticatorError: Error {
 
 // MARK: Initialization
 
+// swiftlint:disable weak_delegate
+
 final class Authenticator {
     var delegate: AuthenticatorDelegate?
 }

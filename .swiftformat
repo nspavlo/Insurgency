@@ -1,5 +1,5 @@
 --allman false
---beforemarks 
+--beforemarks
 --binarygrouping 4,8
 --categorymark "MARK: %c"
 --classthreshold 0
@@ -22,33 +22,31 @@
 --importgrouping alphabetized
 --indent 4
 --indentcase false
---lifecycle 
+--lifecycle
 --linebreaks lf
 --maxwidth none
---modifierorder 
---nospaceoperators 
---nowrapoperators 
+--modifierorder
+--nospaceoperators
+--nowrapoperators
 --octalgrouping 4,8
 --operatorfunc spaced
 --patternlet hoist
 --ranges spaced
 --self remove
---selfrequired 
+--selfrequired
 --semicolons inline
 --shortoptionals always
 --smarttabs enabled
 --stripunusedargs always
 --structthreshold 0
 --tabwidth unspecified
---trailingclosures 
+--trailingclosures
 --trimwhitespace always
 --typeattributes preserve
 --varattributes preserve
 --voidtype void
---wraparguments preserve
 --wrapcollections preserve
---wrapparameters preserve
 --xcodeindentation disabled
 --yodaswap always
---disable andOperator,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,braces,elseOnSameLine,fileHeader,hoistPatternLet,indent,initCoderUnavailable,leadingDelimiters,modifierOrder,numberFormatting,redundantSelf,sortedImports,strongOutlets,trailingCommas,wrap,wrapArguments,wrapAttributes,wrapMultilineStatementBraces
+--disable andOperator,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,braces,elseOnSameLine,fileHeader,hoistPatternLet,indent,initCoderUnavailable,leadingDelimiters,modifierOrder,numberFormatting,redundantSelf,sortedImports,strongOutlets,trailingCommas,wrap,wrapAttributes,wrapMultilineStatementBraces
 --enable isEmpty,wrapSwitchCases

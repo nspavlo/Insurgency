@@ -21,10 +21,10 @@ protocol RequestBehavior {
 
 extension RequestBehavior {
     var headers: [String: String] {
-        return [:]
+        [:]
     }
 
-    func prepare(description: String) {}
-    func success(result: Any) {}
-    func failure(error: Error) {}
+    func prepare(description _: String) {}
+    func success(result _: Any) {}
+    func failure(error _: Error) {}
 }

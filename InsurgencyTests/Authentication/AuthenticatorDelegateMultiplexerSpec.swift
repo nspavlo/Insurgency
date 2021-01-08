@@ -136,6 +136,7 @@ class AuthenticatorDelegateMultiplexerSpec: QuickSpec {
 // MARK: -
 
 // MARK: AuthenticatorDelegateSpy
+
 // MARK: Initialization
 
 final class AuthenticatorDelegateSpy {

@@ -18,7 +18,7 @@ final class LoggingRequestBehavior {
 
 extension LoggingRequestBehavior: RequestBehavior {
     var headers: [String: String] {
-        return [:]
+        [:]
     }
 
     func prepare(description: String) {

@@ -744,6 +744,7 @@
 				3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				3DEE71FB25815B9F00CE5055 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				3DEE73562584292200CE5055 /* XCRemoteSwiftPackageReference "FetchImage" */,
+				3D20E92D25A8F31F00988D81 /* XCRemoteSwiftPackageReference "Komondor" */,
 			);
 			productRefGroup = 3DBAE3E5257161E200B019DB /* Products */;
 			projectDirPath = "";
@@ -1112,6 +1113,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3D20E92D25A8F31F00988D81 /* XCRemoteSwiftPackageReference "Komondor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shibapm/Komondor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
 		3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
