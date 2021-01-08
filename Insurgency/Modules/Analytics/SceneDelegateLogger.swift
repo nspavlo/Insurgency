@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import OSLog
 
 // MARK: Initialization
 
 final class SceneDelegateLogger: UIResponder {
+    let logger = Logger(category: "WindowScene")
     let emoji = "🎬"
 }
 
@@ -21,27 +23,27 @@ extension SceneDelegateLogger: UIWindowSceneDelegate {
         willConnectTo _: UISceneSession,
         options _: UIScene.ConnectionOptions
     ) {
-        print("**** [\(emoji)] Connect: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Connect: \(self.message(for: scene))")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        print("**** [\(emoji)] Disconnect: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Disconnect: \(self.message(for: scene))")
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        print("**** [\(emoji)] Become Active: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Become Active: \(self.message(for: scene))")
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        print("**** [\(emoji)] Resign Active: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Resign Active: \(self.message(for: scene))")
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        print("**** [\(emoji)] Foreground: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Foreground: \(self.message(for: scene))")
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        print("**** [\(emoji)] Background: \(message(for: scene))")
+        logger.info("[\(self.emoji)] Background: \(self.message(for: scene))")
     }
 }
 

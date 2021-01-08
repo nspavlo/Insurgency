@@ -6,19 +6,23 @@
 //
 
 import Foundation
+import OSLog
 
 // MARK: Initialization
 
-final class AuthenticatorPresenter {}
+final class AuthenticatorPresenter {
+    let logger = Logger(category: "AuthenticatorPresenter")
+    let emoji = "📺"
+}
 
 // MARK: AuthenticatorDelegate
 
 extension AuthenticatorPresenter: AuthenticatorDelegate {
     func authenticatorDidAuthenticate(_ authenticator: Authenticator) {
-        print("**** [📺] authenticatorDidAuthenticate: \(authenticator)")
+        logger.info("[\(self.emoji)] authenticatorDidAuthenticate: \(authenticator)")
     }
 
     func authenticator(_ authenticator: Authenticator, didEncounter error: AuthenticatorError) {
-        print("**** [📺] authenticator: \(authenticator), didEncounterError: \(error)")
+        logger.error("[\(self.emoji)] authenticator: \(authenticator), didEncounterError: \(error)")
     }
 }

@@ -20,6 +20,17 @@ enum AuthenticatorError: Error {
     case unknown
 }
 
+// MARK: CustomStringConvertible
+
+extension AuthenticatorError: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .unknown:
+            return "AuthenticatorError.unknown"
+        }
+    }
+}
+
 // MARK: Initialization
 
 // swiftlint:disable weak_delegate
@@ -34,5 +45,13 @@ extension Authenticator {
     func login(with _: Credentials) {
         delegate?.authenticatorDidAuthenticate(self)
         delegate?.authenticator(self, didEncounter: .unknown)
+    }
+}
+
+// MARK: CustomStringConvertible
+
+extension Authenticator: CustomStringConvertible {
+    var description: String {
+        "Authenticator(\(delegate.debugDescription))"
     }
 }
