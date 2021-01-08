@@ -1,5 +1,7 @@
 # Insurgency
 
+![Version](https://img.shields.io/badge/Swift-5.3-F16D39.svg?style=flat)
+
 ## Hooks
 
 ☂️ To set up a [framework](https://github.com/shibapm/Komondor) for managing and maintaining [pre-commit](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) hooks:
