@@ -1,0 +1,5 @@
+language: objective-c
+osx_image: xcode12.2
+xcode_project: Insurgency.xcodeproj
+xcode_scheme: Insurgency
+xcode_destination: platform=iOS Simulator,OS=14.2,name=iPhone 12 mini
