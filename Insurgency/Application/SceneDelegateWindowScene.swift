@@ -34,14 +34,16 @@ extension SceneDelegateWindowScene: UIWindowSceneDelegate {
                             repository: PodcastRepository(
                                 session: .shared,
                                 url: URLHost.production.url,
-                                queue: .main
+                                queue: .main,
+                                behavior: LoggingRequestBehavior()
                             ),
                             scheduler: DispatchQueue.main.eraseToAnyScheduler(),
                             episode: .init(
                                 repository: PodcastEpisodeRepository(
                                     session: .shared,
                                     url: URLHost.production.url,
-                                    queue: .main
+                                    queue: .main,
+                                    behavior: LoggingRequestBehavior()
                                 ),
                                 streamer: .init(streamer: AudioStreamer())
                             )

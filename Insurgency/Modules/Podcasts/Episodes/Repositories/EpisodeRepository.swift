@@ -21,6 +21,7 @@ struct PodcastEpisodeRepository: URLRepositoryProtocol {
     let session: URLSession
     let url: URL
     let queue: DispatchQueue
+    let behavior: RequestBehavior
 }
 
 // MARK: Public Methods

@@ -14,6 +14,7 @@ protocol URLRepositoryProtocol {
     var session: URLSession { get }
     var url: URL { get }
     var queue: DispatchQueue { get }
+    var behavior: RequestBehavior { get }
 }
 
 // MARK: Default Implementation
@@ -23,13 +24,19 @@ internal extension URLRepositoryProtocol {
         _ request: URLRequest,
         _ decoder: DecodableDecoder
     ) -> AnyPublisher<URLRepositoryResponse<T>, Failure> {
-        session
+        behavior.prepare(description: request.description)
+
+        return session
             .dataTaskPublisher(for: request)
             .tryMap { result -> URLRepositoryResponse<T> in
+                behavior.success(result: result)
                 let value = try decoder.decode(T.self, from: result.data)
                 return URLRepositoryResponse(value: value, response: result.response)
             }
-            .mapError { Failure(underlyingError: $0) }
+            .mapError { error in
+                behavior.failure(error: error)
+                return Failure(underlyingError: error)
+            }
             .receive(on: queue)
             .eraseToAnyPublisher()
     }

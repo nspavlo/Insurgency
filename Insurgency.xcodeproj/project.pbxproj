@@ -17,6 +17,10 @@
 		3D1A60BB2587E3A90028FE79 /* MediaNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60BA2587E3A90028FE79 /* MediaNameView.swift */; };
 		3D1A60CD2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */; };
 		3D1A60DA258810200028FE79 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A60D9258810200028FE79 /* Symbol.swift */; };
+		3D20E90F25A8E67E00988D81 /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E90E25A8E67E00988D81 /* RequestBehavior.swift */; };
+		3D20E91525A8E68E00988D81 /* EmptyRequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E91425A8E68E00988D81 /* EmptyRequestBehavior.swift */; };
+		3D20E91D25A8E6C200988D81 /* Logger+Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E91C25A8E6C200988D81 /* Logger+Id.swift */; };
+		3D20E92125A8E71A00988D81 /* LoggingRequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E92025A8E71A00988D81 /* LoggingRequestBehavior.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
 		3D7BB70025894602006DB49F /* LossyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BB6FF25894602006DB49F /* LossyArray.swift */; };
 		3D8791A32590F5B700E040F2 /* PodcastEpisodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8791A22590F5B700E040F2 /* PodcastEpisodeContainer.swift */; };
@@ -97,6 +101,10 @@
 		3D1A60BA2587E3A90028FE79 /* MediaNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaNameView.swift; sourceTree = "<group>"; };
 		3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponentsFormatter+Presets.swift"; sourceTree = "<group>"; };
 		3D1A60D9258810200028FE79 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		3D20E90E25A8E67E00988D81 /* RequestBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBehavior.swift; sourceTree = "<group>"; };
+		3D20E91425A8E68E00988D81 /* EmptyRequestBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRequestBehavior.swift; sourceTree = "<group>"; };
+		3D20E91C25A8E6C200988D81 /* Logger+Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Id.swift"; sourceTree = "<group>"; };
+		3D20E92025A8E71A00988D81 /* LoggingRequestBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingRequestBehavior.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
 		3D7BB6FF25894602006DB49F /* LossyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyArray.swift; sourceTree = "<group>"; };
 		3D8791A22590F5B700E040F2 /* PodcastEpisodeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeContainer.swift; sourceTree = "<group>"; };
@@ -230,6 +238,16 @@
 			path = Interactors;
 			sourceTree = "<group>";
 		};
+		3D20E90D25A8E67100988D81 /* RequestBehavior */ = {
+			isa = PBXGroup;
+			children = (
+				3D20E91425A8E68E00988D81 /* EmptyRequestBehavior.swift */,
+				3D20E92025A8E71A00988D81 /* LoggingRequestBehavior.swift */,
+				3D20E90E25A8E67E00988D81 /* RequestBehavior.swift */,
+			);
+			path = RequestBehavior;
+			sourceTree = "<group>";
+		};
 		3D7BB6F6258945BB006DB49F /* LossyElements */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +284,7 @@
 		3D8C47FD25754DDD00BA3748 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3D20E90D25A8E67100988D81 /* RequestBehavior */,
 				3D8C49A32577A23E00BA3748 /* URLHost.swift */,
 				3D8C499F2577A1EF00BA3748 /* URLRepositoryProtocol.swift */,
 				3D8C499B2577A1D500BA3748 /* URLRepositoryResponse.swift */,
@@ -577,6 +596,7 @@
 				3D1A60CC2587F8AA0028FE79 /* DateComponentsFormatter+Presets.swift */,
 				3DEE733B258409D100CE5055 /* DateFormatter+Presets.swift */,
 				3DBD905A25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift */,
+				3D20E91C25A8E6C200988D81 /* Logger+Id.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,11 +780,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D20E92125A8E71A00988D81 /* LoggingRequestBehavior.swift in Sources */,
 				3DEE720825817C7000CE5055 /* PodcastEpisodeListItemView.swift in Sources */,
 				3DBAE4472571697D00B019DB /* AuthenticatorDelegateMultiplexer.swift in Sources */,
 				3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */,
 				3DBAE475257197FE00B019DB /* SceneDelegateMultiplexer.swift in Sources */,
 				3D8C4B18257EF63A00BA3748 /* SearchController.swift in Sources */,
+				3D20E91525A8E68E00988D81 /* EmptyRequestBehavior.swift in Sources */,
+				3D20E91D25A8E6C200988D81 /* Logger+Id.swift in Sources */,
 				3DEE736B2584328800CE5055 /* AsyncImage.swift in Sources */,
 				3D8C4A4F25784B7500BA3748 /* ActivityIndicator.swift in Sources */,
 				3DEE720125816BE200CE5055 /* PodcastEpisode+Feed.swift in Sources */,
@@ -800,6 +823,7 @@
 				3DBAE3EA257161E200B019DB /* SceneDelegate.swift in Sources */,
 				3DBD905B25A3A080008223CD /* JSONDecoder+DecodableDecoder.swift in Sources */,
 				3D8C49A42577A23E00BA3748 /* URLHost.swift in Sources */,
+				3D20E90F25A8E67E00988D81 /* RequestBehavior.swift in Sources */,
 				3DEE73262583F94B00CE5055 /* EpisodeRepository.swift in Sources */,
 				3DBAE46225717CEB00B019DB /* AuthenticatorFactory.swift in Sources */,
 				3D1A60B62587E27F0028FE79 /* MediaTimingView.swift in Sources */,
