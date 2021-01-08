@@ -1,6 +1,7 @@
 # Insurgency
 
 ![Version](https://img.shields.io/badge/Swift-5.3-F16D39.svg?style=flat)
+![Travis](https://travis-ci.org/nspavlo/Insurgency.svg?branch=main)
 
 ## Hooks
 
