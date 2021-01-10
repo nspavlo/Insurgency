@@ -10,6 +10,14 @@ import AVFoundation
 // MARK: Initialization
 
 final class AudioStreamer {
+    enum StreamError: Error {
+        case unknown
+        case cancelled
+        case failed(underlyingError: NSError?)
+    }
+
+    var error: StreamError?
+
     var volume: Float = 0.8 {
         didSet {
             player?.volume = volume
@@ -65,7 +73,32 @@ final class AudioStreamer {
 
 extension AudioStreamer {
     func play(_ url: URL) {
-        player = AVPlayer(playerItem: AVPlayerItem(url: url))
+        let asset = AVAsset(url: url)
+        let keys = ["playable"]
+
+        error = nil
+        asset.loadValuesAsynchronously(forKeys: keys) { [weak self] in
+            for key in keys {
+                DispatchQueue.main.async { [weak self] in
+                    var error: NSError?
+
+                    switch asset.statusOfValue(forKey: key, error: &error) {
+                    case .loaded:
+                        self?.play(asset)
+                    case .failed:
+                        self?.error = .failed(underlyingError: error)
+                    case .cancelled:
+                        self?.error = .cancelled
+                    default:
+                        self?.error = .unknown
+                    }
+                }
+            }
+        }
+    }
+
+    func play(_ asset: AVAsset) {
+        player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
         player?.volume = volume
 
         resume()

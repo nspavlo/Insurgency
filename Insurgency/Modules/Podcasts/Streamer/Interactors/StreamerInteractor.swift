@@ -83,6 +83,10 @@ extension StreamerInteractor {
                 environment.streamer.volume = volume
                 return updateFromStreamer
             case .updateFromStreamer:
+                guard environment.streamer.error == nil else {
+                    return .cancel(id: TimerID())
+                }
+
                 let instance =
                     StreamerUpdateViewModel(
                         streamer: environment.streamer,
