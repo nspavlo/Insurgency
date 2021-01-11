@@ -17,10 +17,6 @@ final class LoggingRequestBehavior {
 // MARK: RequestBehavior
 
 extension LoggingRequestBehavior: RequestBehavior {
-    var headers: [String: String] {
-        [:]
-    }
-
     func prepare(description: String) {
         logger.info("[📤] REQ: \(description)")
     }
