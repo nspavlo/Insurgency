@@ -42,6 +42,10 @@ extension StreamerView {
                     )
 
                     Spacer()
+
+                    MediaRoutePickerView()
+
+                    Spacer()
                 }
                 .onAppear { store.send(.appear) }
                 .onDisappear { store.send(.disappear) }

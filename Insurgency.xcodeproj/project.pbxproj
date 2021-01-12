@@ -22,6 +22,7 @@
 		3D20E91D25A8E6C200988D81 /* Logger+Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E91C25A8E6C200988D81 /* Logger+Id.swift */; };
 		3D20E92125A8E71A00988D81 /* LoggingRequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D20E92025A8E71A00988D81 /* LoggingRequestBehavior.swift */; };
 		3D3D163C2585628C00DD722B /* AudioStreamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3D163B2585628C00DD722B /* AudioStreamer.swift */; };
+		3D50A31A25AE4A2B00562CD1 /* MediaRoutePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50A31925AE4A2B00562CD1 /* MediaRoutePickerView.swift */; };
 		3D7BB70025894602006DB49F /* LossyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BB6FF25894602006DB49F /* LossyArray.swift */; };
 		3D8791A32590F5B700E040F2 /* PodcastEpisodeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8791A22590F5B700E040F2 /* PodcastEpisodeContainer.swift */; };
 		3D8C498B25779F6400BA3748 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C498A25779F6400BA3748 /* Podcast.swift */; };
@@ -106,6 +107,7 @@
 		3D20E91C25A8E6C200988D81 /* Logger+Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Id.swift"; sourceTree = "<group>"; };
 		3D20E92025A8E71A00988D81 /* LoggingRequestBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingRequestBehavior.swift; sourceTree = "<group>"; };
 		3D3D163B2585628C00DD722B /* AudioStreamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamer.swift; sourceTree = "<group>"; };
+		3D50A31925AE4A2B00562CD1 /* MediaRoutePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRoutePickerView.swift; sourceTree = "<group>"; };
 		3D7BB6FF25894602006DB49F /* LossyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LossyArray.swift; sourceTree = "<group>"; };
 		3D8791A22590F5B700E040F2 /* PodcastEpisodeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastEpisodeContainer.swift; sourceTree = "<group>"; };
 		3D8C498A25779F6400BA3748 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				3D1A60AD2587DEC60028FE79 /* MediaControlView.swift */,
 				3D1A60BA2587E3A90028FE79 /* MediaNameView.swift */,
+				3D50A31925AE4A2B00562CD1 /* MediaRoutePickerView.swift */,
 				3D1A60B52587E27F0028FE79 /* MediaTimingView.swift */,
 				3D1A60B12587DF450028FE79 /* MediaVolumeView.swift */,
 			);
@@ -811,6 +814,7 @@
 				3D8C499125779F9A00BA3748 /* PodcastEpisode.swift in Sources */,
 				3DEE73992584E0F500CE5055 /* StreamerInteractor.swift in Sources */,
 				3D8C499C2577A1D500BA3748 /* URLRepositoryResponse.swift in Sources */,
+				3D50A31A25AE4A2B00562CD1 /* MediaRoutePickerView.swift in Sources */,
 				3DBAE3E8257161E200B019DB /* AppDelegate.swift in Sources */,
 				3D8C49A02577A1EF00BA3748 /* URLRepositoryProtocol.swift in Sources */,
 				3DBAE4412571691500B019DB /* AuthenticatorPresenter.swift in Sources */,
