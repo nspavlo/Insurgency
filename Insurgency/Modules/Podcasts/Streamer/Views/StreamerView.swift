@@ -44,6 +44,14 @@ extension StreamerView {
                     Spacer()
 
                     HStack {
+                        Button(
+                            action: {},
+                            label: {
+                                Text("1 ½")
+                            }
+                        )
+                        .foregroundColor(.secondary)
+
                         MediaRoutePickerView()
 
                         Button(
