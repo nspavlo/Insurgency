@@ -78,8 +78,8 @@ extension AudioStreamer {
 
         error = nil
         asset.loadValuesAsynchronously(forKeys: keys) { [weak self] in
-            for key in keys {
-                DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                for key in keys {
                     var error: NSError?
 
                     switch asset.statusOfValue(forKey: key, error: &error) {

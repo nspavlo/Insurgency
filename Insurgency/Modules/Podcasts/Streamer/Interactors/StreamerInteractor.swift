@@ -46,8 +46,9 @@ extension StreamerInteractor {
         .init { state, action, environment in
             struct TimerID: Hashable {}
 
+            // Rework from pull mechanism to subscribe to push
             let streamerUpdateFromTimer = Effect
-                .timer(id: TimerID(), every: 0.5, on: RunLoop.main)
+                .timer(id: TimerID(), every: 1.0, on: RunLoop.current)
                 .map { _ in Action.updateFromStreamer }
 
             let updateFromStreamer = Effect<Action, Never>(value: .updateFromStreamer)
@@ -55,6 +56,7 @@ extension StreamerInteractor {
             switch action {
             case .appear:
                 environment.streamer.play(state.mediaURL)
+                // TODO: Start only when resource is loaded
                 return streamerUpdateFromTimer
             case .disappear:
                 environment.streamer.stop()
