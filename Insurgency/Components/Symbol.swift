@@ -20,6 +20,7 @@ enum Symbol: String {
     case search = "magnifyingglass"
     case speakerMaxFill = "speaker.3.fill"
     case speakerMinFill = "speaker.fill"
+    case heart
 
     var systemName: String { rawValue }
 }

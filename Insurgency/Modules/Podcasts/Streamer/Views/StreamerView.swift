@@ -43,7 +43,17 @@ extension StreamerView {
 
                     Spacer()
 
-                    MediaRoutePickerView()
+                    HStack {
+                        MediaRoutePickerView()
+
+                        Button(
+                            action: {},
+                            label: {
+                                Image(symbol: .heart)
+                            }
+                        )
+                        .foregroundColor(.secondary)
+                    }
 
                     Spacer()
                 }
