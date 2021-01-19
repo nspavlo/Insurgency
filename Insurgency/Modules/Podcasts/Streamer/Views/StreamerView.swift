@@ -5,7 +5,6 @@
 //  Created by Jans Pavlovs on 12/12/2020.
 //
 
-import ComposableArchitecture
 import SwiftUI
 
 // MARK: Initialization

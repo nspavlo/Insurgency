@@ -34,7 +34,6 @@
 		3D8C4A31257820C000BA3748 /* PodcastListItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4A30257820C000BA3748 /* PodcastListItemViewModel.swift */; };
 		3D8C4A3A257831FB00BA3748 /* PodcastListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4A2125781F0400BA3748 /* PodcastListItemView.swift */; };
 		3D8C4A4F25784B7500BA3748 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4A4E25784B7500BA3748 /* ActivityIndicator.swift */; };
-		3D8C4B12257ECFC700BA3748 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */; };
 		3D8C4B18257EF63A00BA3748 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B17257EF63900BA3748 /* SearchController.swift */; };
 		3D8C4B22257EF6E300BA3748 /* PodcastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B21257EF6E300BA3748 /* PodcastListView.swift */; };
 		3D8C4B26257EF97A00BA3748 /* PodcastListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C4B25257EF97A00BA3748 /* PodcastListInteractor.swift */; };
@@ -170,7 +169,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DEE73582584292200CE5055 /* FetchImage in Frameworks */,
-				3D8C4B12257ECFC700BA3748 /* ComposableArchitecture in Frameworks */,
 				3DEE71FD25815B9F00CE5055 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -681,7 +679,6 @@
 			);
 			name = Insurgency;
 			packageProductDependencies = (
-				3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */,
 				3DEE71FC25815B9F00CE5055 /* FeedKit */,
 				3DEE73572584292200CE5055 /* FetchImage */,
 			);
@@ -744,7 +741,6 @@
 				3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */,
 				3DBAE41F257165EF00B019DB /* XCRemoteSwiftPackageReference "Nimble" */,
 				3DBAE4652571868500B019DB /* XCRemoteSwiftPackageReference "specleaks" */,
-				3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				3DEE71FB25815B9F00CE5055 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				3DEE73562584292200CE5055 /* XCRemoteSwiftPackageReference "FetchImage" */,
 				3D20E92D25A8F31F00988D81 /* XCRemoteSwiftPackageReference "Komondor" */,
@@ -1125,14 +1121,6 @@
 				minimumVersion = 1.0.6;
 			};
 		};
-		3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
 		3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -1176,11 +1164,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3D8C4B11257ECFC700BA3748 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3D8C4B10257ECFC700BA3748 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		3DBAE41B257165C600B019DB /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3DBAE41A257165C600B019DB /* XCRemoteSwiftPackageReference "Quick" */;
